@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Servers>
+  <Server Id_Server="1">
+    <Direccion>bellavistajara.no-ip.org</Direccion>
+    <BaseDatos>Acceso</BaseDatos>
+    <Tipo>sql</Tipo>
+  </Server>
+</Servers>

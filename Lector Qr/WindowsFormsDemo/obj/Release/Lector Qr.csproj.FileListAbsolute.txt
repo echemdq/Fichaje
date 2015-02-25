@@ -1,0 +1,8 @@
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\bin\Release\WindowsFormsDemo.exe.config
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\WindowsFormsDemo.DecodingOptionsForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\WindowsFormsDemo.EncodingOptionsForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\WindowsFormsDemo.ExtendedResultForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\WindowsFormsDemo.Properties.Resources.resources
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\WindowsFormsDemo.Saludo.resources
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\WindowsFormsDemo.WindowsFormsDemoForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR\WindowsFormsDemo\obj\Release\Lector Qr.csproj.GenerateResource.Cache

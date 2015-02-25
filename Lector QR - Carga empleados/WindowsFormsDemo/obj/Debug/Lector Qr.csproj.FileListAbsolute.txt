@@ -1,0 +1,93 @@
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe.config
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.exe
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.pdb
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.pdb
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\AForge.Video.dll
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\zxing.dll
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\zxing.presentation.dll
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\AForge.dll
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\AForge.Video.xml
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\zxing.pdb
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\zxing.xml
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\zxing.presentation.pdb
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\zxing.presentation.xml
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\bin\Debug\AForge.xml
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\Lector Qr.csprojResolveAssemblyReference.cache
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.DecodingOptionsForm.resources
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.EncodingOptionsForm.resources
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.ExtendedResultForm.resources
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Properties.Resources.resources
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.WindowsFormsDemoForm.resources
+C:\Users\Ezequiel\Desktop\WindowsFormsDemo\WindowsFormsDemo\obj\Debug\Lector Qr.csproj.GenerateResource.Cache
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe.config
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.exe
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.pdb
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.pdb
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.xml
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.presentation.pdb
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.presentation.xml
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.DecodingOptionsForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.EncodingOptionsForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.ExtendedResultForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Properties.Resources.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.WindowsFormsDemoForm.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csproj.GenerateResource.Cache
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Buscar_Empleado.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csprojResolveAssemblyReference.cache
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.dll
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.Video.xml
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.xml
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Iniciar_Sesion.resources
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.pdb
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe.config
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.exe
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.pdb
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.pdb
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\MySql.Data.dll
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.dll
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.Video.xml
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.pdb
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.xml
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.presentation.pdb
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.presentation.xml
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.xml
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csprojResolveAssemblyReference.cache
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Buscar_Empleado.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.DecodingOptionsForm.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.EncodingOptionsForm.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.ExtendedResultForm.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Iniciar_Sesion.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Properties.Resources.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.WindowsFormsDemoForm.resources
+C:\Users\Ezequiel\Documents\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csproj.GenerateResource.Cache
+C:\Users\Ezequiel\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\MySql.Data.dll
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe.config
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.exe
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.pdb
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.pdb
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.dll
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.Video.xml
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.pdb
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.xml
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.presentation.pdb
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\zxing.presentation.xml
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\AForge.xml
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csprojResolveAssemblyReference.cache
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Buscar_Empleado.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.DecodingOptionsForm.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.EncodingOptionsForm.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.ExtendedResultForm.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Iniciar_Sesion.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Properties.Resources.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.WindowsFormsDemoForm.resources
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csproj.GenerateResource.Cache
+C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.diaslaborales.resources

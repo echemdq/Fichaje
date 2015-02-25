@@ -1,0 +1,9 @@
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\bin\Release\WindowsFormsDemo.exe.config
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.DecodingOptionsForm.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.EncodingOptionsForm.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.ExtendedResultForm.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.Properties.Resources.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.Saludo.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.TomaFoto.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\WindowsFormsDemo.WindowsFormsDemoForm.resources
+C:\Users\Fer\Desktop\Lector Qr\WindowsFormsDemo\obj\Release\Fichador.csproj.GenerateResource.Cache

@@ -91,3 +91,6 @@ C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Wind
 C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.WindowsFormsDemoForm.resources
 C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csproj.GenerateResource.Cache
 C:\Users\Fer\Desktop\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.diaslaborales.resources
+C:\Users\Fer\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\bin\Debug\WindowsFormsDemo.exe.config
+C:\Users\Fer\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.exe
+C:\Users\Fer\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.pdb

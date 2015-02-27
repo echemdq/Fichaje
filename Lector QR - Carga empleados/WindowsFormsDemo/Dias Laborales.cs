@@ -174,11 +174,6 @@ namespace WindowsFormsDemo
 
         }
 
-        private void maskedTextBox1_Validated(object sender, EventArgs e)
-        {
-            DateTime a = Convert.ToDateTime(maskedTextBox1.Text);
-            
-        }
 
 
     }

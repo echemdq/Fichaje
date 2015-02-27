@@ -2351,6 +2351,18 @@ namespace WindowsFormsDemo
 
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox7_Validated(object sender, EventArgs e)
+        {
+            DateTime a = Convert.ToDateTime(maskedTextBox7.Text);
+            int x = System.Globalization.CultureInfo.CurrentUICulture.Calendar.GetWeekOfYear(a, CalendarWeekRule.FirstDay, a.DayOfWeek);
+            TSemana.Text = x.ToString();
+        }
+
 
 
 

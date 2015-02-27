@@ -198,6 +198,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.TSemana = new System.Windows.Forms.TextBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -229,7 +232,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(871, 422);
+            this.btnClose.Location = new System.Drawing.Point(871, 533);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(107, 23);
             this.btnClose.TabIndex = 0;
@@ -273,7 +276,7 @@
             this.tabCtrlMain.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlMain.Name = "tabCtrlMain";
             this.tabCtrlMain.SelectedIndex = 0;
-            this.tabCtrlMain.Size = new System.Drawing.Size(970, 400);
+            this.tabCtrlMain.Size = new System.Drawing.Size(970, 510);
             this.tabCtrlMain.TabIndex = 0;
             this.tabCtrlMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabCtrlMain_Selected);
             // 
@@ -289,7 +292,7 @@
             this.tabPageUsuarios.Controls.Add(this.label11);
             this.tabPageUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuarios.Name = "tabPageUsuarios";
-            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 374);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 352);
             this.tabPageUsuarios.TabIndex = 4;
             this.tabPageUsuarios.Text = "Usuarios";
             // 
@@ -372,6 +375,9 @@
             // tabPageCargaEmpleados
             // 
             this.tabPageCargaEmpleados.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPageCargaEmpleados.Controls.Add(this.maskedTextBox7);
+            this.tabPageCargaEmpleados.Controls.Add(this.label43);
+            this.tabPageCargaEmpleados.Controls.Add(this.TSemana);
             this.tabPageCargaEmpleados.Controls.Add(this.groupBox4);
             this.tabPageCargaEmpleados.Controls.Add(this.btn_impemp);
             this.tabPageCargaEmpleados.Controls.Add(this.chk_empact);
@@ -407,7 +413,7 @@
             this.tabPageCargaEmpleados.Location = new System.Drawing.Point(4, 22);
             this.tabPageCargaEmpleados.Name = "tabPageCargaEmpleados";
             this.tabPageCargaEmpleados.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 396);
+            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 484);
             this.tabPageCargaEmpleados.TabIndex = 3;
             this.tabPageCargaEmpleados.Text = "Empleados";
             // 
@@ -504,7 +510,7 @@
             this.btn_impemp.BackColor = System.Drawing.SystemColors.Info;
             this.btn_impemp.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
             this.btn_impemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_impemp.Location = new System.Drawing.Point(636, 422);
+            this.btn_impemp.Location = new System.Drawing.Point(636, 430);
             this.btn_impemp.Name = "btn_impemp";
             this.btn_impemp.Size = new System.Drawing.Size(67, 50);
             this.btn_impemp.TabIndex = 46;
@@ -775,10 +781,11 @@
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(33, 272);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(683, 144);
+            this.groupBox1.Size = new System.Drawing.Size(683, 80);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Horarios Laborales";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // chk_noct
             // 
@@ -992,7 +999,7 @@
             this.button6.BackColor = System.Drawing.SystemColors.Info;
             this.button6.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Delete;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.Location = new System.Drawing.Point(518, 422);
+            this.button6.Location = new System.Drawing.Point(518, 430);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(65, 50);
             this.button6.TabIndex = 21;
@@ -1018,7 +1025,7 @@
             this.button4.BackColor = System.Drawing.SystemColors.Info;
             this.button4.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Recycle_Bin_Full;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Location = new System.Drawing.Point(395, 422);
+            this.button4.Location = new System.Drawing.Point(395, 430);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(65, 50);
             this.button4.TabIndex = 18;
@@ -1031,7 +1038,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.Info;
             this.button3.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Edit;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Location = new System.Drawing.Point(275, 422);
+            this.button3.Location = new System.Drawing.Point(275, 430);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(65, 50);
             this.button3.TabIndex = 17;
@@ -1044,7 +1051,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.Info;
             this.button2.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Location = new System.Drawing.Point(153, 422);
+            this.button2.Location = new System.Drawing.Point(153, 430);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 50);
             this.button2.TabIndex = 8;
@@ -1057,7 +1064,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.Info;
             this.button1.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Location = new System.Drawing.Point(34, 422);
+            this.button1.Location = new System.Drawing.Point(34, 430);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 50);
             this.button1.TabIndex = 20;
@@ -1089,7 +1096,7 @@
             this.tabPageRegistros.Location = new System.Drawing.Point(4, 22);
             this.tabPageRegistros.Name = "tabPageRegistros";
             this.tabPageRegistros.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRegistros.Size = new System.Drawing.Size(962, 396);
+            this.tabPageRegistros.Size = new System.Drawing.Size(962, 374);
             this.tabPageRegistros.TabIndex = 6;
             this.tabPageRegistros.Text = "Registros";
             this.tabPageRegistros.Click += new System.EventHandler(this.tabPageRegistros_Click);
@@ -1379,7 +1386,7 @@
             this.tabPageFeriados.Controls.Add(this.button7);
             this.tabPageFeriados.Location = new System.Drawing.Point(4, 22);
             this.tabPageFeriados.Name = "tabPageFeriados";
-            this.tabPageFeriados.Size = new System.Drawing.Size(962, 396);
+            this.tabPageFeriados.Size = new System.Drawing.Size(962, 374);
             this.tabPageFeriados.TabIndex = 5;
             this.tabPageFeriados.Text = "Feriados";
             // 
@@ -1526,7 +1533,7 @@
             this.tabPageNovedades.Location = new System.Drawing.Point(4, 22);
             this.tabPageNovedades.Name = "tabPageNovedades";
             this.tabPageNovedades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNovedades.Size = new System.Drawing.Size(962, 396);
+            this.tabPageNovedades.Size = new System.Drawing.Size(962, 484);
             this.tabPageNovedades.TabIndex = 7;
             this.tabPageNovedades.Text = "Novedades";
             // 
@@ -1860,7 +1867,7 @@
             this.tabPageDecoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageDecoder.Name = "tabPageDecoder";
             this.tabPageDecoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDecoder.Size = new System.Drawing.Size(962, 396);
+            this.tabPageDecoder.Size = new System.Drawing.Size(962, 374);
             this.tabPageDecoder.TabIndex = 0;
             this.tabPageDecoder.Text = "Prueba de Códigos";
             // 
@@ -1998,7 +2005,7 @@
             this.tabPageEncoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageEncoder.Name = "tabPageEncoder";
             this.tabPageEncoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEncoder.Size = new System.Drawing.Size(962, 396);
+            this.tabPageEncoder.Size = new System.Drawing.Size(962, 374);
             this.tabPageEncoder.TabIndex = 1;
             this.tabPageEncoder.Text = "Generador de Códigos";
             // 
@@ -2124,7 +2131,7 @@
             this.tabPageWebCam.Controls.Add(this.picWebCam);
             this.tabPageWebCam.Location = new System.Drawing.Point(4, 22);
             this.tabPageWebCam.Name = "tabPageWebCam";
-            this.tabPageWebCam.Size = new System.Drawing.Size(962, 396);
+            this.tabPageWebCam.Size = new System.Drawing.Size(962, 374);
             this.tabPageWebCam.TabIndex = 2;
             this.tabPageWebCam.Text = "WebCam";
             // 
@@ -2209,7 +2216,7 @@
             this.tabPage1.Controls.Add(this.button22);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(962, 396);
+            this.tabPage1.Size = new System.Drawing.Size(962, 374);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "Varios";
             // 
@@ -2222,6 +2229,35 @@
             this.button22.Text = "Configuracion de Días Laborales";
             this.button22.UseVisualStyleBackColor = true;
             this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // maskedTextBox7
+            // 
+            this.maskedTextBox7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox7.Location = new System.Drawing.Point(291, 390);
+            this.maskedTextBox7.Mask = "00/00/0000";
+            this.maskedTextBox7.Name = "maskedTextBox7";
+            this.maskedTextBox7.Size = new System.Drawing.Size(97, 22);
+            this.maskedTextBox7.TabIndex = 74;
+            this.maskedTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox7.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox7.Validated += new System.EventHandler(this.maskedTextBox7_Validated);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(6, 389);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(230, 16);
+            this.label43.TabIndex = 73;
+            this.label43.Text = "Semana (0-Todas 1-Impar 2-Par)";
+            // 
+            // TSemana
+            // 
+            this.TSemana.Location = new System.Drawing.Point(258, 389);
+            this.TSemana.Name = "TSemana";
+            this.TSemana.Size = new System.Drawing.Size(27, 20);
+            this.TSemana.TabIndex = 72;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2453,5 +2489,8 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox7;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox TSemana;
     }
 }

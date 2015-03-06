@@ -94,6 +94,7 @@
     <Compile Include="BdCentros.cs" />
     <Compile Include="BdEmpleados.cs" />
     <Compile Include="BdFeriados.cs" />
+    <Compile Include="BdHorarios.cs" />
     <Compile Include="BdNovedades.cs" />
     <Compile Include="BdRegistros.cs" />
     <Compile Include="BdTipoDoc.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="ControladoraDiasLaborales.cs" />
     <Compile Include="ControladoraEmpleados.cs" />
     <Compile Include="ControladoraFeriados.cs" />
+    <Compile Include="ControladoraHorarios.cs" />
     <Compile Include="ControladoraNovedades.cs" />
     <Compile Include="ControladoraRegistros.cs" />
     <Compile Include="ControladoraTipoDoc.cs" />
@@ -144,6 +146,7 @@
     <Compile Include="Dias Laborales.Designer.cs">
       <DependentUpon>Dias Laborales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Horarios.cs" />
     <Compile Include="IDAO.cs" />
     <Compile Include="Iniciar Sesion.cs">
       <SubType>Form</SubType>

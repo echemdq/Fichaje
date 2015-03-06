@@ -174,6 +174,27 @@ namespace WindowsFormsDemo
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string detalle = Tdetalle.Text;
+            string horario = "";
+            if (rb_corrido.Checked)
+            {
+                horario = "0";
+            }
+            else
+            {
+                horario = "1";
+            }
+            string ingreso1 = txt_ing1.Text;
+            string egreso1 = txt_eg1.Text;
+            string ingreso2 = txt_ing2.Text;
+            string egreso2 = txt_eg2.Text;
+            int horasdetrabajo = Convert.ToInt32(txt_horas.Text);
+            int descanso = Convert.ToInt32(txt_descanso.Text);
+            
+        }
+
 
 
     }

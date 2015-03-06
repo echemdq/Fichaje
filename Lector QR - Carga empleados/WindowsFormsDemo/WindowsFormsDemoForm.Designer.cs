@@ -43,11 +43,6 @@
             this.txt_contrasena = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPageCargaEmpleados = new System.Windows.Forms.TabPage();
-            this.label44 = new System.Windows.Forms.Label();
-            this.cmb_horarios = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.TSemana = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button21 = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
@@ -199,16 +194,21 @@
             this.txtTypeWebCam = new System.Windows.Forms.TextBox();
             this.picWebCam = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label44 = new System.Windows.Forms.Label();
             this.button23 = new System.Windows.Forms.Button();
+            this.label43 = new System.Windows.Forms.Label();
+            this.cmb_horarios = new System.Windows.Forms.ComboBox();
+            this.TSemana = new System.Windows.Forms.TextBox();
+            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -233,15 +233,15 @@
             this.tabPageWebCam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(871, 467);
+            this.btnClose.Location = new System.Drawing.Point(871, 445);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(107, 23);
             this.btnClose.TabIndex = 0;
@@ -286,7 +286,7 @@
             this.tabCtrlMain.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlMain.Name = "tabCtrlMain";
             this.tabCtrlMain.SelectedIndex = 0;
-            this.tabCtrlMain.Size = new System.Drawing.Size(970, 444);
+            this.tabCtrlMain.Size = new System.Drawing.Size(970, 510);
             this.tabCtrlMain.TabIndex = 0;
             this.tabCtrlMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabCtrlMain_Selected);
             // 
@@ -302,7 +302,7 @@
             this.tabPageUsuarios.Controls.Add(this.label11);
             this.tabPageUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuarios.Name = "tabPageUsuarios";
-            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 418);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 396);
             this.tabPageUsuarios.TabIndex = 4;
             this.tabPageUsuarios.Text = "Usuarios";
             // 
@@ -420,62 +420,10 @@
             this.tabPageCargaEmpleados.Location = new System.Drawing.Point(4, 22);
             this.tabPageCargaEmpleados.Name = "tabPageCargaEmpleados";
             this.tabPageCargaEmpleados.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 418);
+            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 484);
             this.tabPageCargaEmpleados.TabIndex = 3;
             this.tabPageCargaEmpleados.Text = "Empleados";
             this.tabPageCargaEmpleados.Click += new System.EventHandler(this.tabPageCargaEmpleados_Click);
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(3, 241);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(54, 16);
-            this.label44.TabIndex = 76;
-            this.label44.Text = "Horario";
-            // 
-            // cmb_horarios
-            // 
-            this.cmb_horarios.BackColor = System.Drawing.Color.White;
-            this.cmb_horarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_horarios.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_horarios.FormattingEnabled = true;
-            this.cmb_horarios.Location = new System.Drawing.Point(255, 241);
-            this.cmb_horarios.Name = "cmb_horarios";
-            this.cmb_horarios.Size = new System.Drawing.Size(380, 21);
-            this.cmb_horarios.TabIndex = 75;
-            // 
-            // maskedTextBox7
-            // 
-            this.maskedTextBox7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox7.Location = new System.Drawing.Point(288, 270);
-            this.maskedTextBox7.Mask = "00/00/0000";
-            this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(97, 22);
-            this.maskedTextBox7.TabIndex = 74;
-            this.maskedTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.maskedTextBox7, "Ingrese fecha para determinar si la correspondiente semana anualizada es PAR o IM" +
-        "PAR");
-            this.maskedTextBox7.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox7.Validated += new System.EventHandler(this.maskedTextBox7_Validated);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(3, 269);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(230, 16);
-            this.label43.TabIndex = 73;
-            this.label43.Text = "Semana (0-Todas 1-Impar 2-Par)";
-            // 
-            // TSemana
-            // 
-            this.TSemana.Location = new System.Drawing.Point(255, 269);
-            this.TSemana.Name = "TSemana";
-            this.TSemana.Size = new System.Drawing.Size(27, 20);
-            this.TSemana.TabIndex = 72;
             // 
             // groupBox4
             // 
@@ -1447,7 +1395,7 @@
             this.tabPageFeriados.Controls.Add(this.button7);
             this.tabPageFeriados.Location = new System.Drawing.Point(4, 22);
             this.tabPageFeriados.Name = "tabPageFeriados";
-            this.tabPageFeriados.Size = new System.Drawing.Size(962, 440);
+            this.tabPageFeriados.Size = new System.Drawing.Size(962, 418);
             this.tabPageFeriados.TabIndex = 5;
             this.tabPageFeriados.Text = "Feriados";
             // 
@@ -1594,7 +1542,7 @@
             this.tabPageNovedades.Location = new System.Drawing.Point(4, 22);
             this.tabPageNovedades.Name = "tabPageNovedades";
             this.tabPageNovedades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNovedades.Size = new System.Drawing.Size(962, 418);
+            this.tabPageNovedades.Size = new System.Drawing.Size(962, 396);
             this.tabPageNovedades.TabIndex = 7;
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
@@ -1929,7 +1877,7 @@
             this.tabPageDecoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageDecoder.Name = "tabPageDecoder";
             this.tabPageDecoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDecoder.Size = new System.Drawing.Size(962, 440);
+            this.tabPageDecoder.Size = new System.Drawing.Size(962, 418);
             this.tabPageDecoder.TabIndex = 0;
             this.tabPageDecoder.Text = "Prueba de Códigos";
             // 
@@ -2067,7 +2015,7 @@
             this.tabPageEncoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageEncoder.Name = "tabPageEncoder";
             this.tabPageEncoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEncoder.Size = new System.Drawing.Size(962, 440);
+            this.tabPageEncoder.Size = new System.Drawing.Size(962, 418);
             this.tabPageEncoder.TabIndex = 1;
             this.tabPageEncoder.Text = "Generador de Códigos";
             // 
@@ -2193,7 +2141,7 @@
             this.tabPageWebCam.Controls.Add(this.picWebCam);
             this.tabPageWebCam.Location = new System.Drawing.Point(4, 22);
             this.tabPageWebCam.Name = "tabPageWebCam";
-            this.tabPageWebCam.Size = new System.Drawing.Size(962, 440);
+            this.tabPageWebCam.Size = new System.Drawing.Size(962, 418);
             this.tabPageWebCam.TabIndex = 2;
             this.tabPageWebCam.Text = "WebCam";
             // 
@@ -2288,28 +2236,51 @@
             this.tabPage2.Controls.Add(this.maskedTextBox7);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(962, 418);
+            this.tabPage2.Size = new System.Drawing.Size(962, 396);
             this.tabPage2.TabIndex = 9;
             this.tabPage2.Text = "Horarios";
             // 
-            // button23
+            // maskedTextBox9
             // 
-            this.button23.Location = new System.Drawing.Point(661, 392);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(298, 23);
-            this.button23.TabIndex = 16;
-            this.button23.Text = "Configuracion de Días Laborales";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.maskedTextBox9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox9.Location = new System.Drawing.Point(255, 327);
+            this.maskedTextBox9.Mask = "00/00/0000";
+            this.maskedTextBox9.Name = "maskedTextBox9";
+            this.maskedTextBox9.Size = new System.Drawing.Size(97, 22);
+            this.maskedTextBox9.TabIndex = 81;
+            this.maskedTextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox9.ValidatingType = typeof(System.DateTime);
             // 
-            // tabPage1
+            // maskedTextBox8
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Info;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(962, 418);
-            this.tabPage1.TabIndex = 8;
-            this.tabPage1.Text = "Varios";
+            this.maskedTextBox8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox8.Location = new System.Drawing.Point(255, 299);
+            this.maskedTextBox8.Mask = "00/00/0000";
+            this.maskedTextBox8.Name = "maskedTextBox8";
+            this.maskedTextBox8.Size = new System.Drawing.Size(97, 22);
+            this.maskedTextBox8.TabIndex = 80;
+            this.maskedTextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox8.ValidatingType = typeof(System.DateTime);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(3, 327);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(146, 16);
+            this.label46.TabIndex = 79;
+            this.label46.Text = "Hasta (vacio-activo)";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(3, 299);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(48, 16);
+            this.label45.TabIndex = 78;
+            this.label45.Text = "Desde";
             // 
             // dataGridView4
             // 
@@ -2324,47 +2295,76 @@
             this.dataGridView4.Size = new System.Drawing.Size(956, 165);
             this.dataGridView4.TabIndex = 77;
             // 
-            // label45
+            // label44
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(3, 299);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(48, 16);
-            this.label45.TabIndex = 78;
-            this.label45.Text = "Desde";
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(3, 241);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(54, 16);
+            this.label44.TabIndex = 76;
+            this.label44.Text = "Horario";
             // 
-            // label46
+            // button23
             // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(3, 327);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(146, 16);
-            this.label46.TabIndex = 79;
-            this.label46.Text = "Hasta (vacio-activo)";
+            this.button23.Location = new System.Drawing.Point(661, 392);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(298, 23);
+            this.button23.TabIndex = 16;
+            this.button23.Text = "Configuracion de Días Laborales";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
-            // maskedTextBox8
+            // label43
             // 
-            this.maskedTextBox8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox8.Location = new System.Drawing.Point(255, 299);
-            this.maskedTextBox8.Mask = "00/00/0000";
-            this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(97, 22);
-            this.maskedTextBox8.TabIndex = 80;
-            this.maskedTextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox8.ValidatingType = typeof(System.DateTime);
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(3, 269);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(230, 16);
+            this.label43.TabIndex = 73;
+            this.label43.Text = "Semana (0-Todas 1-Impar 2-Par)";
             // 
-            // maskedTextBox9
+            // cmb_horarios
             // 
-            this.maskedTextBox9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox9.Location = new System.Drawing.Point(255, 327);
-            this.maskedTextBox9.Mask = "00/00/0000";
-            this.maskedTextBox9.Name = "maskedTextBox9";
-            this.maskedTextBox9.Size = new System.Drawing.Size(97, 22);
-            this.maskedTextBox9.TabIndex = 81;
-            this.maskedTextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox9.ValidatingType = typeof(System.DateTime);
+            this.cmb_horarios.BackColor = System.Drawing.Color.White;
+            this.cmb_horarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_horarios.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_horarios.FormattingEnabled = true;
+            this.cmb_horarios.Location = new System.Drawing.Point(255, 241);
+            this.cmb_horarios.Name = "cmb_horarios";
+            this.cmb_horarios.Size = new System.Drawing.Size(380, 21);
+            this.cmb_horarios.TabIndex = 75;
+            // 
+            // TSemana
+            // 
+            this.TSemana.Location = new System.Drawing.Point(255, 269);
+            this.TSemana.Name = "TSemana";
+            this.TSemana.Size = new System.Drawing.Size(27, 20);
+            this.TSemana.TabIndex = 72;
+            // 
+            // maskedTextBox7
+            // 
+            this.maskedTextBox7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox7.Location = new System.Drawing.Point(288, 270);
+            this.maskedTextBox7.Mask = "00/00/0000";
+            this.maskedTextBox7.Name = "maskedTextBox7";
+            this.maskedTextBox7.Size = new System.Drawing.Size(97, 22);
+            this.maskedTextBox7.TabIndex = 74;
+            this.maskedTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.maskedTextBox7, "Ingrese fecha para determinar si la correspondiente semana anualizada es PAR o IM" +
+        "PAR");
+            this.maskedTextBox7.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox7.Validated += new System.EventHandler(this.maskedTextBox7_Validated);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(962, 418);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "Varios";
             // 
             // WindowsFormsDemoForm
             // 
@@ -2422,8 +2422,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

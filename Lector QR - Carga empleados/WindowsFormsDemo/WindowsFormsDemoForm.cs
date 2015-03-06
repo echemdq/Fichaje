@@ -905,7 +905,7 @@ namespace WindowsFormsDemo
                 frm.ShowDialog();
                 Empleados u = frm.u;
                 if (u != null)
-                {
+                {                   
                     lbl_idemp.Text = Convert.ToString(u.Idempleados);
                     txt_documento.Text = u.Documento.ToString();
                     txt_domicilio.Text = u.Domicilio;
@@ -922,6 +922,7 @@ namespace WindowsFormsDemo
                         txt_eg1.Text = u.Eg1.TimeOfDay.ToString();
                         txt_ing2.Text = u.Ing2.TimeOfDay.ToString();
                         txt_eg2.Text = u.Eg2.TimeOfDay.ToString();
+                        
                     }
                     else
                     {

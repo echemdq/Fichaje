@@ -1,6 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `acceso` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `acceso`;
--- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: localhost    Database: acceso
 -- ------------------------------------------------------
@@ -175,8 +173,8 @@ CREATE TABLE `horarios` (
   `idhorarios` int(11) NOT NULL AUTO_INCREMENT,
   `detalle` varchar(60) NOT NULL,
   `horario` varchar(1) NOT NULL,
-  `descanso` int(11) NOT NULL,
-  `horasdetrabajo` int(11) NOT NULL,
+  `descanso` varchar(5) NOT NULL,
+  `horasdetrabajo` varchar(5) NOT NULL,
   `nocturno` varchar(1) NOT NULL,
   `ingreso1` varchar(8) NOT NULL,
   `egreso1` varchar(8) NOT NULL,
@@ -190,7 +188,7 @@ CREATE TABLE `horarios` (
   `sabado` varchar(1) NOT NULL,
   `domingo` varchar(1) NOT NULL,
   PRIMARY KEY (`idhorarios`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='		';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +197,7 @@ CREATE TABLE `horarios` (
 
 LOCK TABLES `horarios` WRITE;
 /*!40000 ALTER TABLE `horarios` DISABLE KEYS */;
-INSERT INTO `horarios` VALUES (1,'xxxxxxxx','1',8,8,'0','08:00','13:00','16:00','20:00','1','1','1','1','1','0','0');
+INSERT INTO `horarios` VALUES (1,'xxxxxxxx','0','8','8','0','08:00','13:00','16:00','20:00','1','1','1','1','1','0','0'),(2,'Ezequiel','1','00:45','09:00','0','08:00','17:00','13:00','13:45','1','0','1','0','1','0','1'),(3,'Ezequiel 1','0','00:00','09:00','0','08:00','12:30','14:30','19:00','1','1','1','1','1','1','0');
 /*!40000 ALTER TABLE `horarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,7 +422,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `fn_columna`(idemp int, fec datetime) RETURNS varchar(100) CHARSET latin1
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_columna`(idemp int, fec datetime) RETURNS varchar(100) CHARSET latin1
 BEGIN
 -- --------------------------------------------------------------------------------
 
@@ -466,7 +464,7 @@ close cursor1;
 			end if ;
 
 RETURN a;
-END */;;
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -482,7 +480,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `fn_feriados`(fec datetime , idemp int) RETURNS varchar(100) CHARSET latin1
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_feriados`(fec datetime , idemp int) RETURNS varchar(100) CHARSET latin1
 BEGIN
 declare b varchar(100) default '';
 DECLARE a varchar(100);
@@ -513,7 +511,7 @@ REPEAT
 UNTIL l_last_row END REPEAT;
 close cursor1;
 RETURN a;
-END */;;
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -529,7 +527,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `fn_ht`(idemp int, fec datetime) RETURNS varchar(100) CHARSET latin1
+CREATE DEFINER=`root`@`localhost` FUNCTION `fn_ht`(idemp int, fec datetime) RETURNS varchar(100) CHARSET latin1
 BEGIN
 -- --------------------------------------------------------------------------------
 
@@ -566,7 +564,7 @@ close cursor1;
 			end if ;
 
 RETURN a;
-END */;;
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -582,7 +580,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `sp_registro`(idemple int,mes int,ano int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_registro`(idemple int,mes int,ano int)
 BEGIN
 SET lc_time_names = 'es_MX';
 		select e.nombre as Empleado,concat(date_format(dt_val,'%d/%m/%Y'),' - ',upper(DAYNAME(dt_val))) as Dia, 
@@ -602,7 +600,7 @@ left join empleados e on e.documento=idemple
 where month(dt_val) = mes
 order by dt_val;
 
-END */;;
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -618,7 +616,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `sp_registro1`(INI DATETIME, FIN DATETIME)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_registro1`(INI DATETIME, FIN DATETIME)
 BEGIN
 	
 		DROP TABLE IF EXISTS FECHAS;
@@ -646,7 +644,7 @@ BEGIN
 		where activo=1
 		order by e.nombre, f.dt_val;
 
-END */;;
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -662,4 +660,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-06 15:38:58
+-- Dump completed on 2015-03-28 11:56:43

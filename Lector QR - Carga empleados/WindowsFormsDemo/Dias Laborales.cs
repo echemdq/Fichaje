@@ -13,6 +13,7 @@ namespace WindowsFormsDemo
 {
     public partial class Diaslaborales : Form
     {
+        ControladoraHorarios controlh = new ControladoraHorarios();
         public Diaslaborales()
         {
             InitializeComponent();
@@ -174,28 +175,103 @@ namespace WindowsFormsDemo
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+        public void limpiar()
         {
-            string detalle = Tdetalle.Text;
-            string horario = "";
-            if (rb_corrido.Checked)
-            {
-                horario = "0";
-            }
-            else
-            {
-                horario = "1";
-            }
-            string ingreso1 = txt_ing1.Text;
-            string egreso1 = txt_eg1.Text;
-            string ingreso2 = txt_ing2.Text;
-            string egreso2 = txt_eg2.Text;
-            int horasdetrabajo = Convert.ToInt32(txt_horas.Text);
-            int descanso = Convert.ToInt32(txt_descanso.Text);
-            
+            Tdetalle.Clear();
+            rb_corrido.Checked = true;
+            txt_ing1.Clear();
+            txt_eg1.Clear();
+            txt_ing2.Clear();
+            txt_eg2.Clear();
+            txt_horas.Clear();
+            txt_descanso.Clear();
+            chk_noct.Checked = false;
+            checkedListBox1.SetItemChecked(0, false);
+            checkedListBox1.SetItemChecked(1, false);
+            checkedListBox1.SetItemChecked(2, false);
+            checkedListBox1.SetItemChecked(3, false);
+            checkedListBox1.SetItemChecked(4, false);
+            checkedListBox1.SetItemChecked(5, false);
+            checkedListBox1.SetItemChecked(6, false);
         }
 
-
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string detalle = Tdetalle.Text;
+                string horario = "";
+                if (rb_corrido.Checked)
+                {
+                    horario = "1";
+                }
+                else
+                {
+                    horario = "0";
+                }
+                string ingreso1 = txt_ing1.Text;
+                string egreso1 = txt_eg1.Text;
+                string ingreso2 = txt_ing2.Text;
+                string egreso2 = txt_eg2.Text;
+                string horasdetrabajo = txt_horas.Text;
+                string descanso = txt_descanso.Text;
+                string lunes = "0";
+                string martes = "0";
+                string miercoles = "0";
+                string jueves = "0";
+                string viernes = "0";
+                string sabado = "0";
+                string domingo = "0";
+                int i;
+                for (i = 0; i <= (checkedListBox1.Items.Count - 1); i++)
+                {
+                    if (checkedListBox1.GetItemChecked(i))
+                    {
+                        if (checkedListBox1.Items[i].ToString() == "Lunes")
+                        {
+                            lunes = "1";
+                        }
+                        else if (checkedListBox1.Items[i].ToString() == "Martes")
+                        {
+                            martes = "1";
+                        }
+                        else if (checkedListBox1.Items[i].ToString() == "Miercoles")
+                        {
+                            miercoles = "1";
+                        }
+                        else if (checkedListBox1.Items[i].ToString() == "Jueves")
+                        {
+                            jueves = "1";
+                        }
+                        else if (checkedListBox1.Items[i].ToString() == "Viernes")
+                        {
+                            viernes = "1";
+                        }
+                        else if (checkedListBox1.Items[i].ToString() == "Sabado")
+                        {
+                            sabado = "1";
+                        }
+                        else if (checkedListBox1.Items[i].ToString() == "Domingo")
+                        {
+                            domingo = "1";
+                        }
+                    }
+                }
+                string noct = "0";
+                if (chk_noct.Checked)
+                {
+                    noct = "1";
+                }
+                Horarios h = new Horarios(0, detalle, horario, descanso, horasdetrabajo, noct, ingreso1, egreso1, ingreso2, egreso2, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
+                controlh.Agregar(h);
+                MessageBox.Show("Horario Cargado Correctamente");
+                limpiar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

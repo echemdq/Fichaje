@@ -11,8 +11,8 @@ namespace WindowsFormsDemo
         int idhorarios;
         string detalle;
         string horario;
-        int descanso;
-        int horasdetrabajo;
+        string descanso;
+        string horasdetrabajo;
         string nocturno;
         string ingreso1;
         string egreso1;
@@ -26,7 +26,7 @@ namespace WindowsFormsDemo
         string sabado;
         string domingo;
 
-        public Horarios(int id, string det, string hor, int des, int horas, string noc, string ing1, string eg1, string ing2, string eg2, string lu, string mar, string mier, string jue, string vie, string sab, string dom)
+        public Horarios(int id, string det, string hor, string des, string horas, string noc, string ing1, string eg1, string ing2, string eg2, string lu, string mar, string mier, string jue, string vie, string sab, string dom)
         {
             idhorarios = id;
             detalle = det;
@@ -121,13 +121,13 @@ namespace WindowsFormsDemo
             set { nocturno = value; }
         }
 
-        public int Horasdetrabajo
+        public string Horasdetrabajo
         {
             get { return horasdetrabajo; }
             set { horasdetrabajo = value; }
         }
 
-        public int Descanso
+        public string Descanso
         {
             get { return descanso; }
             set { descanso = value; }

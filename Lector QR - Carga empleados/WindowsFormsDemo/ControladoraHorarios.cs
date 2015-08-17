@@ -16,12 +16,12 @@ namespace WindowsFormsDemo
 
         public List<Horarios> TraerTodos()
         {
-            throw new NotImplementedException();
+           return bd.TraerTodos();
         }
 
         public void Borrar(Horarios dato)
         {
-            throw new NotImplementedException();
+            bd.Borrar(dato);
         }
 
         public Horarios Buscar(string dato)

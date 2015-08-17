@@ -60,7 +60,33 @@ namespace WindowsFormsDemo
 
         private void Diaslaborales_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                dataGridView4.ColumnCount = 17;
+                dataGridView4.Columns[0].Name = "IdHorarios";
+                dataGridView4.Columns[1].Name = "Detalle";
+                dataGridView4.Columns[2].Name = "Horario";
+                dataGridView4.Columns[3].Name = "Horas de Trabajo";
+                dataGridView4.Columns[4].Name = "Descanso";
+                dataGridView4.Columns[5].Name = "Nocturno";
+                dataGridView4.Columns[6].Name = "Ingreso 1";
+                dataGridView4.Columns[7].Name = "Egreso 1";
+                dataGridView4.Columns[8].Name = "Ingreso 2";
+                dataGridView4.Columns[9].Name = "Egreso 2";
+                dataGridView4.Columns[10].Name = "Lunes";
+                dataGridView4.Columns[11].Name = "Martes";
+                dataGridView4.Columns[12].Name = "Miercoles";
+                dataGridView4.Columns[13].Name = "Jueves";
+                dataGridView4.Columns[14].Name = "Viernes";
+                dataGridView4.Columns[15].Name = "Sabado";
+                dataGridView4.Columns[16].Name = "Domingo";
+                dataGridView4.Columns[0].Visible = false;
+                Recargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txt_eg1_TextChanged(object sender, EventArgs e)
@@ -267,11 +293,151 @@ namespace WindowsFormsDemo
                 controlh.Agregar(h);
                 MessageBox.Show("Horario Cargado Correctamente");
                 limpiar();
+                Recargar();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int filaseleccionada = Convert.ToInt32(this.dataGridView4.CurrentRow.Index);
+                int idnov = Convert.ToInt32(dataGridView4[0, filaseleccionada].Value);
+                string Detalle = dataGridView4[1, filaseleccionada].Value.ToString();
+                DialogResult dialogResult = MessageBox.Show("Esta seguro de eliminar la fila: " + Detalle, "Eliminar Horario Configurado", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Horarios n = new Horarios(idnov, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    controlh.Borrar(n);
+                    MessageBox.Show("Horario Eliminado Correctamente");
+                }
+                Recargar();                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void Recargar()
+        {
+            dataGridView4.Rows.Clear();
+            dataGridView4.Refresh();
+            List<Horarios> lista = controlh.TraerTodos();
+            int i = 0;
+            foreach (Horarios aux in lista)
+            {
+                i++;
+            }
+            int x = 0;
+            if (i > 0)
+            {
+                dataGridView4.Rows.Add(i);
+                foreach (Horarios aux in lista)
+                {
+                    dataGridView4.Rows[x].Cells[0].Value = aux.Idhorarios;
+                    dataGridView4.Rows[x].Cells[1].Value = aux.Detalle;
+                    if (aux.Horario == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[2].Value = "Corrido";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[2].Value = "Cortado";
+                    }
+                    dataGridView4.Rows[x].Cells[3].Value = aux.Horasdetrabajo;
+                    dataGridView4.Rows[x].Cells[4].Value = aux.Descanso;
+                    if (aux.Nocturno == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[5].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[5].Value = "No";
+                    }
+                    dataGridView4.Rows[x].Cells[6].Value = aux.Ingreso1;
+                    dataGridView4.Rows[x].Cells[7].Value = aux.Egreso1;
+                    dataGridView4.Rows[x].Cells[8].Value = aux.Ingreso2;
+                    dataGridView4.Rows[x].Cells[9].Value = aux.Egreso2;
+                    if (aux.Lunes == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[10].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[10].Value = "No";
+                    }
+                    if (aux.Martes == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[11].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[11].Value = "No";
+                    }
+                    if (aux.Miercoles == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[12].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[12].Value = "No";
+                    }
+                    if (aux.Jueves == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[13].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[13].Value = "No";
+                    }
+                    if (aux.Viernes == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[14].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[14].Value = "No";
+                    }
+                    if (aux.Sabado == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[15].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[15].Value = "No";
+                    }
+                    if (aux.Domingo == "1")
+                    {
+                        dataGridView4.Rows[x].Cells[16].Value = "Si";
+                    }
+                    else
+                    {
+                        dataGridView4.Rows[x].Cells[16].Value = "No";
+                    }
+                    x++;
+                }
+            }
+        }
+        private void Diaslaborales_Activated(object sender, EventArgs e)
+        {
+            
         }
     }
 }

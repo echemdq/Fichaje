@@ -714,7 +714,15 @@ namespace WindowsFormsDemo
             habilitar();
             limpiar();
         }
-
+        public void RecargarHorarios()
+        {
+            cmb_horarios.DataSource = null;
+            Acceso_BD oacceso = new Acceso_BD();
+            cmb_horarios.DataSource = oacceso.leerDatos("select concat(detalle,case when horario=1 then ' Corrido:' else ' Cortado:' end,ingreso1,'-',egreso1,'-',ingreso2,'-',egreso2) as detalle, idhorarios from horarios");
+            cmb_horarios.DisplayMember = "detalle";
+            cmb_horarios.ValueMember = "idhorarios";
+            cmb_horarios.SelectedIndex = 0;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -2152,7 +2160,8 @@ namespace WindowsFormsDemo
         private void button23_Click(object sender, EventArgs e)
         {
             Diaslaborales frm = new Diaslaborales();
-            frm.Show();
+            frm.ShowDialog();
+            RecargarHorarios();
         }
 
         private void tabPageNovedades_Click(object sender, EventArgs e)

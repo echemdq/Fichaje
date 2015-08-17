@@ -224,7 +224,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(871, 313);
+            this.btnClose.Location = new System.Drawing.Point(871, 291);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(107, 23);
             this.btnClose.TabIndex = 0;
@@ -285,7 +285,7 @@
             this.tabPageUsuarios.Controls.Add(this.label11);
             this.tabPageUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuarios.Name = "tabPageUsuarios";
-            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 441);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 462);
             this.tabPageUsuarios.TabIndex = 4;
             this.tabPageUsuarios.Text = "Usuarios";
             // 
@@ -864,7 +864,7 @@
             this.tabPageRegistros.Location = new System.Drawing.Point(4, 22);
             this.tabPageRegistros.Name = "tabPageRegistros";
             this.tabPageRegistros.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRegistros.Size = new System.Drawing.Size(962, 463);
+            this.tabPageRegistros.Size = new System.Drawing.Size(962, 484);
             this.tabPageRegistros.TabIndex = 6;
             this.tabPageRegistros.Text = "Registros";
             this.tabPageRegistros.Click += new System.EventHandler(this.tabPageRegistros_Click);
@@ -1154,7 +1154,7 @@
             this.tabPageFeriados.Controls.Add(this.button7);
             this.tabPageFeriados.Location = new System.Drawing.Point(4, 22);
             this.tabPageFeriados.Name = "tabPageFeriados";
-            this.tabPageFeriados.Size = new System.Drawing.Size(962, 463);
+            this.tabPageFeriados.Size = new System.Drawing.Size(962, 484);
             this.tabPageFeriados.TabIndex = 5;
             this.tabPageFeriados.Text = "Feriados";
             // 
@@ -1301,7 +1301,7 @@
             this.tabPageNovedades.Location = new System.Drawing.Point(4, 22);
             this.tabPageNovedades.Name = "tabPageNovedades";
             this.tabPageNovedades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNovedades.Size = new System.Drawing.Size(962, 463);
+            this.tabPageNovedades.Size = new System.Drawing.Size(962, 484);
             this.tabPageNovedades.TabIndex = 7;
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
@@ -1636,7 +1636,7 @@
             this.tabPageDecoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageDecoder.Name = "tabPageDecoder";
             this.tabPageDecoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDecoder.Size = new System.Drawing.Size(962, 463);
+            this.tabPageDecoder.Size = new System.Drawing.Size(962, 484);
             this.tabPageDecoder.TabIndex = 0;
             this.tabPageDecoder.Text = "Prueba de Códigos";
             // 
@@ -1900,7 +1900,7 @@
             this.tabPageWebCam.Controls.Add(this.picWebCam);
             this.tabPageWebCam.Location = new System.Drawing.Point(4, 22);
             this.tabPageWebCam.Name = "tabPageWebCam";
-            this.tabPageWebCam.Size = new System.Drawing.Size(962, 463);
+            this.tabPageWebCam.Size = new System.Drawing.Size(962, 484);
             this.tabPageWebCam.TabIndex = 2;
             this.tabPageWebCam.Text = "WebCam";
             // 
@@ -2121,7 +2121,7 @@
             this.tabPage1.BackColor = System.Drawing.SystemColors.Info;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(962, 463);
+            this.tabPage1.Size = new System.Drawing.Size(962, 484);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "Varios";
             // 
@@ -2141,13 +2141,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(994, 557);
-            this.ControlBox = false;
             this.Controls.Add(this.button22);
             this.Controls.Add(this.tabCtrlMain);
             this.Controls.Add(this.btnClose);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1010, 595);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1010, 595);
             this.Name = "WindowsFormsDemoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

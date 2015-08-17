@@ -99,42 +99,7 @@ namespace WindowsFormsDemo
                         dataGridView1.Rows[x].Cells[9].Value = aux.Tipod.Idtipodoc;
                         dataGridView1.Rows[x].Cells[10].Value = aux.Centro.Idcentrodecostros;
                         dataGridView1.Rows[x].Cells[11].Value = aux.Foto;
-                        if (aux.Horario == 1)
-                        {
-                            string ing1 = aux.Ing1.TimeOfDay.ToString();
-                            string eg1 = aux.Eg1.TimeOfDay.ToString();
-                            string ing2 = aux.Ing2.TimeOfDay.ToString();
-                            string eg2 = aux.Eg2.TimeOfDay.ToString();
-                            dataGridView1.Rows[x].Cells[12].Value = "Corrido";
-                            dataGridView1.Rows[x].Cells[14].Value = aux.Descanso;
-                            dataGridView1.Rows[x].Cells[15].Value = ing1;
-                            dataGridView1.Rows[x].Cells[16].Value = eg1;
-                            dataGridView1.Rows[x].Cells[17].Value = ing2;
-                            dataGridView1.Rows[x].Cells[18].Value = eg2;
-                        }
-                        else if (aux.Horario == 2)
-                        {
-                            string ing1 = aux.Ing1.TimeOfDay.ToString();
-                            string eg1 = aux.Eg1.TimeOfDay.ToString();
-                            string ing2 = aux.Ing2.TimeOfDay.ToString();
-                            string eg2 = aux.Eg2.TimeOfDay.ToString();
-                            dataGridView1.Rows[x].Cells[12].Value = "Cortado";
-                            dataGridView1.Rows[x].Cells[14].Value = aux.Descanso;
-                            dataGridView1.Rows[x].Cells[15].Value = ing1;
-                            dataGridView1.Rows[x].Cells[16].Value = eg1;
-                            dataGridView1.Rows[x].Cells[17].Value = ing2;
-                            dataGridView1.Rows[x].Cells[18].Value = eg2;
-                        }
-                        dataGridView1.Rows[x].Cells[13].Value = aux.Horastrabajo;
-                        dataGridView1.Rows[x].Cells[19].Value = aux.Lunes;
-                        dataGridView1.Rows[x].Cells[20].Value = aux.Martes;
-                        dataGridView1.Rows[x].Cells[21].Value = aux.Miercoles;
-                        dataGridView1.Rows[x].Cells[22].Value = aux.Jueves;
-                        dataGridView1.Rows[x].Cells[23].Value = aux.Viernes;
-                        dataGridView1.Rows[x].Cells[24].Value = aux.Sabado;
-                        dataGridView1.Rows[x].Cells[25].Value = aux.Domingo;
-                        dataGridView1.Rows[x].Cells[26].Value = aux.Activo;
-                        dataGridView1.Rows[x].Cells[27].Value = aux.Nocturno;
+                        dataGridView1.Rows[x].Cells[12].Value = aux.Activo;
                         x++;
                     }
                 }
@@ -143,7 +108,7 @@ namespace WindowsFormsDemo
 
         private void Buscar_Empleado_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 28;
+            dataGridView1.ColumnCount = 13;
             dataGridView1.Columns[0].Name = "Legajo";
             dataGridView1.Columns[1].Name = "Nombre";
             dataGridView1.Columns[2].Name = "Tipo Doc";
@@ -156,36 +121,13 @@ namespace WindowsFormsDemo
             dataGridView1.Columns[9].Name = "idtipodoc";
             dataGridView1.Columns[10].Name = "idcentro";
             dataGridView1.Columns[11].Name = "foto";
-            dataGridView1.Columns[12].Name = "Tipo Horario";
-            dataGridView1.Columns[13].Name = "Horas laborales";
-            dataGridView1.Columns[14].Name = "Descanso (min)";
-            dataGridView1.Columns[15].Name = "Ingreso 1";
-            dataGridView1.Columns[16].Name = "Egreso 1";
-            dataGridView1.Columns[17].Name = "Ingreso 2";
-            dataGridView1.Columns[18].Name = "Egreso 2";
-            dataGridView1.Columns[19].Name = "";
-            dataGridView1.Columns[20].Name = "";
-            dataGridView1.Columns[21].Name = "";
-            dataGridView1.Columns[22].Name = "";
-            dataGridView1.Columns[23].Name = "";
-            dataGridView1.Columns[24].Name = "";
-            dataGridView1.Columns[25].Name = "";
-            dataGridView1.Columns[26].Name = "";
-            dataGridView1.Columns[27].Name = "";
+            dataGridView1.Columns[12].Name = "";
             dataGridView1.Columns[7].Visible = false;
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
             dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[11].Visible = false;
-            dataGridView1.Columns[19].Visible = false;
-            dataGridView1.Columns[20].Visible = false;
-            dataGridView1.Columns[21].Visible = false;
-            dataGridView1.Columns[22].Visible = false;
-            dataGridView1.Columns[23].Visible = false;
-            dataGridView1.Columns[24].Visible = false;
-            dataGridView1.Columns[25].Visible = false;
-            dataGridView1.Columns[26].Visible = false;
-            dataGridView1.Columns[27].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -206,40 +148,8 @@ namespace WindowsFormsDemo
             int documento  = Convert.ToInt32(dataGridView1[3, filaseleccionada].Value);
             string domicilio = dataGridView1[4, filaseleccionada].Value.ToString();
             string foto = dataGridView1[11, filaseleccionada].Value.ToString();
-            int horario = 0;
-            int horasdetrabajo = Convert.ToInt32(dataGridView1[13, filaseleccionada].Value);
-            int descanso = Convert.ToInt32(dataGridView1[14, filaseleccionada].Value);
-            string ing1 = "";
-            string eg1 = "";
-            string ing2 = "";
-            string eg2 = "";
-            int lunes = Convert.ToInt32(dataGridView1[19, filaseleccionada].Value);
-            int martes = Convert.ToInt32(dataGridView1[20, filaseleccionada].Value);
-            int miercoles = Convert.ToInt32(dataGridView1[21, filaseleccionada].Value);
-            int jueves = Convert.ToInt32(dataGridView1[22, filaseleccionada].Value);
-            int viernes = Convert.ToInt32(dataGridView1[23, filaseleccionada].Value);
-            int sabado = Convert.ToInt32(dataGridView1[24, filaseleccionada].Value);
-            int domingo = Convert.ToInt32(dataGridView1[25, filaseleccionada].Value);
-            int activo = Convert.ToInt32(dataGridView1[26, filaseleccionada].Value);
-            int nocturno = Convert.ToInt32(dataGridView1[27, filaseleccionada].Value);
-            if (dataGridView1[12, filaseleccionada].Value.ToString() == "Corrido")
-            {
-                horario = 1;
-                ing1 = dataGridView1[15, filaseleccionada].Value.ToString();
-                eg1 = dataGridView1[16, filaseleccionada].Value.ToString();
-                ing2 = dataGridView1[17, filaseleccionada].Value.ToString();
-                eg2 = dataGridView1[18, filaseleccionada].Value.ToString();
-                u = new Empleados(id, legajo, documento, nombre, domicilio, horario, foto, tipodoc, tipoe, c, descanso, horasdetrabajo, Convert.ToDateTime(ing1), Convert.ToDateTime(eg1), Convert.ToDateTime(ing2), Convert.ToDateTime(eg2), lunes, martes, miercoles, jueves, viernes, sabado, domingo,activo,nocturno);
-            }
-            else
-            {
-                horario = 2;
-                ing1 = dataGridView1[15, filaseleccionada].Value.ToString();
-                eg1 = dataGridView1[16, filaseleccionada].Value.ToString();
-                ing2 = dataGridView1[17, filaseleccionada].Value.ToString();
-                eg2 = dataGridView1[18, filaseleccionada].Value.ToString();
-                u = new Empleados(id, legajo, documento, nombre, domicilio, horario, foto, tipodoc, tipoe, c, horasdetrabajo, Convert.ToDateTime(ing1), Convert.ToDateTime(eg1), Convert.ToDateTime(ing2), Convert.ToDateTime(eg2), lunes, martes, miercoles, jueves, viernes, sabado, domingo,activo,nocturno);
-            }   
+            int activo = Convert.ToInt32(dataGridView1[12, filaseleccionada].Value);
+            u = new Empleados(id, legajo, documento, nombre, domicilio, foto, tipodoc, tipoe, c, activo);
             this.Close();
         }
 

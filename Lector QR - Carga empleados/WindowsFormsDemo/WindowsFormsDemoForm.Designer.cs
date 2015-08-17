@@ -74,23 +74,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chk_noct = new System.Windows.Forms.CheckBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.txt_eg2 = new System.Windows.Forms.MaskedTextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txt_eg1 = new System.Windows.Forms.MaskedTextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txt_horas = new System.Windows.Forms.MaskedTextBox();
-            this.txt_ing2 = new System.Windows.Forms.MaskedTextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_ing1 = new System.Windows.Forms.MaskedTextBox();
-            this.rb_corrido = new System.Windows.Forms.RadioButton();
-            this.rb_cortado = new System.Windows.Forms.RadioButton();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txt_descanso = new System.Windows.Forms.MaskedTextBox();
             this.pbFotoUser = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -209,11 +192,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button22 = new System.Windows.Forms.Button();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.tabPageRegistros.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -241,7 +224,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(871, 357);
+            this.btnClose.Location = new System.Drawing.Point(871, 313);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(107, 23);
             this.btnClose.TabIndex = 0;
@@ -286,7 +269,7 @@
             this.tabCtrlMain.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlMain.Name = "tabCtrlMain";
             this.tabCtrlMain.SelectedIndex = 0;
-            this.tabCtrlMain.Size = new System.Drawing.Size(970, 511);
+            this.tabCtrlMain.Size = new System.Drawing.Size(970, 510);
             this.tabCtrlMain.TabIndex = 0;
             this.tabCtrlMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabCtrlMain_Selected);
             // 
@@ -302,7 +285,7 @@
             this.tabPageUsuarios.Controls.Add(this.label11);
             this.tabPageUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuarios.Name = "tabPageUsuarios";
-            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 485);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 441);
             this.tabPageUsuarios.TabIndex = 4;
             this.tabPageUsuarios.Text = "Usuarios";
             // 
@@ -409,7 +392,6 @@
             this.tabPageCargaEmpleados.Controls.Add(this.label5);
             this.tabPageCargaEmpleados.Controls.Add(this.label4);
             this.tabPageCargaEmpleados.Controls.Add(this.label3);
-            this.tabPageCargaEmpleados.Controls.Add(this.groupBox1);
             this.tabPageCargaEmpleados.Controls.Add(this.pbFotoUser);
             this.tabPageCargaEmpleados.Controls.Add(this.button6);
             this.tabPageCargaEmpleados.Controls.Add(this.button5);
@@ -420,7 +402,7 @@
             this.tabPageCargaEmpleados.Location = new System.Drawing.Point(4, 22);
             this.tabPageCargaEmpleados.Name = "tabPageCargaEmpleados";
             this.tabPageCargaEmpleados.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 507);
+            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 484);
             this.tabPageCargaEmpleados.TabIndex = 3;
             this.tabPageCargaEmpleados.Text = "Empleados";
             this.tabPageCargaEmpleados.Click += new System.EventHandler(this.tabPageCargaEmpleados_Click);
@@ -769,229 +751,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Legajo";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.chk_noct);
-            this.groupBox1.Controls.Add(this.checkedListBox1);
-            this.groupBox1.Controls.Add(this.txt_eg2);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.txt_eg1);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.txt_horas);
-            this.groupBox1.Controls.Add(this.txt_ing2);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.txt_ing1);
-            this.groupBox1.Controls.Add(this.rb_corrido);
-            this.groupBox1.Controls.Add(this.rb_cortado);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.txt_descanso);
-            this.groupBox1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 272);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(683, 116);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Horarios Laborales";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // chk_noct
-            // 
-            this.chk_noct.AutoSize = true;
-            this.chk_noct.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.chk_noct.Location = new System.Drawing.Point(142, 118);
-            this.chk_noct.Name = "chk_noct";
-            this.chk_noct.Size = new System.Drawing.Size(138, 20);
-            this.chk_noct.TabIndex = 48;
-            this.chk_noct.Text = "Horario Nocturno";
-            this.chk_noct.UseVisualStyleBackColor = true;
-            this.chk_noct.CheckedChanged += new System.EventHandler(this.chk_noct_CheckedChanged);
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Lunes",
-            "Martes",
-            "Miercoles",
-            "Jueves",
-            "Viernes",
-            "Sabado",
-            "Domingo"});
-            this.checkedListBox1.Location = new System.Drawing.Point(550, 14);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 119);
-            this.checkedListBox1.TabIndex = 28;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // txt_eg2
-            // 
-            this.txt_eg2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_eg2.Location = new System.Drawing.Point(462, 86);
-            this.txt_eg2.Mask = "00:00";
-            this.txt_eg2.Name = "txt_eg2";
-            this.txt_eg2.Size = new System.Drawing.Size(55, 22);
-            this.txt_eg2.TabIndex = 7;
-            this.txt_eg2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_eg2.ValidatingType = typeof(System.DateTime);
-            this.txt_eg2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_eg2_MaskInputRejected);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(332, 90);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(124, 14);
-            this.label23.TabIndex = 38;
-            this.label23.Text = "Regreso Descanso";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
-            // 
-            // txt_eg1
-            // 
-            this.txt_eg1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_eg1.Location = new System.Drawing.Point(462, 58);
-            this.txt_eg1.Mask = "00:00";
-            this.txt_eg1.Name = "txt_eg1";
-            this.txt_eg1.Size = new System.Drawing.Size(55, 22);
-            this.txt_eg1.TabIndex = 5;
-            this.txt_eg1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_eg1.ValidatingType = typeof(System.DateTime);
-            this.txt_eg1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_eg1_MaskInputRejected);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(142, 90);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(110, 14);
-            this.label21.TabIndex = 36;
-            this.label21.Text = "Salida Descanso";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
-            // 
-            // txt_horas
-            // 
-            this.txt_horas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_horas.Location = new System.Drawing.Point(271, 28);
-            this.txt_horas.Mask = "00";
-            this.txt_horas.Name = "txt_horas";
-            this.txt_horas.PromptChar = ' ';
-            this.txt_horas.Size = new System.Drawing.Size(36, 22);
-            this.txt_horas.TabIndex = 2;
-            this.txt_horas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_horas.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_horas_MaskInputRejected);
-            // 
-            // txt_ing2
-            // 
-            this.txt_ing2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ing2.Location = new System.Drawing.Point(270, 87);
-            this.txt_ing2.Mask = "00:00";
-            this.txt_ing2.Name = "txt_ing2";
-            this.txt_ing2.Size = new System.Drawing.Size(56, 22);
-            this.txt_ing2.TabIndex = 6;
-            this.txt_ing2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_ing2.ValidatingType = typeof(System.DateTime);
-            this.txt_ing2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_ing2_MaskInputRejected);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(143, 31);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(110, 14);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "Horas Laborales";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
-            // 
-            // txt_ing1
-            // 
-            this.txt_ing1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ing1.Location = new System.Drawing.Point(270, 58);
-            this.txt_ing1.Mask = "00:00";
-            this.txt_ing1.Name = "txt_ing1";
-            this.txt_ing1.Size = new System.Drawing.Size(56, 22);
-            this.txt_ing1.TabIndex = 4;
-            this.txt_ing1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_ing1.ValidatingType = typeof(System.DateTime);
-            this.txt_ing1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_ing1_MaskInputRejected);
-            // 
-            // rb_corrido
-            // 
-            this.rb_corrido.AutoSize = true;
-            this.rb_corrido.Checked = true;
-            this.rb_corrido.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.rb_corrido.Location = new System.Drawing.Point(9, 40);
-            this.rb_corrido.Name = "rb_corrido";
-            this.rb_corrido.Size = new System.Drawing.Size(123, 20);
-            this.rb_corrido.TabIndex = 0;
-            this.rb_corrido.TabStop = true;
-            this.rb_corrido.Text = "Horario Corrido";
-            this.rb_corrido.UseVisualStyleBackColor = true;
-            this.rb_corrido.CheckedChanged += new System.EventHandler(this.rb_corrido_CheckedChanged);
-            // 
-            // rb_cortado
-            // 
-            this.rb_cortado.AutoSize = true;
-            this.rb_cortado.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.rb_cortado.Location = new System.Drawing.Point(9, 66);
-            this.rb_cortado.Name = "rb_cortado";
-            this.rb_cortado.Size = new System.Drawing.Size(129, 20);
-            this.rb_cortado.TabIndex = 1;
-            this.rb_cortado.Text = "Horario Cortado";
-            this.rb_cortado.UseVisualStyleBackColor = true;
-            this.rb_cortado.CheckedChanged += new System.EventHandler(this.rb_cortado_CheckedChanged);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(332, 61);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(63, 14);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Egreso 1";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(143, 58);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(68, 14);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "Ingreso 1";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(332, 31);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(104, 14);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "Descanso (min)";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
-            // 
-            // txt_descanso
-            // 
-            this.txt_descanso.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_descanso.Location = new System.Drawing.Point(463, 28);
-            this.txt_descanso.Mask = "00";
-            this.txt_descanso.Name = "txt_descanso";
-            this.txt_descanso.PromptChar = ' ';
-            this.txt_descanso.Size = new System.Drawing.Size(36, 22);
-            this.txt_descanso.TabIndex = 3;
-            this.txt_descanso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_descanso.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_descanso_MaskInputRejected);
-            // 
             // pbFotoUser
             // 
             this.pbFotoUser.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -1105,7 +864,7 @@
             this.tabPageRegistros.Location = new System.Drawing.Point(4, 22);
             this.tabPageRegistros.Name = "tabPageRegistros";
             this.tabPageRegistros.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRegistros.Size = new System.Drawing.Size(962, 507);
+            this.tabPageRegistros.Size = new System.Drawing.Size(962, 463);
             this.tabPageRegistros.TabIndex = 6;
             this.tabPageRegistros.Text = "Registros";
             this.tabPageRegistros.Click += new System.EventHandler(this.tabPageRegistros_Click);
@@ -1395,7 +1154,7 @@
             this.tabPageFeriados.Controls.Add(this.button7);
             this.tabPageFeriados.Location = new System.Drawing.Point(4, 22);
             this.tabPageFeriados.Name = "tabPageFeriados";
-            this.tabPageFeriados.Size = new System.Drawing.Size(962, 507);
+            this.tabPageFeriados.Size = new System.Drawing.Size(962, 463);
             this.tabPageFeriados.TabIndex = 5;
             this.tabPageFeriados.Text = "Feriados";
             // 
@@ -1542,7 +1301,7 @@
             this.tabPageNovedades.Location = new System.Drawing.Point(4, 22);
             this.tabPageNovedades.Name = "tabPageNovedades";
             this.tabPageNovedades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNovedades.Size = new System.Drawing.Size(962, 507);
+            this.tabPageNovedades.Size = new System.Drawing.Size(962, 463);
             this.tabPageNovedades.TabIndex = 7;
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
@@ -1877,7 +1636,7 @@
             this.tabPageDecoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageDecoder.Name = "tabPageDecoder";
             this.tabPageDecoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDecoder.Size = new System.Drawing.Size(962, 507);
+            this.tabPageDecoder.Size = new System.Drawing.Size(962, 463);
             this.tabPageDecoder.TabIndex = 0;
             this.tabPageDecoder.Text = "Prueba de Códigos";
             // 
@@ -2015,14 +1774,14 @@
             this.tabPageEncoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageEncoder.Name = "tabPageEncoder";
             this.tabPageEncoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEncoder.Size = new System.Drawing.Size(962, 507);
+            this.tabPageEncoder.Size = new System.Drawing.Size(962, 484);
             this.tabPageEncoder.TabIndex = 1;
             this.tabPageEncoder.Text = "Generador de Códigos";
             // 
             // btnEncoderSave
             // 
             this.btnEncoderSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEncoderSave.Location = new System.Drawing.Point(764, 372);
+            this.btnEncoderSave.Location = new System.Drawing.Point(764, 393);
             this.btnEncoderSave.Name = "btnEncoderSave";
             this.btnEncoderSave.Size = new System.Drawing.Size(107, 23);
             this.btnEncoderSave.TabIndex = 15;
@@ -2033,7 +1792,7 @@
             // btnEncode
             // 
             this.btnEncode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEncode.Location = new System.Drawing.Point(651, 372);
+            this.btnEncode.Location = new System.Drawing.Point(651, 393);
             this.btnEncode.Name = "btnEncode";
             this.btnEncode.Size = new System.Drawing.Size(107, 23);
             this.btnEncode.TabIndex = 14;
@@ -2044,7 +1803,7 @@
             // btnEncodeOptions
             // 
             this.btnEncodeOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEncodeOptions.Location = new System.Drawing.Point(629, 372);
+            this.btnEncodeOptions.Location = new System.Drawing.Point(629, 393);
             this.btnEncodeOptions.Name = "btnEncodeOptions";
             this.btnEncodeOptions.Size = new System.Drawing.Size(107, 23);
             this.btnEncodeOptions.TabIndex = 17;
@@ -2056,7 +1815,7 @@
             // btnEncodeDecode
             // 
             this.btnEncodeDecode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEncodeDecode.Location = new System.Drawing.Point(3, 401);
+            this.btnEncodeDecode.Location = new System.Drawing.Point(3, 422);
             this.btnEncodeDecode.Name = "btnEncodeDecode";
             this.btnEncodeDecode.Size = new System.Drawing.Size(107, 23);
             this.btnEncodeDecode.TabIndex = 16;
@@ -2073,7 +1832,7 @@
             this.txtEncoderContent.Location = new System.Drawing.Point(640, 83);
             this.txtEncoderContent.Multiline = true;
             this.txtEncoderContent.Name = "txtEncoderContent";
-            this.txtEncoderContent.Size = new System.Drawing.Size(231, 284);
+            this.txtEncoderContent.Size = new System.Drawing.Size(231, 305);
             this.txtEncoderContent.TabIndex = 13;
             // 
             // labEncoderContent
@@ -2114,7 +1873,7 @@
             this.picEncodedBarCode.BackColor = System.Drawing.Color.White;
             this.picEncodedBarCode.Location = new System.Drawing.Point(154, 106);
             this.picEncodedBarCode.Name = "picEncodedBarCode";
-            this.picEncodedBarCode.Size = new System.Drawing.Size(246, 173);
+            this.picEncodedBarCode.Size = new System.Drawing.Size(246, 194);
             this.picEncodedBarCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEncodedBarCode.TabIndex = 9;
             this.picEncodedBarCode.TabStop = false;
@@ -2141,7 +1900,7 @@
             this.tabPageWebCam.Controls.Add(this.picWebCam);
             this.tabPageWebCam.Location = new System.Drawing.Point(4, 22);
             this.tabPageWebCam.Name = "tabPageWebCam";
-            this.tabPageWebCam.Size = new System.Drawing.Size(962, 507);
+            this.tabPageWebCam.Size = new System.Drawing.Size(962, 463);
             this.tabPageWebCam.TabIndex = 2;
             this.tabPageWebCam.Text = "WebCam";
             // 
@@ -2236,7 +1995,7 @@
             this.tabPage2.Controls.Add(this.maskedTextBox7);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(962, 507);
+            this.tabPage2.Size = new System.Drawing.Size(962, 484);
             this.tabPage2.TabIndex = 9;
             this.tabPage2.Text = "Horarios";
             // 
@@ -2362,9 +2121,19 @@
             this.tabPage1.BackColor = System.Drawing.SystemColors.Info;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(962, 507);
+            this.tabPage1.Size = new System.Drawing.Size(962, 463);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "Varios";
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(459, 528);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 23);
+            this.button22.TabIndex = 1;
+            this.button22.Text = "button22";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click_1);
             // 
             // WindowsFormsDemoForm
             // 
@@ -2373,11 +2142,11 @@
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(994, 557);
             this.ControlBox = false;
+            this.Controls.Add(this.button22);
             this.Controls.Add(this.tabCtrlMain);
             this.Controls.Add(this.btnClose);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1010, 595);
             this.MinimumSize = new System.Drawing.Size(1010, 595);
             this.Name = "WindowsFormsDemoForm";
@@ -2392,8 +2161,6 @@
             this.tabPageCargaEmpleados.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.tabPageRegistros.ResumeLayout(false);
             this.tabPageRegistros.PerformLayout();
@@ -2512,25 +2279,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox txt_eg2;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.MaskedTextBox txt_eg1;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.MaskedTextBox txt_horas;
-        private System.Windows.Forms.MaskedTextBox txt_ing2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.MaskedTextBox txt_descanso;
-        private System.Windows.Forms.MaskedTextBox txt_ing1;
-        private System.Windows.Forms.RadioButton rb_corrido;
-        private System.Windows.Forms.RadioButton rb_cortado;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.MaskedTextBox txt_legajo;
         private System.Windows.Forms.MaskedTextBox txt_documento;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TabPage tabPageRegistros;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -2586,7 +2337,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button btn_impemp;
-        private System.Windows.Forms.CheckBox chk_noct;
         private System.Windows.Forms.Label lbl_ht;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button21;
@@ -2609,5 +2359,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox8;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Button button22;
     }
 }

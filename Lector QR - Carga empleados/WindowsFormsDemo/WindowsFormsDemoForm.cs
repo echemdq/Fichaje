@@ -305,13 +305,6 @@ namespace WindowsFormsDemo
             if (bitmap == null)
                 return;
             Decode(bitmap, TryMultipleBarcodes, new List<BarcodeFormat> { BarcodeFormat.QR_CODE });
-            //var reader = new BarcodeReader();
-            //var result = reader.Decode(bitmap);
-            //if (result != null)
-            //{
-            //    txtTypeWebCam.Text = result.BarcodeFormat.ToString();
-            //    txtContentWebCam.Text = result.Text;
-            //}
         }
 
         private void btnEncode_Click(object sender, EventArgs e)
@@ -521,26 +514,12 @@ namespace WindowsFormsDemo
 
         public void limpiar()
         {
-            chk_noct.Checked = false;
             tabPageCargaEmpleados.BackColor = SystemColors.Info;
             txt_documento.Clear();
             txt_domicilio.Clear();
             txt_legajo.Clear();
             txt_nombre.Clear();
-            txt_descanso.Clear();
-            txt_horas.Clear();
-            txt_ing1.Clear();
-            txt_ing2.Clear();
-            txt_eg1.Clear();
-            txt_eg2.Clear();
             pbFotoUser.ImageLocation = "";
-            checkedListBox1.SetItemChecked(0, false);
-            checkedListBox1.SetItemChecked(1, false);
-            checkedListBox1.SetItemChecked(2, false);
-            checkedListBox1.SetItemChecked(3, false);
-            checkedListBox1.SetItemChecked(4, false);
-            checkedListBox1.SetItemChecked(5, false);
-            checkedListBox1.SetItemChecked(6, false);
             cmb_tipoemp.SelectedIndex = 0;
             cmb_tipodoc.SelectedIndex = 0;
             cmb_centrocostos.SelectedIndex = 0;
@@ -554,7 +533,6 @@ namespace WindowsFormsDemo
             button11.Enabled = false;
             button12.Enabled = false;
             chk_empact.Enabled = false;
-            groupBox1.Enabled = false;
             txt_documento.Enabled = false;
             txt_domicilio.Enabled = false;
             txt_legajo.Enabled = false;
@@ -575,7 +553,6 @@ namespace WindowsFormsDemo
             button11.Enabled = true;
             button12.Enabled = true;
             chk_empact.Enabled = true;
-            groupBox1.Enabled = true;
             txt_documento.Enabled = true;
             txt_domicilio.Enabled = true;
             txt_legajo.Enabled = true;
@@ -712,8 +689,6 @@ namespace WindowsFormsDemo
                     deshabilitar();
                 }
             }
-
-
         }
 
         public void Pulsar(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -743,129 +718,14 @@ namespace WindowsFormsDemo
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {
-                int lunes = 0;
-                int martes = 0;
-                int miercoles = 0;
-                int jueves = 0;
-                int viernes = 0;
-                int sabado = 0;
-                int domingo = 0;
-                int i;
-                for (i = 0; i <= (checkedListBox1.Items.Count - 1); i++)
-                {
-                    if (checkedListBox1.GetItemChecked(i))
-                    {
-                        if (checkedListBox1.Items[i].ToString() == "Lunes")
-                        {
-                            lunes = 1;
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Martes")
-                        {
-                            martes = 1;
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Miercoles")
-                        {
-                            miercoles = 1;
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Jueves")
-                        {
-                            jueves = 1;
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Viernes")
-                        {
-                            viernes = 1;
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Sabado")
-                        {
-                            sabado = 1;
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Domingo")
-                        {
-                            domingo = 1;
-                        }
-                    }
-                }
-                
+            {              
                 TipoDoc tipodoc = (TipoDoc)cmb_tipodoc.SelectedItem;
                 TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp.SelectedItem;
                 CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos.SelectedItem;
-                int horario = 0;
-                int descanso = 0;
                 Empleados emp = null;
-                DateTime ing1 = Convert.ToDateTime("00:00");
-                DateTime ing2 = Convert.ToDateTime("00:00");
-                DateTime eg1 = Convert.ToDateTime("00:00");
-                DateTime eg2 = Convert.ToDateTime("00:00");
-                int horasdetrabajo = Convert.ToInt32(txt_horas.Text);
-                if (rb_corrido.Checked)
-                {
-                    horario = 1;
-                    descanso = Convert.ToInt32(txt_descanso.Text);
-                    ing1 = Convert.ToDateTime(txt_ing1.Text);
-                    eg1 = Convert.ToDateTime(txt_eg1.Text);
-                    ing2 = Convert.ToDateTime(txt_ing2.Text);
-                    eg2 = Convert.ToDateTime(txt_eg2.Text);
-                    if (chk_empact.Checked)
-                    {
-                        int act = 1;
-                        if (chk_noct.Checked)
-                        {
-                            int noct = 1;
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, descanso, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 1, noct);
-                        }
-                        else
-                        {
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, descanso, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 1, 0);
-                        }
-                    }
-                    else
-                    {
-                        int act = 0;
-                        if (chk_noct.Checked)
-                        {
-                            int noct = 1;
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, descanso, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 0, noct);
-                        }
-                        else
-                        {
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, descanso, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 0, 0);
-                        }
-                    }
-                }
-                else
-                {
-                    horario = 2;
-                    descanso = 0;
-                    ing1 = Convert.ToDateTime(txt_ing1.Text);
-                    eg1 = Convert.ToDateTime(txt_eg1.Text);
-                    ing2 = Convert.ToDateTime(txt_ing2.Text);
-                    eg2 = Convert.ToDateTime(txt_eg2.Text);
-                    if (chk_empact.Checked)
-                    {
-                        if (chk_noct.Checked)
-                        {
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 1, 1);
+                emp = new Empleados(0,Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, 1);
 
-                        }
-                        else
-                        {
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 1, 0);
-                        }
-                    }
-                    else
-                    {
-                        if (chk_noct.Checked)
-                        {
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 0, 1);
-                        }
-                        else
-                        {
-                            emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, horario, lbl_foto.Text, tipodoc, tipoemp, cent, horasdetrabajo, ing1, eg1, ing2, eg2, lunes, martes, miercoles, jueves, viernes, sabado, domingo, 0, 0);
-                        }
-                    }
-                }              
-                                
+                               
                 if (edit == false)
                 {                    
                     controlemp.Agregar(emp);
@@ -914,40 +774,6 @@ namespace WindowsFormsDemo
                     cmb_centrocostos.Text = u.Centro.Detalle;
                     cmb_tipodoc.Text = u.Tipod.Detalle;
                     cmb_tipoemp.Text = u.Tipoe.Detalle;
-                    if (u.Horario == 1)
-                    {
-                        rb_corrido.Checked = true;
-                        txt_descanso.Text = u.Descanso.ToString();
-                        txt_ing1.Text = u.Ing1.TimeOfDay.ToString();
-                        txt_eg1.Text = u.Eg1.TimeOfDay.ToString();
-                        txt_ing2.Text = u.Ing2.TimeOfDay.ToString();
-                        txt_eg2.Text = u.Eg2.TimeOfDay.ToString();
-                        
-                    }
-                    else
-                    {
-                        rb_cortado.Checked = true;
-                        txt_ing1.Text = u.Ing1.TimeOfDay.ToString();
-                        txt_eg1.Text = u.Eg1.TimeOfDay.ToString();
-                        txt_ing2.Text = u.Ing2.TimeOfDay.ToString();
-                        txt_eg2.Text = u.Eg2.TimeOfDay.ToString();
-                    }
-                    txt_horas.Text = u.Horastrabajo.ToString();
-                    checkedListBox1.SetItemChecked(0, false);
-                    checkedListBox1.SetItemChecked(1, false);
-                    checkedListBox1.SetItemChecked(2, false);
-                    checkedListBox1.SetItemChecked(3, false);
-                    checkedListBox1.SetItemChecked(4, false);
-                    checkedListBox1.SetItemChecked(5, false);
-                    checkedListBox1.SetItemChecked(6, false);
-                    if (u.Nocturno == 1)
-                    {
-                        chk_noct.Checked = true;
-                    }
-                    else
-                    {
-                        chk_noct.Checked = false;
-                    }
                     if (u.Activo == 0)
                     {
                         chk_empact.Checked = false;
@@ -959,40 +785,6 @@ namespace WindowsFormsDemo
                         tabPageCargaEmpleados.BackColor = SystemColors.Info;
                     }
 
-                    if (u.Lunes == 1)
-                    {
-                        checkedListBox1.SetItemChecked(0, true);
-                    }
-
-                    if (u.Martes == 1)
-                    {
-                        checkedListBox1.SetItemChecked(1, true);
-                    }
-
-                    if (u.Miercoles == 1)
-                    {
-                        checkedListBox1.SetItemChecked(2, true);
-                    }
-
-                    if (u.Jueves == 1)
-                    {
-                        checkedListBox1.SetItemChecked(3, true);
-                    }
-
-                    if (u.Viernes == 1)
-                    {
-                        checkedListBox1.SetItemChecked(4, true);
-                    }
-
-                    if (u.Sabado == 1)
-                    {
-                        checkedListBox1.SetItemChecked(5, true);
-                    }
-
-                    if (u.Domingo == 1)
-                    {
-                        checkedListBox1.SetItemChecked(6, true);
-                    }
                     pbFotoUser.ImageLocation = u.Foto;
                     lbl_foto.Text = u.Foto;
                 }
@@ -1028,7 +820,7 @@ namespace WindowsFormsDemo
                         TipoDoc tipodoc = (TipoDoc)cmb_tipodoc.SelectedItem;
                         TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp.SelectedItem;
                         CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos.SelectedItem;
-                        Empleados emp = new Empleados(Convert.ToInt32(lbl_idemp.Text), Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, 0, "", tipodoc, tipoemp, cent, 0, 0, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, 0,0,0,0,0,0,0,1,1);
+                        Empleados emp = new Empleados(Convert.ToInt32(lbl_idemp.Text), Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, 1);
                         controlemp.Borrar(emp);
                         MessageBox.Show("Empleado Borrado Correctamente");
                     }
@@ -1330,39 +1122,7 @@ namespace WindowsFormsDemo
             pbFotoUser.ImageLocation = null;
         }
 
-        private void rb_corrido_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb_corrido.Checked)
-            {
-                txt_descanso.Visible = true;
-                label18.Visible = true;
-                txt_ing1.Visible = true;
-                txt_ing2.Visible = true;
-                txt_eg1.Visible = true;
-                txt_eg2.Visible = true;
-                label21.Text = "Salida Descanso";
-                label23.Text = "Regreso Descanso";
-                label20.Visible = true;
-                label21.Visible = true;
-                label22.Visible = true;
-                label23.Visible = true;
-            }
-            else
-            {
-                txt_descanso.Visible = false;
-                txt_ing1.Visible = true;
-                txt_ing2.Visible = true;
-                txt_eg1.Visible = true;
-                txt_eg2.Visible = true;
-                label21.Text = "Ingreso 2";
-                label23.Text = "Egreso 2";
-                label20.Visible = true;
-                label21.Visible = true;
-                label22.Visible = true;
-                label23.Visible = true;
-                label18.Visible = false;
-            }
-        }
+        
 
         private void button13_Click(object sender, EventArgs e)
         {
@@ -1669,7 +1429,7 @@ namespace WindowsFormsDemo
                         if (txt_novedad.Text != "")
                         {
                             TipoDeNovedades tiponov = (TipoDeNovedades)cmb_tiponov1.SelectedItem;
-                            Empleados em = new Empleados(0, 0, 0, "a", "a", 0, "a", null, null, null, 1, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+                            Empleados em = new Empleados(0, 0, 0, "", "", "", null, null, null, 1);
                             Novedades nov = null;
                             if (tiponov == null)
                             {
@@ -2398,6 +2158,11 @@ namespace WindowsFormsDemo
         private void tabPageNovedades_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button22_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

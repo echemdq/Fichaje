@@ -49,6 +49,7 @@ namespace WindowsFormsDemo
         private Type Renderer { get; set; }
         private bool TryMultipleBarcodes { get; set; }
         private bool TryOnlyMultipleQRCodes { get; set; }
+        ControladoraDiasLaborales controldia = new ControladoraDiasLaborales();
         ControladoraCentros controlcent = new ControladoraCentros();
         ControladoraTipoDoc controltipodoc = new ControladoraTipoDoc();
         ControladoraTipoEmp controltipoemp = new ControladoraTipoEmp();
@@ -58,6 +59,7 @@ namespace WindowsFormsDemo
         ControladoraRegistros controlreg = new ControladoraRegistros();
         ControladoraNovedades controlnov = new ControladoraNovedades();
         Empleados empnov = null;
+        Empleados emphora = null;
         List<Feriados> listaferiados = new List<Feriados>();
         bool edit = false;
         
@@ -2172,6 +2174,17 @@ namespace WindowsFormsDemo
         private void button22_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            Buscar_Empleado frm = new Buscar_Empleado();
+            frm.ShowDialog();
+            emphora = frm.u;
+            if (emphora != null)
+            {
+                dataGridView4.DataSource = controldia.BuscarEspecial(Convert.ToString(emphora.Idempleados));
+            }
         }
 
 

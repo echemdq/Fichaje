@@ -193,6 +193,10 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button22 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button24 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -285,7 +289,7 @@
             this.tabPageUsuarios.Controls.Add(this.label11);
             this.tabPageUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuarios.Name = "tabPageUsuarios";
-            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 462);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 484);
             this.tabPageUsuarios.TabIndex = 4;
             this.tabPageUsuarios.Text = "Usuarios";
             // 
@@ -1982,6 +1986,10 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.button24);
             this.tabPage2.Controls.Add(this.maskedTextBox9);
             this.tabPage2.Controls.Add(this.maskedTextBox8);
             this.tabPage2.Controls.Add(this.label46);
@@ -2002,7 +2010,7 @@
             // maskedTextBox9
             // 
             this.maskedTextBox9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox9.Location = new System.Drawing.Point(255, 327);
+            this.maskedTextBox9.Location = new System.Drawing.Point(255, 395);
             this.maskedTextBox9.Mask = "00/00/0000";
             this.maskedTextBox9.Name = "maskedTextBox9";
             this.maskedTextBox9.Size = new System.Drawing.Size(97, 22);
@@ -2013,7 +2021,7 @@
             // maskedTextBox8
             // 
             this.maskedTextBox8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox8.Location = new System.Drawing.Point(255, 299);
+            this.maskedTextBox8.Location = new System.Drawing.Point(255, 367);
             this.maskedTextBox8.Mask = "00/00/0000";
             this.maskedTextBox8.Name = "maskedTextBox8";
             this.maskedTextBox8.Size = new System.Drawing.Size(97, 22);
@@ -2025,7 +2033,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(3, 327);
+            this.label46.Location = new System.Drawing.Point(3, 395);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(146, 16);
             this.label46.TabIndex = 79;
@@ -2035,7 +2043,7 @@
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(3, 299);
+            this.label45.Location = new System.Drawing.Point(3, 367);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(48, 16);
             this.label45.TabIndex = 78;
@@ -2048,17 +2056,17 @@
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView4.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView4.Location = new System.Drawing.Point(6, 72);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(956, 165);
+            this.dataGridView4.Size = new System.Drawing.Size(956, 208);
             this.dataGridView4.TabIndex = 77;
             // 
             // label44
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(3, 241);
+            this.label44.Location = new System.Drawing.Point(3, 309);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(54, 16);
             this.label44.TabIndex = 76;
@@ -2078,7 +2086,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(3, 269);
+            this.label43.Location = new System.Drawing.Point(3, 337);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(230, 16);
             this.label43.TabIndex = 73;
@@ -2090,14 +2098,14 @@
             this.cmb_horarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_horarios.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_horarios.FormattingEnabled = true;
-            this.cmb_horarios.Location = new System.Drawing.Point(255, 241);
+            this.cmb_horarios.Location = new System.Drawing.Point(255, 309);
             this.cmb_horarios.Name = "cmb_horarios";
             this.cmb_horarios.Size = new System.Drawing.Size(380, 21);
             this.cmb_horarios.TabIndex = 75;
             // 
             // TSemana
             // 
-            this.TSemana.Location = new System.Drawing.Point(255, 269);
+            this.TSemana.Location = new System.Drawing.Point(255, 337);
             this.TSemana.Name = "TSemana";
             this.TSemana.Size = new System.Drawing.Size(27, 20);
             this.TSemana.TabIndex = 72;
@@ -2105,7 +2113,7 @@
             // maskedTextBox7
             // 
             this.maskedTextBox7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox7.Location = new System.Drawing.Point(288, 270);
+            this.maskedTextBox7.Location = new System.Drawing.Point(288, 338);
             this.maskedTextBox7.Mask = "00/00/0000";
             this.maskedTextBox7.Name = "maskedTextBox7";
             this.maskedTextBox7.Size = new System.Drawing.Size(97, 22);
@@ -2134,6 +2142,51 @@
             this.button22.Text = "button22";
             this.button22.UseVisualStyleBackColor = true;
             this.button22.Click += new System.EventHandler(this.button22_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(102, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(620, 21);
+            this.textBox1.TabIndex = 84;
+            this.textBox1.Text = "Buscar Horarios Empleado para Eliminar";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(9, 19);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 16);
+            this.label18.TabIndex = 83;
+            this.label18.Text = "Empleado";
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.SystemColors.Info;
+            this.button24.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button24.Location = new System.Drawing.Point(742, 7);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(67, 59);
+            this.button24.TabIndex = 82;
+            this.toolTip1.SetToolTip(this.button24, "Buscar");
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(345, 283);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(308, 13);
+            this.label19.TabIndex = 85;
+            this.label19.Text = "Hacer Doble Click sobre la fila que se desea Eliminar";
             // 
             // WindowsFormsDemoForm
             // 
@@ -2361,5 +2414,9 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Label label19;
     }
 }

@@ -8,6 +8,7 @@ namespace WindowsFormsDemo
 {
     public class ControladoraDiasLaborales : IDAO<DiasLaborales>
     {
+        BdDiasLaborales bd = new BdDiasLaborales();
         public void Agregar(DiasLaborales dato)
         {
             throw new NotImplementedException();
@@ -30,7 +31,7 @@ namespace WindowsFormsDemo
 
         public List<DiasLaborales> BuscarEspecial(string dato)
         {
-            throw new NotImplementedException();
+            return bd.BuscarEspecial(dato);
         }
 
         public void Modificar(DiasLaborales dato)

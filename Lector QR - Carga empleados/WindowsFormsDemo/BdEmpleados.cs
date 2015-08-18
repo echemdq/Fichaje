@@ -29,7 +29,22 @@ namespace WindowsFormsDemo
 
         public Empleados Buscar(string dato)
         {
-            throw new NotImplementedException();
+            string cmdtext = "select activo, foto, idempleados, legajo, documento, nombre, domicilio, td.idtipodoc, td.detalle as detalledoc, te.idtipodeempleados, te.detalle as detalleemp, c.idcentrodecostos, c.detalle as detallecen from empleados e inner join tipodoc td on e.idtipodoc = td.idtipodoc inner join tipodeempleados te on e.idtipodeempleados = te.idtipodeempleados inner join centrodecostos c on e.idcentrodecostos = c.idcentrodecostos where idempleados = '" + dato + "' order by nombre";
+            DataTable dt = oacceso.leerDatos(cmdtext);
+            Empleados usuario = null;
+            CentroDeCostos centro = null;
+            TipoDeEmpleados tipoe = null;
+            TipoDoc tipod = null;
+            foreach (DataRow dr in dt.Rows)
+            {
+                centro = new CentroDeCostos(Convert.ToInt32(dr["idcentrodecostos"]), Convert.ToString(dr["detallecen"]));
+                tipoe = new TipoDeEmpleados(Convert.ToInt32(dr["idtipodeempleados"]), Convert.ToString(dr["detalleemp"]));
+                tipod = new TipoDoc(Convert.ToInt32(dr["idtipodoc"]), Convert.ToString(dr["detalledoc"]));
+                int activo = Convert.ToInt32(dr["activo"]);
+                usuario = new Empleados(Convert.ToInt32(dr["idempleados"]), Convert.ToInt32(dr["legajo"]), Convert.ToInt32(dr["documento"]), Convert.ToString(dr["nombre"]), Convert.ToString(dr["domicilio"]), Convert.ToString(dr["foto"]), tipod, tipoe, centro, activo);
+                
+            }
+            return usuario;
         }
 
         public List<Empleados> BuscarEspecial(string dato)

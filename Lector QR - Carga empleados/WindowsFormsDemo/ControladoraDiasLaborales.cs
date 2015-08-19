@@ -11,7 +11,7 @@ namespace WindowsFormsDemo
         BdDiasLaborales bd = new BdDiasLaborales();
         public void Agregar(DiasLaborales dato)
         {
-            throw new NotImplementedException();
+            bd.Agregar(dato);
         }
 
         public List<DiasLaborales> TraerTodos()
@@ -21,7 +21,7 @@ namespace WindowsFormsDemo
 
         public void Borrar(DiasLaborales dato)
         {
-            throw new NotImplementedException();
+            bd.Borrar(dato);
         }
 
         public DiasLaborales Buscar(string dato)

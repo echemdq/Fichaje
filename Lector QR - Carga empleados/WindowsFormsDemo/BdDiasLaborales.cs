@@ -12,8 +12,17 @@ namespace WindowsFormsDemo
         Acceso_BD oacceso = new Acceso_BD();
         public void Agregar(DiasLaborales dato)
         {
-            string cmdtext = "INSERT INTO horariosempleado(idhorarios, idempleados, desde, hasta, semana) VALUES ('" + dato.Horario.Idhorarios + "', '" + dato.Empleado.Idempleados + "', '" + dato.Desde + "', '" + dato.Hasta + "', '" + dato.Semana + "')";
-            oacceso.ActualizarBD(cmdtext);
+            string hasta = dato.Hasta.ToShortDateString();
+            if (hasta == "01/01/0001")
+            {
+                string cmdtext = "INSERT INTO horariosempleados(idhorarios, idempleados, desde, semana) VALUES ('" + dato.Horario.Idhorarios + "', '" + dato.Empleado.Idempleados + "', '" + dato.Desde.ToString("yyyy/MM/dd") + "', '" + dato.Semana + "')";
+                oacceso.ActualizarBD(cmdtext);
+            }
+            else
+            {
+                string cmdtext = "INSERT INTO horariosempleados(idhorarios, idempleados, desde, hasta, semana) VALUES ('" + dato.Horario.Idhorarios + "', '" + dato.Empleado.Idempleados + "', '" + dato.Desde.ToString("yyyy/MM/dd") + "', '" + dato.Hasta.ToString("yyyy/MM/dd") + "', '" + dato.Semana + "')";
+                oacceso.ActualizarBD(cmdtext);
+            }
         }
 
         public List<DiasLaborales> TraerTodos()

@@ -65,5 +65,13 @@ namespace WindowsFormsDemo
             desde = d;
             hasta = ha;
         }
+        public DiasLaborales(int i, Horarios h, Empleados e, string s, DateTime d)
+        {
+            id = i;
+            horario = h;
+            empleado = e;
+            semana = s;
+            desde = d;
+        }
     }
 }

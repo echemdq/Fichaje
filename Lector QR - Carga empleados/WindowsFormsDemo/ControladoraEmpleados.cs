@@ -25,7 +25,7 @@ namespace WindowsFormsDemo
 
         public Empleados Buscar(string dato)
         {
-            throw new NotImplementedException();
+            return bdemp.Buscar(dato);
         }
 
         public List<Empleados> BuscarEspecial(string dato)

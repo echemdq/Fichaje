@@ -59,10 +59,10 @@ namespace WindowsFormsDemo
         ControladoraRegistros controlreg = new ControladoraRegistros();
         ControladoraNovedades controlnov = new ControladoraNovedades();
         Empleados empnov = null;
-        Empleados emphora = null;
+        
         List<Feriados> listaferiados = new List<Feriados>();
         bool edit = false;
-        
+
         public WindowsFormsDemoForm()
         {
             InitializeComponent();
@@ -90,7 +90,7 @@ namespace WindowsFormsDemo
                 txtContent.Text += result.Text + Environment.NewLine;
                 txtTypeWebCam.Text = result.BarcodeFormat.ToString();
                 txtContentWebCam.Text += result.Text + Environment.NewLine;
-                lastResults.Add(result);                
+                lastResults.Add(result);
                 var parsedResult = ResultParser.parseResult(result);
                 if (parsedResult != null)
                 {
@@ -108,7 +108,7 @@ namespace WindowsFormsDemo
         }
 
 
-        
+
 
         protected override void OnLoad(EventArgs e)
         {
@@ -203,7 +203,7 @@ namespace WindowsFormsDemo
                         Decode(bitmap, TryMultipleBarcodes, null);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -293,7 +293,7 @@ namespace WindowsFormsDemo
             }
             else
             {
-                
+
                 webCamTimer.Stop();
                 webCamTimer = null;
                 wCam.Dispose();
@@ -314,7 +314,7 @@ namespace WindowsFormsDemo
             try
             {
                 if (lbl_idemp.Text != "")
-                {                    
+                {
                     var writer = new BarcodeWriter
                     {
                         Format = (BarcodeFormat)cmbEncoderType.SelectedItem,
@@ -324,9 +324,9 @@ namespace WindowsFormsDemo
                             Width = picEncodedBarCode.Width
                         },
                         Renderer = (IBarcodeRenderer<Bitmap>)Activator.CreateInstance(Renderer)
-                        
+
                     };
-                    picEncodedBarCode.Image = writer.Write(txt_documento.Text);                    
+                    picEncodedBarCode.Image = writer.Write(txt_documento.Text);
                     txtEncoderContent.Text = "Documento   " + txt_documento.Text + "\r\n" + "Nombre y Apellido   " + txt_nombre.Text;
                 }
                 else
@@ -349,7 +349,7 @@ namespace WindowsFormsDemo
                     var fileName = String.Empty;
                     using (var dlg = new SaveFileDialog())
                     {
-                        dlg.FileName = txt_nombre.Text + " " + txt_documento.Text;                        
+                        dlg.FileName = txt_nombre.Text + " " + txt_documento.Text;
                         dlg.DefaultExt = "png";
                         dlg.Filter = "PNG Files (*.png)|*.png|SVG Files (*.svg)|*.svg|BMP Files (*.bmp)|*.bmp|TIFF Files (*.tif)|*.tif|JPG Files (*.jpg)|*.jpg|All Files (*.*)|*.*";
                         if (dlg.ShowDialog(this) != DialogResult.OK)
@@ -601,9 +601,9 @@ namespace WindowsFormsDemo
                 lbl_idemp.Text = "";
                 lbl_foto.Text = "";
                 try
-                {                              
+                {
                     listaferiados = controlfer.TraerTodos();
-                    foreach(Feriados aux in listaferiados)
+                    foreach (Feriados aux in listaferiados)
                     {
                         monthCalendar1.AddBoldedDate(aux.Fecha);
                     }
@@ -662,7 +662,7 @@ namespace WindowsFormsDemo
                     dataGridView3.Columns[0].Visible = false;
                     m = m - 1;
 
-                    
+
                     int primera = ano - 2;
                     cmb_anos.Items.Clear();
                     for (int i = 0; i < 5; i++)
@@ -694,7 +694,7 @@ namespace WindowsFormsDemo
         }
 
         public void Pulsar(object sender, System.Windows.Forms.KeyEventArgs e)
-        {            
+        {
             if (e.Alt && e.KeyCode == Keys.E)
             {
                 MessageBox.Show("hola");
@@ -728,20 +728,23 @@ namespace WindowsFormsDemo
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {              
+            {
                 TipoDoc tipodoc = (TipoDoc)cmb_tipodoc.SelectedItem;
                 TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp.SelectedItem;
                 CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos.SelectedItem;
                 Empleados emp = null;
-                emp = new Empleados(0,Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, 1);
+                emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, 1);
 
-                               
+
                 if (edit == false)
-                {                    
+                {
                     controlemp.Agregar(emp);
                     MessageBox.Show("Empleado Cargado Correctamente");
                     edit = false;
                     lbl_idemp.Text = "";
+                    txt_empleadohorario.Text = "Buscar Horarios Empleado para Eliminar";
+                    dataGridView4.Rows.Clear();
+                    dataGridView4.Refresh();
                     lbl_foto.Text = "";
                     deshabilitar();
                     limpiar();
@@ -753,6 +756,9 @@ namespace WindowsFormsDemo
                     MessageBox.Show("Empleado Modificado Correctamente");
                     edit = false;
                     lbl_idemp.Text = "";
+                    txt_empleadohorario.Text = "Buscar Horarios Empleado para Eliminar";
+                    dataGridView4.Rows.Clear();
+                    dataGridView4.Refresh();
                     lbl_foto.Text = "";
                     deshabilitar();
                     limpiar();
@@ -766,7 +772,7 @@ namespace WindowsFormsDemo
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {            
+        {
             try
             {
                 deshabilitar();
@@ -775,8 +781,9 @@ namespace WindowsFormsDemo
                 frm.ShowDialog();
                 Empleados u = frm.u;
                 if (u != null)
-                {                   
+                {
                     lbl_idemp.Text = Convert.ToString(u.Idempleados);
+                    txt_empleadohorario.Text = u.Nombre;
                     txt_documento.Text = u.Documento.ToString();
                     txt_domicilio.Text = u.Domicilio;
                     txt_legajo.Text = u.Legajo.ToString();
@@ -821,7 +828,7 @@ namespace WindowsFormsDemo
         private void button4_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 if (lbl_idemp.Text != "")
                 {
                     DialogResult dialogResult = MessageBox.Show("Esta seguro de eliminar al Empleado: " + txt_nombre.Text, "Eliminar Empleado", MessageBoxButtons.YesNo);
@@ -833,6 +840,10 @@ namespace WindowsFormsDemo
                         Empleados emp = new Empleados(Convert.ToInt32(lbl_idemp.Text), Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, 1);
                         controlemp.Borrar(emp);
                         MessageBox.Show("Empleado Borrado Correctamente");
+                        txt_empleadohorario.Text = "Buscar Horarios Empleado para Eliminar";
+                        lbl_idemp.Text = "";
+                        dataGridView4.Rows.Clear();
+                        dataGridView4.Refresh();
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -858,7 +869,11 @@ namespace WindowsFormsDemo
 
         private void button6_Click(object sender, EventArgs e)
         {
-            limpiar();            
+            lbl_idemp.Text = "";
+            txt_empleadohorario.Text = "Buscar Horarios Empleado para Eliminar";
+            dataGridView4.Rows.Clear();
+            dataGridView4.Refresh();
+            limpiar();
             deshabilitar();
         }
 
@@ -899,7 +914,7 @@ namespace WindowsFormsDemo
                         controlusu.Modificar(usuario);
                         MessageBox.Show("Contraseña modificada correctamente");
                         txt_contrasena.Text = "";
-                        
+
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -1002,14 +1017,14 @@ namespace WindowsFormsDemo
                     TerminarFuenteDeVideo();
                 }
                 if (pbFotoUser.Image != null)
-                {                    
+                {
                     using (var dlg = new SaveFileDialog())
                     {
                         dlg.FileName = txt_nombre.Text + " " + txt_documento.Text;
-                        
-                            Acceso_BD oacceso = new Acceso_BD();
-                            DataTable dt = oacceso.leerDatos("select detalle from configuraciones where codigo = 'fotos'");
-                        
+
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt = oacceso.leerDatos("select detalle from configuraciones where codigo = 'fotos'");
+
                         foreach (DataRow dr in dt.Rows)
                         {
                             dlg.InitialDirectory = Convert.ToString(dr["detalle"]);
@@ -1071,17 +1086,17 @@ namespace WindowsFormsDemo
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            
+
             if (ExistenDispositivos)
             {
-                FuenteDeVideo = new VideoCaptureDevice(DispositivosDeVideo[cboDispositivos.SelectedIndex].MonikerString);                
+                FuenteDeVideo = new VideoCaptureDevice(DispositivosDeVideo[cboDispositivos.SelectedIndex].MonikerString);
                 FuenteDeVideo.NewFrame += new NewFrameEventHandler(video_NuevoFrame);
                 FuenteDeVideo.Start();
                 cboDispositivos.Enabled = false;
-                
+
                 //gbMenu.Text = DispositivosDeVideo[cboDispositivos.SelectedIndex].Name.ToString();
-                
-                
+
+
             }
             else
                 MessageBox.Show("Error: No se encuentra dispositivo.");
@@ -1132,7 +1147,7 @@ namespace WindowsFormsDemo
             pbFotoUser.ImageLocation = null;
         }
 
-        
+
 
         private void button13_Click(object sender, EventArgs e)
         {
@@ -1167,32 +1182,32 @@ namespace WindowsFormsDemo
                     }
                     else
                     {
-                        dataGridView2.DataSource = oacceso.leerDatos("call sp_registro(" + txt_doc1.Text + ", " + mes + "," + txt_ano.Text+")");
+                        dataGridView2.DataSource = oacceso.leerDatos("call sp_registro(" + txt_doc1.Text + ", " + mes + "," + txt_ano.Text + ")");
                     }
                     txt_empleado1.Text = dataGridView2[0, 0].Value.ToString();
                     dataGridView2.Columns[0].Visible = false;
                     dataGridView2.Columns[4].Visible = false;
                     dataGridView2.Columns[5].Visible = false;
-                    TimeSpan ht = new TimeSpan(0,0,0); 
-                    foreach(DataGridViewRow row in dataGridView2.Rows)
+                    TimeSpan ht = new TimeSpan(0, 0, 0);
+                    foreach (DataGridViewRow row in dataGridView2.Rows)
                     {
                         string x = Convert.ToString(row.Cells["ht"].Value);
                         if (x != "")
                         {
                             string o = x;
                             string h = x.Remove(2, 6);
-                            x = x.Remove(0,3);
+                            x = x.Remove(0, 3);
                             string m = x.Remove(2, 3);
                             x = x.Remove(0, 3);
                             string s = x;
-                            TimeSpan mas = new TimeSpan(Convert.ToInt32(h),Convert.ToInt32(m),Convert.ToInt32(s));
+                            TimeSpan mas = new TimeSpan(Convert.ToInt32(h), Convert.ToInt32(m), Convert.ToInt32(s));
                             ht = ht.Add(mas);
-                            
-                        }                                          
+
+                        }
                     }
                     int hora = ht.Days * 24 + ht.Hours;
 
-                    lbl_ht.Text = "Total Horas Trabajadas: " + hora.ToString() + "h:" + ht.Minutes.ToString()+"m:"+ht.Seconds.ToString()+"s";
+                    lbl_ht.Text = "Total Horas Trabajadas: " + hora.ToString() + "h:" + ht.Minutes.ToString() + "m:" + ht.Seconds.ToString() + "s";
                     //MessageBox.Show(ht);
                 }
             }
@@ -1204,9 +1219,9 @@ namespace WindowsFormsDemo
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                int filaseleccionada = Convert.ToInt32(this.dataGridView1.CurrentRow.Index);
-                string foto = dataGridView1[4, filaseleccionada].Value.ToString();
-                pictureBox3.ImageLocation = foto;
+            int filaseleccionada = Convert.ToInt32(this.dataGridView1.CurrentRow.Index);
+            string foto = dataGridView1[4, filaseleccionada].Value.ToString();
+            pictureBox3.ImageLocation = foto;
         }
 
         private void tabPageRegistros_Click(object sender, EventArgs e)
@@ -1259,7 +1274,7 @@ namespace WindowsFormsDemo
                     }
                 }
                 if (i > 0)
-                {                    
+                {
                     string foto = dataGridView1[4, 0].Value.ToString();
                     pictureBox3.ImageLocation = foto;
                 }
@@ -1270,7 +1285,7 @@ namespace WindowsFormsDemo
                 }
                 dataGridView1.Columns[0].Visible = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -1293,7 +1308,7 @@ namespace WindowsFormsDemo
                 {
                     Document document = new Document();
                     DateTime fecha = DateTime.Now;
-                    string fe = "Registros " + comboBox1.Text + " " + txt_empleado1.Text +".pdf";
+                    string fe = "Registros " + comboBox1.Text + " " + txt_empleado1.Text + ".pdf";
                     Acceso_BD oacceso = new Acceso_BD();
                     DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
                     string root = "";
@@ -1308,7 +1323,7 @@ namespace WindowsFormsDemo
                     {
                         root = Environment.CurrentDirectory;
                     }
-                    
+
 
 
                     PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
@@ -1325,7 +1340,7 @@ namespace WindowsFormsDemo
                     document.Add(new Paragraph("                   "));
                     chunk = new Chunk("Registro fichaje                                                ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
                     document.Add(new Paragraph(chunk));
-                    chunk = new Chunk("Nombre: "+txt_empleado1.Text+"", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                    chunk = new Chunk("Nombre: " + txt_empleado1.Text + "", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
                     document.Add(new Paragraph(chunk));
                     chunk = new Chunk("DNI: " + txt_doc1.Text + "", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
                     document.Add(new Paragraph(chunk));
@@ -1342,7 +1357,7 @@ namespace WindowsFormsDemo
                     }
                     else
                     {
-                        dt = oacceso.leerDatos("call sp_registro(" + txt_doc1.Text + ", " + mes + "," + txt_ano.Text+")");
+                        dt = oacceso.leerDatos("call sp_registro(" + txt_doc1.Text + ", " + mes + "," + txt_ano.Text + ")");
                     }
                     PdfPTable table = new PdfPTable(3);
                     iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
@@ -1354,9 +1369,9 @@ namespace WindowsFormsDemo
                     table.AddCell(new PdfPCell(new Phrase("Dia", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Registros", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Novedades", fontH1)));
-                    table.WidthPercentage = 100;              
+                    table.WidthPercentage = 100;
                     float[] widths = new float[] { 1.5f, 2.8f, 2.2f };
-                    table.SetWidths(widths);                    
+                    table.SetWidths(widths);
                     foreach (DataRow dr in dt.Rows)
                     {
                         if (oacceso.Tipo == "sql")
@@ -1397,7 +1412,7 @@ namespace WindowsFormsDemo
                 {
                     cmb_tiponov1.DisplayMember = "detalle";
                     cmb_tiponov1.ValueMember = "idtiposdenovedades";
-                    cmb_tiponov1.Items.Add(aux);                    
+                    cmb_tiponov1.Items.Add(aux);
                     x++;
                 }
             }
@@ -1443,7 +1458,7 @@ namespace WindowsFormsDemo
                             Novedades nov = null;
                             if (tiponov == null)
                             {
-                               nov  = new Novedades(0, em, txt_desdenov.Text, txt_hastanov.Text, 0, txt_novedad.Text);
+                                nov = new Novedades(0, em, txt_desdenov.Text, txt_hastanov.Text, 0, txt_novedad.Text);
                             }
                             else
                             {
@@ -1494,8 +1509,8 @@ namespace WindowsFormsDemo
                             MessageBox.Show("Debe completar los campos empleado y novedad");
                         }
                     }
-                }            
-                
+                }
+
             }
             catch (Exception ex)
             {
@@ -1524,7 +1539,7 @@ namespace WindowsFormsDemo
                 {
                     Document document = new Document();
                     DateTime fecha = DateTime.Now;
-                    string fe = "RegistrosGral "+ DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")+".pdf";
+                    string fe = "RegistrosGral " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
                     Acceso_BD oacceso = new Acceso_BD();
                     DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
                     string root = "";
@@ -1576,7 +1591,7 @@ namespace WindowsFormsDemo
                     PdfPCell cell = new PdfPCell(new Phrase("Registro Fichaje"));
                     cell.Colspan = 3;
                     cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
-                    table.AddCell(cell);                    
+                    table.AddCell(cell);
                     table.AddCell(new PdfPCell(new Phrase("Dia", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Registros", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Novedades", fontH1)));
@@ -1585,7 +1600,7 @@ namespace WindowsFormsDemo
                     table.SetWidths(widths);
                     string pepe = "";
                     TimeSpan ht = new TimeSpan(0, 0, 0);
-                    TimeSpan cero = new TimeSpan(0, 0, 0); 
+                    TimeSpan cero = new TimeSpan(0, 0, 0);
                     foreach (DataRow dr in dt.Rows)
                     {
                         string x = "";
@@ -1610,9 +1625,9 @@ namespace WindowsFormsDemo
                                 table.AddCell(new PdfPCell(new Phrase("Dia", fontH1)));
                                 table.AddCell(new PdfPCell(new Phrase("Registros", fontH1)));
                                 table.AddCell(new PdfPCell(new Phrase("Novedades", fontH1)));
-                            }                            
-                            pepe = Convert.ToString(dr["Empleado"]);                            
-                            PdfPCell cell1 = new PdfPCell(new Phrase(pepe));                            
+                            }
+                            pepe = Convert.ToString(dr["Empleado"]);
+                            PdfPCell cell1 = new PdfPCell(new Phrase(pepe));
                             cell1.Colspan = 3;
                             cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
                             table.AddCell(cell1);
@@ -1626,22 +1641,22 @@ namespace WindowsFormsDemo
                             }
                             table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Registro"]), fontH2)));
                             table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Novedades"]), fontH2)));
-                            
+
 
                             x = Convert.ToString(dr["ht"]);
-                                if (x != "")
-                                {
-                                    string o = x;
-                                    string h = x.Remove(2, 6);
-                                    x = x.Remove(0, 3);
-                                    string m = x.Remove(2, 3);
-                                    x = x.Remove(0, 3);
-                                    string s = x;
-                                    TimeSpan mas = new TimeSpan(Convert.ToInt32(h), Convert.ToInt32(m), Convert.ToInt32(s));
-                                    ht = ht.Add(mas);
-                                }
-                            
-                            
+                            if (x != "")
+                            {
+                                string o = x;
+                                string h = x.Remove(2, 6);
+                                x = x.Remove(0, 3);
+                                string m = x.Remove(2, 3);
+                                x = x.Remove(0, 3);
+                                string s = x;
+                                TimeSpan mas = new TimeSpan(Convert.ToInt32(h), Convert.ToInt32(m), Convert.ToInt32(s));
+                                ht = ht.Add(mas);
+                            }
+
+
                         }
                         else
                         {
@@ -1668,7 +1683,7 @@ namespace WindowsFormsDemo
                                 ht = ht.Add(mas);
                             }
                         }
-                        
+
 
                     }
                     if (pepe != "")
@@ -1729,12 +1744,12 @@ namespace WindowsFormsDemo
                 string novedad = dataGridView3[4, filaseleccionada].Value.ToString();
                 DialogResult dialogResult = MessageBox.Show("Esta seguro de eliminar la novedad: " + novedad, "Eliminar Novedad", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
-                {                    
+                {
                     Novedades n = new Novedades(idnov, null, "", "", 1, "");
-                    controlnov.Borrar(n); 
+                    controlnov.Borrar(n);
                     MessageBox.Show("Novedad Eliminada Correctamente");
                     cmb_mesesnov_SelectedIndexChanged(sender, e);
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -1819,7 +1834,7 @@ namespace WindowsFormsDemo
                     document.Add(new Paragraph("                   "));
                     int mes = comboBox1.SelectedIndex;
                     mes = mes + 1;
-                    
+
                     PdfPTable table = new PdfPTable(5);
                     iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                     iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -1833,7 +1848,7 @@ namespace WindowsFormsDemo
                     table.AddCell(new PdfPCell(new Phrase("Novedad", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Tipo de Novedad", fontH1)));
                     table.WidthPercentage = 100;
-                    float[] widths = new float[] { 2.2f, 1f, 1f, 2.4f, 1.5f};
+                    float[] widths = new float[] { 2.2f, 1f, 1f, 2.4f, 1.5f };
                     table.SetWidths(widths);
                     foreach (DataGridViewRow dr in dataGridView3.Rows)
                     {
@@ -1919,7 +1934,7 @@ namespace WindowsFormsDemo
                 document.Add(new Paragraph(chunk));
                 document.Add(new Paragraph("                   "));
                 document.Add(new Paragraph("                   "));
-                chunk = new Chunk("Registro Gral de Empleados al "+ DateTime.Now.ToShortDateString() + " ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                chunk = new Chunk("Registro Gral de Empleados al " + DateTime.Now.ToShortDateString() + " ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
                 document.Add(new Paragraph(chunk));
                 //chunk = new Chunk("Nombre: " + txt_empleado1.Text + "", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
                 //document.Add(new Paragraph(chunk));
@@ -1943,7 +1958,7 @@ namespace WindowsFormsDemo
                 table.AddCell(new PdfPCell(new Phrase("Domicilio", fontH1)));
                 table.AddCell(new PdfPCell(new Phrase("Centro", fontH1)));
                 table.WidthPercentage = 100;
-                float[] widths = new float[] { 1f, 1.2f, 3f, 2.8f, 2.2f};
+                float[] widths = new float[] { 1f, 1.2f, 3f, 2.8f, 2.2f };
                 table.SetWidths(widths);
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -1991,7 +2006,7 @@ namespace WindowsFormsDemo
             {
                 if (lbl_idemp.Text != "")
                 {
-                    maskedTextBox4.ValidatingType = typeof(System.DateTime);
+                    maskedTextBox4.ValidatingType = typeof(System.DateTime);                    
                     maskedTextBox4.TypeValidationCompleted += new TypeValidationEventHandler(maskedTextBox4_TypeValidationCompleted);
                     maskedTextBox5.ValidatingType = typeof(System.DateTime);
                     maskedTextBox5.TypeValidationCompleted += new TypeValidationEventHandler(maskedTextBox5_TypeValidationCompleted);
@@ -2004,7 +2019,7 @@ namespace WindowsFormsDemo
                         Acceso_BD oacceso = new Acceso_BD();
                         DateTime fecha = Convert.ToDateTime(maskedTextBox4.Text);
                         DateTime fecha1 = Convert.ToDateTime(maskedTextBox5.Text);
-                        oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal, manual) values('"+lbl_idemp.Text+"','"+fecha.ToString("yyyy-MM-dd") + " " + maskedTextBox6.Text+"','"+fecha1.ToString("yyyy-MM-dd") + " " + maskedTextBox6.Text+"','1')");
+                        oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal, manual) values('" + lbl_idemp.Text + "','" + fecha.ToString("yyyy-MM-dd") + " " + maskedTextBox6.Text + "','" + fecha1.ToString("yyyy-MM-dd") + " " + maskedTextBox6.Text + "','1')");
                         MessageBox.Show("Registro Ingresado correctamente");
                         maskedTextBox4.Clear();
                         maskedTextBox5.Clear();
@@ -2029,7 +2044,7 @@ namespace WindowsFormsDemo
                 toolTip1.ToolTipTitle = "Fecha Invalida";
                 toolTip1.Show("El Formato Correcto es el siguiente: dd/mm/aaaa.", maskedTextBox4, 0, -20, 5000);
             }
-            
+
         }
 
         private void maskedTextBox5_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
@@ -2144,8 +2159,8 @@ namespace WindowsFormsDemo
                 TSemana.Text = "2";
             }
             else
-	        {
-                TSemana.Text="1";
+            {
+                TSemana.Text = "1";
             }
         }
 
@@ -2178,23 +2193,136 @@ namespace WindowsFormsDemo
 
         private void button24_Click(object sender, EventArgs e)
         {
-            Buscar_Empleado frm = new Buscar_Empleado();
-            frm.ShowDialog();
-            emphora = frm.u;
-            if (emphora != null)
+            try
             {
-                dataGridView4.DataSource = controldia.BuscarEspecial(Convert.ToString(emphora.Idempleados));
+                List<DiasLaborales> lili = new List<DiasLaborales>();
+                dataGridView4.ColumnCount = 5;
+                dataGridView4.Columns[0].Name = "IdHorariosLaborales";
+                dataGridView4.Columns[1].Name = "Empleado";
+                dataGridView4.Columns[2].Name = "Desde";
+                dataGridView4.Columns[3].Name = "Hasta";
+                dataGridView4.Columns[4].Name = "Semana";
+                dataGridView4.Columns[0].Visible = false;
+                dataGridView4.Rows.Clear();
+                dataGridView4.Refresh();
+                if (lbl_idemp.Text == "")
+                {
+                    MessageBox.Show("Debe seleccionar un empleado en la solapa 'EMPLEADOS' para poder buscar horarios");
+                }
+                else
+                {
+                    lili = controldia.BuscarEspecial(lbl_idemp.Text);
+                    int i = 0;
+                    foreach (DiasLaborales aux in lili)
+                    {
+                        i++;
+                    }
+                    int x = 0;
+                    if (i > 0)
+                    {
+                        dataGridView4.Rows.Add(i);
+                        foreach (DiasLaborales aux in lili)
+                        {
+                            dataGridView4.Rows[x].Cells[0].Value = aux.Id;
+                            dataGridView4.Rows[x].Cells[1].Value = aux.Empleado.Nombre;
+                            dataGridView4.Rows[x].Cells[2].Value = aux.Desde.ToShortDateString();
+                            if (Convert.ToString(aux.Hasta.ToShortDateString()) == "01/01/1900")
+                            {
+                                dataGridView4.Rows[x].Cells[3].Value = "";
+                            }
+                            else
+                            {
+                                dataGridView4.Rows[x].Cells[3].Value = aux.Hasta.ToShortDateString();
+                            }
+                            if (aux.Semana == "0")
+                            {
+                                dataGridView4.Rows[x].Cells[4].Value = "Todas";
+                            }
+                            else if (aux.Semana == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[4].Value = "Impar";
+                            }
+                            else if (aux.Semana == "2")
+                            {
+                                dataGridView4.Rows[x].Cells[4].Value = "Par";
+                            }
+
+                            x++;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int filaseleccionada = Convert.ToInt32(this.dataGridView4.CurrentRow.Index);
+                int idhorario = Convert.ToInt32(dataGridView4[0, filaseleccionada].Value);
+                string Detalle = dataGridView4[1, filaseleccionada].Value.ToString();
+                DialogResult dialogResult = MessageBox.Show("Esta seguro de eliminar el horario del empleado: " + Detalle, "Eliminar Horario Empleado", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DiasLaborales n = new DiasLaborales(idhorario, null, null, "", DateTime.Now, DateTime.Now);
+                    controldia.Borrar(n);
+                    MessageBox.Show("Horario Eliminado Correctamente");
+                    dataGridView4.Rows.Clear();
+                    dataGridView4.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void button25_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lbl_idemp.Text != "")
+                {
+                    Empleados eq = controlemp.Buscar(lbl_idemp.Text);
+                    string id = cmb_horarios.SelectedValue.ToString();
+                    Horarios hori = new Horarios(Convert.ToInt32(id), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    maskedTextBox9.ValidatingType = typeof(System.DateTime);
+                    maskedTextBox9.TypeValidationCompleted += new TypeValidationEventHandler(maskedTextBox5_TypeValidationCompleted);
+                    if (maskedTextBox9.Text == "  /  /")
+                    {
+                        DiasLaborales didi = new DiasLaborales(0, hori, eq, TSemana.Text, Convert.ToDateTime(maskedTextBox8.Text));
+                        controldia.Agregar(didi);
+                    }
+                    else
+                    {
+                        DiasLaborales didi = new DiasLaborales(0, hori, eq, TSemana.Text, Convert.ToDateTime(maskedTextBox8.Text), Convert.ToDateTime(maskedTextBox9.Text));
+                        controldia.Agregar(didi);
+                    }
+                    MessageBox.Show("Horario del empleado cargado exitosamente");
+                    maskedTextBox9.Clear();
+                    maskedTextBox8.Clear();
+                    maskedTextBox7.Clear();
+                    TSemana.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Para cargar un horario debe primero seleccionar un empleado en la solapa 'Empleado'");
+                }
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
 
-
-        
-
-        
-
+        }
     }
 }

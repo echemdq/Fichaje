@@ -177,6 +177,11 @@
             this.txtTypeWebCam = new System.Windows.Forms.TextBox();
             this.picWebCam = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button25 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_empleadohorario = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button24 = new System.Windows.Forms.Button();
             this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
             this.label46 = new System.Windows.Forms.Label();
@@ -188,15 +193,10 @@
             this.cmb_horarios = new System.Windows.Forms.ComboBox();
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button22 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button24 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -269,7 +269,6 @@
             this.tabCtrlMain.Controls.Add(this.tabPageEncoder);
             this.tabCtrlMain.Controls.Add(this.tabPageWebCam);
             this.tabCtrlMain.Controls.Add(this.tabPage2);
-            this.tabCtrlMain.Controls.Add(this.tabPage1);
             this.tabCtrlMain.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlMain.Name = "tabCtrlMain";
             this.tabCtrlMain.SelectedIndex = 0;
@@ -1986,8 +1985,9 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPage2.Controls.Add(this.button25);
             this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txt_empleadohorario);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.button24);
             this.tabPage2.Controls.Add(this.maskedTextBox9);
@@ -2006,6 +2006,65 @@
             this.tabPage2.Size = new System.Drawing.Size(962, 484);
             this.tabPage2.TabIndex = 9;
             this.tabPage2.Text = "Horarios";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.SystemColors.Info;
+            this.button25.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button25.Location = new System.Drawing.Point(500, 367);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(65, 50);
+            this.button25.TabIndex = 86;
+            this.toolTip1.SetToolTip(this.button25, "Guardar");
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(345, 283);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(308, 13);
+            this.label19.TabIndex = 85;
+            this.label19.Text = "Hacer Doble Click sobre la fila que se desea Eliminar";
+            // 
+            // txt_empleadohorario
+            // 
+            this.txt_empleadohorario.BackColor = System.Drawing.Color.White;
+            this.txt_empleadohorario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_empleadohorario.Enabled = false;
+            this.txt_empleadohorario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_empleadohorario.Location = new System.Drawing.Point(102, 19);
+            this.txt_empleadohorario.Name = "txt_empleadohorario";
+            this.txt_empleadohorario.Size = new System.Drawing.Size(620, 21);
+            this.txt_empleadohorario.TabIndex = 84;
+            this.txt_empleadohorario.Text = "Buscar Horarios Empleado para Eliminar";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(9, 19);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 16);
+            this.label18.TabIndex = 83;
+            this.label18.Text = "Empleado";
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.SystemColors.Info;
+            this.button24.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button24.Location = new System.Drawing.Point(742, 7);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(67, 59);
+            this.button24.TabIndex = 82;
+            this.toolTip1.SetToolTip(this.button24, "Buscar");
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // maskedTextBox9
             // 
@@ -2061,6 +2120,7 @@
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.Size = new System.Drawing.Size(956, 208);
             this.dataGridView4.TabIndex = 77;
+            this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             // 
             // label44
             // 
@@ -2074,7 +2134,7 @@
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(661, 392);
+            this.button23.Location = new System.Drawing.Point(628, 360);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(298, 23);
             this.button23.TabIndex = 16;
@@ -2124,15 +2184,6 @@
             this.maskedTextBox7.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox7.Validated += new System.EventHandler(this.maskedTextBox7_Validated);
             // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Info;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(962, 484);
-            this.tabPage1.TabIndex = 8;
-            this.tabPage1.Text = "Varios";
-            // 
             // button22
             // 
             this.button22.Location = new System.Drawing.Point(459, 528);
@@ -2142,51 +2193,6 @@
             this.button22.Text = "button22";
             this.button22.UseVisualStyleBackColor = true;
             this.button22.Click += new System.EventHandler(this.button22_Click_1);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(102, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(620, 21);
-            this.textBox1.TabIndex = 84;
-            this.textBox1.Text = "Buscar Horarios Empleado para Eliminar";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 19);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(70, 16);
-            this.label18.TabIndex = 83;
-            this.label18.Text = "Empleado";
-            // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.SystemColors.Info;
-            this.button24.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button24.Location = new System.Drawing.Point(742, 7);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(67, 59);
-            this.button24.TabIndex = 82;
-            this.toolTip1.SetToolTip(this.button24, "Buscar");
-            this.button24.UseVisualStyleBackColor = false;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(345, 283);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(308, 13);
-            this.label19.TabIndex = 85;
-            this.label19.Text = "Hacer Doble Click sobre la fila que se desea Eliminar";
             // 
             // WindowsFormsDemoForm
             // 
@@ -2400,7 +2406,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox6;
         private System.Windows.Forms.MaskedTextBox maskedTextBox5;
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox7;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox TSemana;
@@ -2414,9 +2419,10 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_empleadohorario;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button25;
     }
 }

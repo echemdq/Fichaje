@@ -733,7 +733,12 @@ namespace WindowsFormsDemo
                 TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp.SelectedItem;
                 CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos.SelectedItem;
                 Empleados emp = null;
-                emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, 1);
+                int activo = 1;
+                if (!chk_empact.Checked)
+                {
+                    activo = 0;
+                }
+                emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent,activo);
 
 
                 if (edit == false)

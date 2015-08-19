@@ -62,52 +62,31 @@ namespace WindowsFormsDemo
                 oacceso = new AccesoBd();
                 int x = Convert.ToInt32(USER);
                 DataTable dt = null;
-                   if (oacceso.Tipo == "sql")
+                if (oacceso.Tipo == "sql")
                 {
-                    dt = oacceso.leerDatos("select (select count(*) from registros where idempleados = empleados.idempleados and registro = '" + horafichaje.ToString("dd-MM-yyyy") + "') as hoy, horario, case when horario = 1 then egreso1 else egreso2 end as salida, idempleados, ingreso1, nombre, foto, nocturno from empleados where documento = '" + x.ToString() + "'");
+                    dt = oacceso.leerDatos("select (select count(*) from registros where idempleados = empleados.idempleados and registro = '" + horafichaje.ToString("dd-MM-yyyy") + "') as hoy, idempleados, nombre, foto, activo from empleados where documento = '" + x.ToString() + "'");
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("select (select count(*) from registros where idempleados = 'empleados.idempleados' and date_format(registro, '%Y-%m-%d') = '" + horafichaje.ToString("yyyy-MM-dd") + "') as hoy, horario, case when horario = 1 then egreso1 else egreso2 end as salida, idempleados, ingreso1, nombre, foto, nocturno from empleados where documento = '" + x.ToString() + "'");
+                    dt = oacceso.leerDatos("select (select count(*) from registros where idempleados = 'empleados.idempleados' and date_format(registro, '%Y-%m-%d') = '" + horafichaje.ToString("yyyy-MM-dd") + "') as hoy, idempleados, nombre, foto, activo from empleados where documento = '" + x.ToString() + "'");
                 }
                 
 
                 string nombre = "";
                 string idemp = "";
-                int noct = 0;
                 string foto = "";
-                DateTime salida = DateTime.Now;
-                int horario = 0;
-                DateTime ingreso = DateTime.Now;
                 int hoy = 0;
-                DateTime fechareal = DateTime.Now;
+                string activo = "1";
                 foreach (DataRow dr in dt.Rows)
                 {
                     nombre = Convert.ToString(dr["nombre"]);
                     foto = Convert.ToString(dr["foto"]);
                     idemp = Convert.ToString(dr["idempleados"]);
-                    noct = Convert.ToInt32(dr["nocturno"]);
-                    salida = Convert.ToDateTime(dr["salida"]);
-                    horario = Convert.ToInt32(dr["horario"]);
                     hoy = Convert.ToInt32(dr["hoy"]);
-                    ingreso = Convert.ToDateTime(dr["ingreso1"]);
+                    activo = Convert.ToString(dr["activo"]);
                 }
-                salida = salida.AddHours(3);
-                ingreso = ingreso.AddHours(-2);
-                DateTime tres = new DateTime(2000,10,10,03,00,00);
-                if (noct == 1 && hoy == 0 && horafichaje.TimeOfDay <= salida.TimeOfDay)
-                {
-                    fechareal = horafichaje.AddDays(-1);
-                }
-                else if (noct == 0 && hoy == 0 && horafichaje.TimeOfDay <= salida.TimeOfDay && horafichaje.TimeOfDay < ingreso.TimeOfDay && horafichaje.TimeOfDay <= tres.TimeOfDay)
-                {
-                    fechareal = horafichaje.AddDays(-1);
-                }
-                else
-                {
-                    fechareal = horafichaje;
-                }
-                if (nombre != "")
+
+                if (nombre != "" && activo == "1")
                 {
                     try
                     {
@@ -146,12 +125,12 @@ namespace WindowsFormsDemo
                             if (oacceso.Tipo == "sql")
                             {
                                 hora = horafichaje.ToString("dd/MM/yyyy HH:mm:ss");
-                                oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal) values ('" + idemp + "','" + hora + "','" + fechareal.ToString("dd-MM-yyyy HH:mm:ss") + "')");
+                                oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal) values ('" + idemp + "','" + hora + "','" + hora + "')");
                             }
                             else
                             {
                                 hora = horafichaje.ToString("yyyy-MM-dd HH:mm:ss");
-                                oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal) values ('" + idemp + "','" + hora + "','" + fechareal.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal) values ('" + idemp + "','" + hora + "','" + hora + "')");
                             }
                             empleado = nombre;
                             pictureBox1.ImageLocation = foto;

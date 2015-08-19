@@ -2149,18 +2149,28 @@ namespace WindowsFormsDemo
 
         private void maskedTextBox7_Validated(object sender, EventArgs e)
         {
-            DateTime a = Convert.ToDateTime(maskedTextBox7.Text);
-            CultureInfo myCI = new CultureInfo("en-US");
-            CalendarWeekRule myCWR = myCI.DateTimeFormat.CalendarWeekRule;
-            DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
-            Calendar myCal = myCI.Calendar;
-            if (myCal.GetWeekOfYear(a, myCWR, myFirstDOW) % 2 == 0)
+            try
             {
-                TSemana.Text = "2";
+                if (maskedTextBox7.Text != "  /  /")
+                {
+                    DateTime a = Convert.ToDateTime(maskedTextBox7.Text);
+                    CultureInfo myCI = new CultureInfo("en-US");
+                    CalendarWeekRule myCWR = myCI.DateTimeFormat.CalendarWeekRule;
+                    DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
+                    Calendar myCal = myCI.Calendar;
+                    if (myCal.GetWeekOfYear(a, myCWR, myFirstDOW) % 2 == 0)
+                    {
+                        TSemana.Text = "2";
+                    }
+                    else
+                    {
+                        TSemana.Text = "1";
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                TSemana.Text = "1";
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -2186,10 +2196,7 @@ namespace WindowsFormsDemo
 
         }
 
-        private void button22_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void button24_Click(object sender, EventArgs e)
         {

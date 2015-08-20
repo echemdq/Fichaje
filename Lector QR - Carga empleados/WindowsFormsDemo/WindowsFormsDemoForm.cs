@@ -1339,7 +1339,7 @@ namespace WindowsFormsDemo
                     {
                         empresa = Convert.ToString(dr["detalle"]);
                     }
-                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 50, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
                     document.Add(new Paragraph(chunk));
                     document.Add(new Paragraph("                   "));
                     document.Add(new Paragraph("                   "));
@@ -1567,7 +1567,7 @@ namespace WindowsFormsDemo
                     {
                         empresa = Convert.ToString(dr["detalle"]);
                     }
-                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 50, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
                     document.Add(new Paragraph(chunk));
                     document.Add(new Paragraph("                   "));
                     chunk = new Chunk("Registro Gral            Desde: " + txt_rdesde.Text + "       Hasta: " + txt_rhasta.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
@@ -1815,7 +1815,7 @@ namespace WindowsFormsDemo
                     {
                         empresa = Convert.ToString(dr["detalle"]);
                     }
-                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 50, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
                     document.Add(new Paragraph(chunk));
                     document.Add(new Paragraph("                   "));
                     document.Add(new Paragraph("                   "));
@@ -1935,7 +1935,7 @@ namespace WindowsFormsDemo
                 {
                     empresa = Convert.ToString(dr["detalle"]);
                 }
-                Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 50, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
                 document.Add(new Paragraph(chunk));
                 document.Add(new Paragraph("                   "));
                 document.Add(new Paragraph("                   "));

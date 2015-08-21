@@ -456,7 +456,23 @@ namespace WindowsFormsDemo
         private void WindowsFormsDemoForm_Load(object sender, EventArgs e)
         {
             timer2.Tick += new EventHandler(timer2_Tick);
-            
+            Screen screen = Screen.PrimaryScreen;
+
+            int Height = screen.Bounds.Width;
+
+            int Width = screen.Bounds.Height;
+
+            this.Size = new Size(Height, Width);
+            int dif = Height - picWebCam.Size.Width;
+            int sobra = dif / 2;
+            int dif1 = Width - picWebCam.Size.Height;
+            int sobra1 = dif1 / 2;
+            picWebCam.Location = new Point(sobra, sobra1-50);
+            label4.Location = new Point(sobra, sobra1 - 70);
+
+            label3.Location = new Point(sobra-10, sobra1 + 363);
+            this.MinimumSize = new Size(Height, Width);
+            this.WindowState = FormWindowState.Maximized;
             //timer1.Tick += new EventHandler(timer_Tick);
             //timer1.Interval = 10000;
             timer2.Enabled = true;                       // Enable the timer

@@ -445,8 +445,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picWebCam.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picWebCam.Location = new System.Drawing.Point(96, 41);
+            this.picWebCam.MaximumSize = new System.Drawing.Size(578, 413);
+            this.picWebCam.MinimumSize = new System.Drawing.Size(578, 413);
             this.picWebCam.Name = "picWebCam";
-            this.picWebCam.Size = new System.Drawing.Size(577, 413);
+            this.picWebCam.Size = new System.Drawing.Size(578, 413);
             this.picWebCam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picWebCam.TabIndex = 8;
             this.picWebCam.TabStop = false;
@@ -490,11 +492,12 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.picWebCam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(783, 566);
-            this.MinimumSize = new System.Drawing.Size(783, 566);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "WindowsFormsDemoForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Control Fichaje";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.WindowsFormsDemoForm_Activated);
             this.Load += new System.EventHandler(this.WindowsFormsDemoForm_Load);
             this.tabCtrlMain.ResumeLayout(false);

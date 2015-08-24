@@ -115,7 +115,7 @@ namespace WindowsFormsDemo
                             label3.ForeColor = Color.Red;
                             ficho = false;
                             timer1.Tick += new EventHandler(timer_Tick);
-                            timer1.Interval = 3000;
+                            timer1.Interval = 1500;
                             timer1.Enabled = true;                       // Enable the timer
                             timer1.Start();
                         }
@@ -150,7 +150,7 @@ namespace WindowsFormsDemo
                             label2.ForeColor = Color.Black;
                             label3.ForeColor = Color.Black;
                             timer1.Tick += new EventHandler(timer_Tick);
-                            timer1.Interval = 5000;
+                            timer1.Interval = 1500;
                             timer1.Enabled = true;                       // Enable the timer
                             timer1.Start();
                         }
@@ -170,7 +170,7 @@ namespace WindowsFormsDemo
                     label3.ForeColor = Color.Red;
                     ficho = false;
                     timer1.Tick += new EventHandler(timer_Tick);
-                    timer1.Interval = 3000;
+                    timer1.Interval = 1500;
                     timer1.Enabled = true;                       // Enable the timer
                     timer1.Start();
                 }

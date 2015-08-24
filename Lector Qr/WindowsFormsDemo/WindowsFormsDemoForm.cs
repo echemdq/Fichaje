@@ -79,9 +79,10 @@ namespace WindowsFormsDemo
                 {
                     FRM.ShowDialog();
                     bool f = FRM.ficho;
-                    label4.Text = "Ultimo fichaje: " +FRM.empleado+ " " + dt.ToString();
+                    
                     if (f)
                     {
+                        label4.Text = "Ultimo fichaje: " + FRM.empleado + " " + dt.ToString();
                         webCamTimer.Stop();
                         webCamTimer = null;
                         wCam.Dispose();
@@ -91,6 +92,7 @@ namespace WindowsFormsDemo
                     }
                     else
                     {
+
                         if (wCam == null)
                         {
                             wCam = new WebCam { Container = picWebCam };

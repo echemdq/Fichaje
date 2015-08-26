@@ -193,15 +193,15 @@
             this.cmb_horarios = new System.Windows.Forms.ComboBox();
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
+            this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button22 = new System.Windows.Forms.Button();
+            this.maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabRegInfo = new System.Windows.Forms.TabPage();
-            this.maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.button22 = new System.Windows.Forms.Button();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -226,10 +226,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabRegInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -2208,17 +2208,30 @@
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
             // 
-            // maskedTextBox10
+            // pictureBox4
             // 
-            this.maskedTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedTextBox10.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.maskedTextBox10.Location = new System.Drawing.Point(187, 26);
-            this.maskedTextBox10.Mask = "00000";
-            this.maskedTextBox10.Name = "maskedTextBox10";
-            this.maskedTextBox10.PromptChar = ' ';
-            this.maskedTextBox10.Size = new System.Drawing.Size(127, 21);
-            this.maskedTextBox10.TabIndex = 1;
-            this.maskedTextBox10.ValidatingType = typeof(int);
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(402, 9);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(227, 190);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 35;
+            this.pictureBox4.TabStop = false;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AllowUserToAddRows = false;
+            this.dataGridView5.AllowUserToDeleteRows = false;
+            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView5.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(18, 65);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
+            this.dataGridView5.Size = new System.Drawing.Size(369, 350);
+            this.dataGridView5.TabIndex = 34;
+            this.dataGridView5.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellClick);
+            this.dataGridView5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView5_KeyUp);
             // 
             // label20
             // 
@@ -2243,30 +2256,17 @@
             this.button22.UseVisualStyleBackColor = false;
             this.button22.Click += new System.EventHandler(this.button22_Click_1);
             // 
-            // dataGridView5
+            // maskedTextBox10
             // 
-            this.dataGridView5.AllowUserToAddRows = false;
-            this.dataGridView5.AllowUserToDeleteRows = false;
-            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView5.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(18, 65);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.ReadOnly = true;
-            this.dataGridView5.Size = new System.Drawing.Size(369, 350);
-            this.dataGridView5.TabIndex = 34;
-            this.dataGridView5.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellClick);
-            this.dataGridView5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView5_KeyUp);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(402, 9);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(227, 190);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 35;
-            this.pictureBox4.TabStop = false;
+            this.maskedTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedTextBox10.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.maskedTextBox10.Location = new System.Drawing.Point(187, 26);
+            this.maskedTextBox10.Mask = "00000";
+            this.maskedTextBox10.Name = "maskedTextBox10";
+            this.maskedTextBox10.PromptChar = ' ';
+            this.maskedTextBox10.Size = new System.Drawing.Size(127, 21);
+            this.maskedTextBox10.TabIndex = 1;
+            this.maskedTextBox10.ValidatingType = typeof(int);
             // 
             // WindowsFormsDemoForm
             // 
@@ -2280,7 +2280,6 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1010, 595);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1010, 595);
             this.Name = "WindowsFormsDemoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -2323,11 +2322,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabRegInfo.ResumeLayout(false);
             this.tabRegInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

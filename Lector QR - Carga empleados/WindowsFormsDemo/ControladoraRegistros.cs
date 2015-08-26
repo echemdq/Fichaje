@@ -19,9 +19,9 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
-        public List<Registros> TraerTodosEspecial(string dato)
+        public List<Registros> TraerTodosEspecial(string dato, string dato1, string dato2)
         {
-            return bd.TraerTodosEspecial(dato);
+            return bd.TraerTodosEspecial(dato, dato1, dato2);
         }
 
         public void Borrar(Registros dato)

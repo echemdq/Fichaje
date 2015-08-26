@@ -19,22 +19,41 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
-        public List<Registros> TraerTodosEspecial(string dato)
+        public List<Registros> TraerTodosEspecial(string dato, string dato1, string dato2)
         {
             List<Registros> aux = new List<Registros>();
             DataTable dt = null;
-            if (oacceso.Tipo == "sql")
+            if (dato1 == "")
             {
-                dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados limit '" + dato + "'");
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados limit '" + dato + "'");
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados order by id desc limit " + dato + "");
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
             }
             else
             {
-                dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados order by id desc limit " + dato +"");
-            }
-            foreach (DataRow dr in dt.Rows)
-            {
-                Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
-                aux.Add(r);
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '"+dato1+"' and registro < '"+dato2+"' limit '" + dato + "'");
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e on r.idempleados = e.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' order by id desc limit " + dato + "");
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
             }
             return aux;
         }

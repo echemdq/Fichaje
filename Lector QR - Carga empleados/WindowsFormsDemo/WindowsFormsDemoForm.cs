@@ -2341,10 +2341,31 @@ namespace WindowsFormsDemo
         {
             dataGridView5.Columns.Clear();
             dataGridView5.Refresh();
-            dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text);
-            dataGridView5.Columns[0].Visible = false;
-            dataGridView5.Columns[1].Visible = false;
-            dataGridView5.Columns[3].Visible = false;
+            if (!chk_desdehasta.Checked)
+            {
+                dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "");
+                dataGridView5.Columns[0].Visible = false;
+                dataGridView5.Columns[1].Visible = false;
+                dataGridView5.Columns[3].Visible = false;
+            }
+            else
+            {
+                if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                {
+                    DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                    DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                    h = h.AddDays(1);
+                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                    dataGridView5.Columns[0].Visible = false;
+                    dataGridView5.Columns[1].Visible = false;
+                    dataGridView5.Columns[3].Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar correctamente los campos desde y hasta");
+                }
+            }
+            
         }
 
         private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)

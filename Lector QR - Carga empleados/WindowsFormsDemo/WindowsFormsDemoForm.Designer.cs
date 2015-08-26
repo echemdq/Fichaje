@@ -202,6 +202,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.chk_desdehasta = new System.Windows.Forms.CheckBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -230,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -2196,6 +2203,8 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.chk_desdehasta);
+            this.tabRegInfo.Controls.Add(this.groupBox1);
             this.tabRegInfo.Controls.Add(this.pictureBox4);
             this.tabRegInfo.Controls.Add(this.dataGridView5);
             this.tabRegInfo.Controls.Add(this.label20);
@@ -2211,7 +2220,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(402, 9);
+            this.pictureBox4.Location = new System.Drawing.Point(393, 97);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(227, 190);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2225,7 +2234,7 @@
             this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView5.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(18, 65);
+            this.dataGridView5.Location = new System.Drawing.Point(18, 97);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.Size = new System.Drawing.Size(369, 350);
@@ -2248,7 +2257,7 @@
             this.button22.BackColor = System.Drawing.SystemColors.Info;
             this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
             this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button22.Location = new System.Drawing.Point(332, 9);
+            this.button22.Location = new System.Drawing.Point(600, 14);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(55, 50);
             this.button22.TabIndex = 6;
@@ -2267,6 +2276,72 @@
             this.maskedTextBox10.Size = new System.Drawing.Size(127, 21);
             this.maskedTextBox10.TabIndex = 1;
             this.maskedTextBox10.ValidatingType = typeof(int);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.maskedTextBox11);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.maskedTextBox12);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.groupBox1.Location = new System.Drawing.Point(330, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(242, 82);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Registros Generales";
+            // 
+            // maskedTextBox11
+            // 
+            this.maskedTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedTextBox11.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.maskedTextBox11.Location = new System.Drawing.Point(65, 50);
+            this.maskedTextBox11.Mask = "00/00/0000";
+            this.maskedTextBox11.Name = "maskedTextBox11";
+            this.maskedTextBox11.Size = new System.Drawing.Size(100, 21);
+            this.maskedTextBox11.TabIndex = 1;
+            this.maskedTextBox11.ValidatingType = typeof(System.DateTime);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(13, 54);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(46, 16);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Hasta";
+            // 
+            // maskedTextBox12
+            // 
+            this.maskedTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedTextBox12.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.maskedTextBox12.Location = new System.Drawing.Point(65, 22);
+            this.maskedTextBox12.Mask = "00/00/0000";
+            this.maskedTextBox12.Name = "maskedTextBox12";
+            this.maskedTextBox12.Size = new System.Drawing.Size(100, 21);
+            this.maskedTextBox12.TabIndex = 0;
+            this.maskedTextBox12.ValidatingType = typeof(System.DateTime);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(11, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(48, 16);
+            this.label22.TabIndex = 38;
+            this.label22.Text = "Desde";
+            // 
+            // chk_desdehasta
+            // 
+            this.chk_desdehasta.AutoSize = true;
+            this.chk_desdehasta.Location = new System.Drawing.Point(18, 61);
+            this.chk_desdehasta.Name = "chk_desdehasta";
+            this.chk_desdehasta.Size = new System.Drawing.Size(142, 17);
+            this.chk_desdehasta.TabIndex = 39;
+            this.chk_desdehasta.Text = "Checkea Desde y Hasta";
+            this.chk_desdehasta.UseVisualStyleBackColor = true;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2327,6 +2402,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2505,5 +2582,11 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox10;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox11;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox12;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.CheckBox chk_desdehasta;
     }
 }

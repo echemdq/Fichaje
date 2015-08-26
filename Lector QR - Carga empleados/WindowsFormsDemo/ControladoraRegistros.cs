@@ -19,6 +19,11 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
+        public List<Registros> TraerTodosEspecial(string dato)
+        {
+            return bd.TraerTodosEspecial(dato);
+        }
+
         public void Borrar(Registros dato)
         {
             throw new NotImplementedException();

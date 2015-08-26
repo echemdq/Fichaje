@@ -19,6 +19,26 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
+        public List<Registros> TraerTodosEspecial(string dato)
+        {
+            List<Registros> aux = new List<Registros>();
+            DataTable dt = null;
+            if (oacceso.Tipo == "sql")
+            {
+                dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados limit '" + dato + "'");
+            }
+            else
+            {
+                dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados order by id desc limit " + dato +"");
+            }
+            foreach (DataRow dr in dt.Rows)
+            {
+                Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
+                aux.Add(r);
+            }
+            return aux;
+        }
+
         public void Borrar(Registros dato)
         {
             throw new NotImplementedException();

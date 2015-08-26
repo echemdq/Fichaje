@@ -2336,5 +2336,29 @@ namespace WindowsFormsDemo
         {
 
         }
+
+        private void button22_Click_1(object sender, EventArgs e)
+        {
+            dataGridView5.Columns.Clear();
+            dataGridView5.Refresh();
+            dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text);
+            dataGridView5.Columns[0].Visible = false;
+            dataGridView5.Columns[1].Visible = false;
+            dataGridView5.Columns[3].Visible = false;
+        }
+
+        private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int filaseleccionada = Convert.ToInt32(this.dataGridView5.CurrentRow.Index);
+            string foto = dataGridView5[3, filaseleccionada].Value.ToString();
+            pictureBox4.ImageLocation = foto;
+        }
+
+        private void dataGridView5_KeyUp(object sender, KeyEventArgs e)
+        {
+            int filaseleccionada = Convert.ToInt32(this.dataGridView5.CurrentRow.Index);
+            string foto = dataGridView5[3, filaseleccionada].Value.ToString();
+            pictureBox4.ImageLocation = foto;
+        }
     }
 }

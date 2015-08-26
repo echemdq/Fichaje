@@ -93,11 +93,11 @@ namespace WindowsFormsDemo
                         DataTable dta = null;
                         if (oacceso.Tipo == "sql")
                         {
-                            dta = oacceso.leerDatos("SELECT TOP 1 *, DATEDIFF([minute], registro, GETDATE()) AS diferencia FROM REGISTROS ORDER BY idregistros DESC");
+                            dta = oacceso.leerDatos("SELECT TOP 1 *, DATEDIFF([minute], registro, GETDATE()) AS diferencia FROM REGISTROS where idempleados = '"+idemp+"' ORDER BY idregistros DESC");
                         }
                         else
                         {
-                            dta = oacceso.leerDatos("SELECT *, timestampdiff(MINUTE, registro, now()) AS diferencia FROM REGISTROS ORDER BY idregistros DESC limit 1");
+                            dta = oacceso.leerDatos("SELECT *, timestampdiff(MINUTE, registro, now()) AS diferencia FROM REGISTROS where idempleados = '"+ idemp +"' ORDER BY idregistros DESC limit 1");
                         }
                         int dif = 0;
                         string id = "";

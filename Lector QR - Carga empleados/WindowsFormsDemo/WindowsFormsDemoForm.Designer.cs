@@ -177,6 +177,9 @@
             this.txtTypeWebCam = new System.Windows.Forms.TextBox();
             this.picWebCam = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
             this.button25 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.txt_empleadohorario = new System.Windows.Forms.TextBox();
@@ -194,6 +197,12 @@
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.chk_desdehasta = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.label20 = new System.Windows.Forms.Label();
@@ -202,12 +211,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.chk_desdehasta = new System.Windows.Forms.CheckBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -233,10 +236,10 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabRegInfo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -2001,6 +2004,9 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPage2.Controls.Add(this.button27);
+            this.tabPage2.Controls.Add(this.button26);
+            this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.button25);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.txt_empleadohorario);
@@ -2024,12 +2030,48 @@
             this.tabPage2.Text = "Horarios";
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.SystemColors.Info;
+            this.button27.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button27.Location = new System.Drawing.Point(399, 424);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(65, 50);
+            this.button27.TabIndex = 88;
+            this.toolTip1.SetToolTip(this.button27, "Nuevo");
+            this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.SystemColors.Info;
+            this.button26.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Edit;
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button26.Location = new System.Drawing.Point(479, 424);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(65, 50);
+            this.button26.TabIndex = 87;
+            this.toolTip1.SetToolTip(this.button26, "Editar");
+            this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(84, 306);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(41, 13);
+            this.label23.TabIndex = 86;
+            this.label23.Text = "label23";
+            this.label23.Visible = false;
+            // 
             // button25
             // 
             this.button25.BackColor = System.Drawing.SystemColors.Info;
             this.button25.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
             this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button25.Location = new System.Drawing.Point(506, 396);
+            this.button25.Location = new System.Drawing.Point(562, 424);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(65, 50);
             this.button25.TabIndex = 6;
@@ -2084,6 +2126,7 @@
             // 
             // maskedTextBox9
             // 
+            this.maskedTextBox9.Enabled = false;
             this.maskedTextBox9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox9.Location = new System.Drawing.Point(261, 424);
             this.maskedTextBox9.Mask = "00/00/0000";
@@ -2095,6 +2138,7 @@
             // 
             // maskedTextBox8
             // 
+            this.maskedTextBox8.Enabled = false;
             this.maskedTextBox8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox8.Location = new System.Drawing.Point(261, 396);
             this.maskedTextBox8.Mask = "00/00/0000";
@@ -2136,6 +2180,7 @@
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.Size = new System.Drawing.Size(956, 208);
             this.dataGridView4.TabIndex = 77;
+            this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             // 
             // label44
@@ -2181,6 +2226,7 @@
             // 
             // TSemana
             // 
+            this.TSemana.Enabled = false;
             this.TSemana.Location = new System.Drawing.Point(261, 366);
             this.TSemana.Name = "TSemana";
             this.TSemana.Size = new System.Drawing.Size(27, 20);
@@ -2188,6 +2234,7 @@
             // 
             // maskedTextBox7
             // 
+            this.maskedTextBox7.Enabled = false;
             this.maskedTextBox7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox7.Location = new System.Drawing.Point(294, 367);
             this.maskedTextBox7.Mask = "00/00/0000";
@@ -2217,65 +2264,15 @@
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
             // 
-            // pictureBox4
+            // chk_desdehasta
             // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(393, 97);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(227, 190);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 35;
-            this.pictureBox4.TabStop = false;
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.AllowUserToAddRows = false;
-            this.dataGridView5.AllowUserToDeleteRows = false;
-            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView5.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(18, 97);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.ReadOnly = true;
-            this.dataGridView5.Size = new System.Drawing.Size(369, 350);
-            this.dataGridView5.TabIndex = 34;
-            this.dataGridView5.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellClick);
-            this.dataGridView5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView5_KeyUp);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(15, 26);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(166, 16);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "Limite Consulta Registro";
-            // 
-            // button22
-            // 
-            this.button22.BackColor = System.Drawing.SystemColors.Info;
-            this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button22.Location = new System.Drawing.Point(600, 14);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(55, 50);
-            this.button22.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.button22, "Guardar");
-            this.button22.UseVisualStyleBackColor = false;
-            this.button22.Click += new System.EventHandler(this.button22_Click_1);
-            // 
-            // maskedTextBox10
-            // 
-            this.maskedTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedTextBox10.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.maskedTextBox10.Location = new System.Drawing.Point(187, 26);
-            this.maskedTextBox10.Mask = "00000";
-            this.maskedTextBox10.Name = "maskedTextBox10";
-            this.maskedTextBox10.PromptChar = ' ';
-            this.maskedTextBox10.Size = new System.Drawing.Size(127, 21);
-            this.maskedTextBox10.TabIndex = 1;
-            this.maskedTextBox10.ValidatingType = typeof(int);
+            this.chk_desdehasta.AutoSize = true;
+            this.chk_desdehasta.Location = new System.Drawing.Point(18, 61);
+            this.chk_desdehasta.Name = "chk_desdehasta";
+            this.chk_desdehasta.Size = new System.Drawing.Size(142, 17);
+            this.chk_desdehasta.TabIndex = 39;
+            this.chk_desdehasta.Text = "Checkea Desde y Hasta";
+            this.chk_desdehasta.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -2333,15 +2330,66 @@
             this.label22.TabIndex = 38;
             this.label22.Text = "Desde";
             // 
-            // chk_desdehasta
+            // pictureBox4
             // 
-            this.chk_desdehasta.AutoSize = true;
-            this.chk_desdehasta.Location = new System.Drawing.Point(18, 61);
-            this.chk_desdehasta.Name = "chk_desdehasta";
-            this.chk_desdehasta.Size = new System.Drawing.Size(142, 17);
-            this.chk_desdehasta.TabIndex = 39;
-            this.chk_desdehasta.Text = "Checkea Desde y Hasta";
-            this.chk_desdehasta.UseVisualStyleBackColor = true;
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(428, 97);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(227, 190);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 35;
+            this.pictureBox4.TabStop = false;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AllowUserToAddRows = false;
+            this.dataGridView5.AllowUserToDeleteRows = false;
+            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView5.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(6, 97);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
+            this.dataGridView5.Size = new System.Drawing.Size(416, 350);
+            this.dataGridView5.TabIndex = 34;
+            this.dataGridView5.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellClick);
+            this.dataGridView5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView5_KeyUp);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(15, 26);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(166, 16);
+            this.label20.TabIndex = 5;
+            this.label20.Text = "Limite Consulta Registro";
+            // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.SystemColors.Info;
+            this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button22.Location = new System.Drawing.Point(600, 14);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(55, 50);
+            this.button22.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button22, "Guardar");
+            this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click_1);
+            // 
+            // maskedTextBox10
+            // 
+            this.maskedTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedTextBox10.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.maskedTextBox10.Location = new System.Drawing.Point(187, 26);
+            this.maskedTextBox10.Mask = "00000";
+            this.maskedTextBox10.Name = "maskedTextBox10";
+            this.maskedTextBox10.PromptChar = ' ';
+            this.maskedTextBox10.Size = new System.Drawing.Size(127, 21);
+            this.maskedTextBox10.TabIndex = 1;
+            this.maskedTextBox10.Text = "100";
+            this.maskedTextBox10.ValidatingType = typeof(int);
             // 
             // WindowsFormsDemoForm
             // 
@@ -2399,11 +2447,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.tabRegInfo.ResumeLayout(false);
             this.tabRegInfo.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2588,5 +2636,8 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox12;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox chk_desdehasta;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
     }
 }

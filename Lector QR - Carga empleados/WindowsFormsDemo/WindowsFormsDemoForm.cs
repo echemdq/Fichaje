@@ -41,6 +41,7 @@ namespace WindowsFormsDemo
         private VideoCaptureDevice FuenteDeVideo = null;
         Usuarios usuarioActivo = null;
         private WebCam wCam;
+        bool edito = false;
         private Timer webCamTimer;
         private readonly BarcodeReader barcodeReader;
         private readonly IList<ResultPoint> resultPoints;
@@ -2208,13 +2209,16 @@ namespace WindowsFormsDemo
             try
             {
                 List<DiasLaborales> lili = new List<DiasLaborales>();
-                dataGridView4.ColumnCount = 5;
+                dataGridView4.ColumnCount = 7;
                 dataGridView4.Columns[0].Name = "IdHorariosLaborales";
                 dataGridView4.Columns[1].Name = "Empleado";
                 dataGridView4.Columns[2].Name = "Desde";
                 dataGridView4.Columns[3].Name = "Hasta";
                 dataGridView4.Columns[4].Name = "Semana";
+                dataGridView4.Columns[5].Name = "Horario";
+                dataGridView4.Columns[6].Name = "idhorario";
                 dataGridView4.Columns[0].Visible = false;
+                dataGridView4.Columns[6].Visible = false;
                 dataGridView4.Rows.Clear();
                 dataGridView4.Refresh();
                 if (lbl_idemp.Text == "")
@@ -2238,6 +2242,44 @@ namespace WindowsFormsDemo
                             dataGridView4.Rows[x].Cells[0].Value = aux.Id;
                             dataGridView4.Rows[x].Cells[1].Value = aux.Empleado.Nombre;
                             dataGridView4.Rows[x].Cells[2].Value = aux.Desde.ToShortDateString();
+                            dataGridView4.Rows[x].Cells[5].Value = aux.Horario.Detalle;
+                            dataGridView4.Rows[x].Cells[6].Value = aux.Horario.Idhorarios;
+                            if (aux.Horario.Horario == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Corrido, " + aux.Horario.Ingreso1 + " - " + aux.Horario.Egreso1 + " - " + aux.Horario.Ingreso2 + " - " + aux.Horario.Egreso2;
+                            }
+                            else
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Cortado, " + aux.Horario.Ingreso1 + " - " + aux.Horario.Egreso1 + " - " + aux.Horario.Ingreso2 + " - " + aux.Horario.Egreso2;
+                            }
+                            if (aux.Horario.Lunes == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Lunes";
+                            }
+                            if(aux.Horario.Martes == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Martes";
+                            }
+                            if (aux.Horario.Miercoles == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Miercoles";
+                            }
+                            if (aux.Horario.Jueves == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Jueves";
+                            }
+                            if (aux.Horario.Viernes == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Viernes";
+                            }
+                            if (aux.Horario.Sabado == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Sabado";
+                            }
+                            if (aux.Horario.Domingo == "1")
+                            {
+                                dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Domingo";
+                            }
                             if (Convert.ToString(aux.Hasta.ToShortDateString()) == "01/01/1900")
                             {
                                 dataGridView4.Rows[x].Cells[3].Value = "";
@@ -2307,12 +2349,56 @@ namespace WindowsFormsDemo
                     if (maskedTextBox9.Text == "  /  /")
                     {
                         DiasLaborales didi = new DiasLaborales(0, hori, eq, TSemana.Text, Convert.ToDateTime(maskedTextBox8.Text));
-                        controldia.Agregar(didi);
+                        if (!edito)
+                        {
+                            controldia.Agregar(didi);
+                            TSemana.Enabled = false;
+                            maskedTextBox7.Enabled = false;
+                            maskedTextBox8.Enabled = false;
+                            maskedTextBox9.Enabled = false;
+                            dataGridView4.Rows.Clear();
+                            dataGridView4.Refresh();
+                        }
+                        else
+                        {
+                            didi.Id = Convert.ToInt32(label23.Text);
+                            controldia.Modificar(didi);
+                            label23.Text = "";
+                            edito = false;
+                            TSemana.Enabled = false;
+                            maskedTextBox7.Enabled = false;
+                            maskedTextBox8.Enabled = false;
+                            maskedTextBox9.Enabled = false;
+                            dataGridView4.Rows.Clear();
+                            dataGridView4.Refresh();
+                        }
                     }
                     else
                     {
                         DiasLaborales didi = new DiasLaborales(0, hori, eq, TSemana.Text, Convert.ToDateTime(maskedTextBox8.Text), Convert.ToDateTime(maskedTextBox9.Text));
-                        controldia.Agregar(didi);
+                        if (!edito)
+                        {
+                            controldia.Agregar(didi);
+                            TSemana.Enabled = false;
+                            maskedTextBox7.Enabled = false;
+                            maskedTextBox8.Enabled = false;
+                            maskedTextBox9.Enabled = false;
+                            dataGridView4.Rows.Clear();
+                            dataGridView4.Refresh();
+                        }
+                        else
+                        {
+                            didi.Id = Convert.ToInt32(label23.Text);
+                            controldia.Modificar(didi);
+                            label23.Text = "";
+                            edito = false;
+                            TSemana.Enabled = false;
+                            maskedTextBox7.Enabled = false;
+                            maskedTextBox8.Enabled = false;
+                            maskedTextBox9.Enabled = false;
+                            dataGridView4.Rows.Clear();
+                            dataGridView4.Refresh();
+                        }
                     }
                     MessageBox.Show("Horario del empleado cargado exitosamente");
                     maskedTextBox9.Clear();
@@ -2380,6 +2466,58 @@ namespace WindowsFormsDemo
             int filaseleccionada = Convert.ToInt32(this.dataGridView5.CurrentRow.Index);
             string foto = dataGridView5[3, filaseleccionada].Value.ToString();
             pictureBox4.ImageLocation = foto;
+        }
+
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ////////////////////
+            try
+            {
+                int filaseleccionada = Convert.ToInt32(this.dataGridView4.CurrentRow.Index);
+                int idhorario = Convert.ToInt32(dataGridView4[0, filaseleccionada].Value);
+                label23.Text = idhorario.ToString();
+                cmb_horarios.SelectedValue = Convert.ToInt32(dataGridView4[6, filaseleccionada].Value);
+                maskedTextBox8.Text = Convert.ToString(dataGridView4[2, filaseleccionada].Value);
+                maskedTextBox9.Text = Convert.ToString(dataGridView4[3, filaseleccionada].Value);
+                if (Convert.ToString(dataGridView4[4, filaseleccionada].Value) == "Par")
+                {
+                    TSemana.Text = "2";
+                }
+                else if (Convert.ToString(dataGridView4[4, filaseleccionada].Value) == "Impar")
+                {
+                    TSemana.Text = "1";
+                }
+                else
+                {
+                    TSemana.Text = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            TSemana.Enabled = true;
+            maskedTextBox7.Enabled = true;
+            maskedTextBox8.Enabled = true;
+            maskedTextBox9.Enabled = true;
+            edito = true;
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            TSemana.Enabled = true;
+            maskedTextBox7.Enabled = true;
+            maskedTextBox8.Enabled = true;
+            maskedTextBox9.Enabled = true;
+            label23.Text = "";
+            maskedTextBox9.Clear();
+            maskedTextBox8.Clear();
+            maskedTextBox7.Clear();
+            TSemana.Text = "";
         }
     }
 }

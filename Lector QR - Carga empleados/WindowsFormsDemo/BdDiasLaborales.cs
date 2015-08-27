@@ -15,7 +15,7 @@ namespace WindowsFormsDemo
             string hasta = dato.Hasta.ToShortDateString();
             if (hasta == "01/01/0001")
             {
-                string cmdtext = "INSERT INTO horariosempleados(idhorarios, idempleados, desde, semana) VALUES ('" + dato.Horario.Idhorarios + "', '" + dato.Empleado.Idempleados + "', '" + dato.Desde.ToString("yyyy/MM/dd") + "', '" + dato.Semana + "')";
+                string cmdtext = "INSERT INTO horariosempleados(idhorarios, idempleados, desde, hasta, semana) VALUES ('" + dato.Horario.Idhorarios + "', '" + dato.Empleado.Idempleados + "', '" + dato.Desde.ToString("yyyy/MM/dd") + "', '1900/01/01', '" + dato.Semana + "')";
                 oacceso.ActualizarBD(cmdtext);
             }
             else
@@ -45,21 +45,23 @@ namespace WindowsFormsDemo
         public List<DiasLaborales> BuscarEspecial(string dato)
         {
             DiasLaborales di = null;
-            string cmdtext = "select he.idhorariosempleados as id, he.idempleados as nombre, he.semana as semana, he.desde as desde, he.hasta as hasta from horariosempleados he where idempleados = '" + dato + "'";
+            string cmdtext = "select he.idhorarios as horario, he.idhorariosempleados as id, he.idempleados as nombre, he.semana as semana, he.desde as desde, he.hasta as hasta from horariosempleados he where idempleados = '" + dato + "'";
             DataTable dt = oacceso.leerDatos(cmdtext);
             List<DiasLaborales> lista = new List<DiasLaborales>();
             DateTime hasta = Convert.ToDateTime("1900/01/01");
             foreach (DataRow dr in dt.Rows)
             {
                 BdEmpleados bd = new BdEmpleados();
+                BdHorarios bdh = new BdHorarios();
                 Empleados e = null;
-                
+                Horarios h = null;
+                h = bdh.Buscar(Convert.ToString(dr["horario"]));
                 e = bd.Buscar(Convert.ToString(dr["nombre"]));
                 if (Convert.ToString(dr["hasta"]) != "")
                 {
                     hasta = Convert.ToDateTime(dr["hasta"]);
                 }
-                di = new DiasLaborales(Convert.ToInt32(dr["id"]), null, e, Convert.ToString(dr["semana"]), Convert.ToDateTime(dr["desde"]), hasta);
+                di = new DiasLaborales(Convert.ToInt32(dr["id"]), h, e, Convert.ToString(dr["semana"]), Convert.ToDateTime(dr["desde"]), hasta);
                 lista.Add(di);
             }
             return lista;
@@ -67,7 +69,15 @@ namespace WindowsFormsDemo
 
         public void Modificar(DiasLaborales dato)
         {
-            throw new NotImplementedException();
+            string hasta = dato.Hasta.ToShortDateString();
+            if (hasta == "01/01/0001")
+            {
+                oacceso.ActualizarBD("update horariosempleados set idhorarios = '" + dato.Horario.Idhorarios + "', desde = '" + dato.Desde.ToString("yyyy/MM/dd") + "', hasta = '1900/01/01', semana = '" + dato.Semana + "' where idhorariosempleados = '" + dato.Id + "'");
+            }
+            else
+            {
+                oacceso.ActualizarBD("update horariosempleados set idhorarios = '" + dato.Horario.Idhorarios + "', desde = '" + dato.Desde.ToString("yyyy/MM/dd") + "', hasta = '" + dato.Hasta.ToString("yyyy/MM/dd") + "', semana = '" + dato.Semana + "' where idhorariosempleados = '" + dato.Id + "'");
+            }
         }
 
         public int traerSigID()

@@ -36,7 +36,7 @@ namespace WindowsFormsDemo
 
         public void Modificar(DiasLaborales dato)
         {
-            throw new NotImplementedException();
+            bd.Modificar(dato);
         }
 
         public int traerSigID()

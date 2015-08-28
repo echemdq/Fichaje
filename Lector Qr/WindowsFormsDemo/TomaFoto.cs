@@ -20,15 +20,18 @@ namespace WindowsFormsDemo
         private bool ExistenDispositivos = false;
         string user = "";
         double timeLeft = 5;
+        int tim1 = 0;
         double resta = 0.5;
         DateTime dt;
         AccesoBd oacceso = new AccesoBd();
-        public TomaFoto(string USUARIO, DateTime h)
+        public TomaFoto(string USUARIO, DateTime h, int tim)
         {
             InitializeComponent();
             user = USUARIO;
             dt = h;
             BuscarDispositivos();
+            tim1 = tim;
+            timeLeft = tim / 1000;
         }
 
         private void TomaFoto_Load(object sender, EventArgs e)
@@ -39,6 +42,7 @@ namespace WindowsFormsDemo
                 FuenteDeVideo.NewFrame += new NewFrameEventHandler(video_NuevoFrame);
                 FuenteDeVideo.Start();
                 cboDispositivos.Enabled = false;
+                timer5.Interval = tim1;
                 timer5.Tick += new EventHandler(timer5_Tick);
                 timer5.Enabled = true;
                 timer6.Tick += new EventHandler(timer6_Tick);

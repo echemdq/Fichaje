@@ -2473,6 +2473,10 @@ namespace WindowsFormsDemo
             ////////////////////
             try
             {
+                TSemana.Enabled = false;
+                maskedTextBox7.Enabled = false;
+                maskedTextBox8.Enabled = false;
+                maskedTextBox9.Enabled = false;
                 int filaseleccionada = Convert.ToInt32(this.dataGridView4.CurrentRow.Index);
                 int idhorario = Convert.ToInt32(dataGridView4[0, filaseleccionada].Value);
                 label23.Text = idhorario.ToString();

@@ -21,12 +21,12 @@ namespace WindowsFormsDemo
         string database = "";
         public bool ficho = true;
         public string empleado = "";
-        
         public Saludo(string USUARIO, DateTime h)
         {
             InitializeComponent();
             horafichaje = h;
             USER = USUARIO;
+            
         }
 
         public void buscarEnXML()

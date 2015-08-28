@@ -20,7 +20,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-
+using System.Data;
 using ZXing;
 using ZXing.Client.Result;
 using ZXing.Common;
@@ -39,10 +39,16 @@ namespace WindowsFormsDemo
         private Type Renderer { get; set; }
         private bool TryMultipleBarcodes { get; set; }
         private bool TryOnlyMultipleQRCodes { get; set; }
-
+        public int timeleft = 5;
+        AccesoBd oacceso = new AccesoBd();
         public WindowsFormsDemoForm()
         {
             InitializeComponent();
+            DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'timeleft'");
+            foreach (DataRow dr in dt1.Rows)
+            {
+                timeleft = Convert.ToInt32(dr["detalle"]);
+            }
             barcodeReader = new BarcodeReader
             {
                 AutoRotate = true,
@@ -87,7 +93,7 @@ namespace WindowsFormsDemo
                         webCamTimer = null;
                         wCam.Dispose();
                         wCam = null;
-                        TomaFoto frm1 = new TomaFoto(result.Text + Environment.NewLine, dt);
+                        TomaFoto frm1 = new TomaFoto(result.Text + Environment.NewLine, dt, timeleft);
                         frm1.ShowDialog();
                     }
                     else

@@ -2427,31 +2427,68 @@ namespace WindowsFormsDemo
         {
             dataGridView5.Columns.Clear();
             dataGridView5.Refresh();
-            if (!chk_desdehasta.Checked)
+            if (rb_ultimosreg.Checked)
             {
-                dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "");
-                dataGridView5.Columns[0].Visible = false;
-                dataGridView5.Columns[1].Visible = false;
-                dataGridView5.Columns[3].Visible = false;
-            }
-            else
-            {
-                if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                if (!chk_desdehasta.Checked)
                 {
-                    DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
-                    DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
-                    h = h.AddDays(1);
-                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "");
                     dataGridView5.Columns[0].Visible = false;
                     dataGridView5.Columns[1].Visible = false;
                     dataGridView5.Columns[3].Visible = false;
+                    dataGridView5.Columns[5].Visible = false;
+                    dataGridView5.Columns[6].Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("Debe completar correctamente los campos desde y hasta");
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        h = h.AddDays(1);
+                        dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        dataGridView5.Columns[0].Visible = false;
+                        dataGridView5.Columns[1].Visible = false;
+                        dataGridView5.Columns[3].Visible = false;
+                        dataGridView5.Columns[5].Visible = false;
+                        dataGridView5.Columns[6].Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe completar correctamente los campos desde y hasta");
+                    }
                 }
             }
-            
+            else if (rb_erroresfichado.Checked)
+            {
+                if (!chk_desdehasta.Checked)
+                {
+                    dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, "", "");
+                    dataGridView5.Columns[0].Visible = false;
+                    dataGridView5.Columns[1].Visible = false;
+                    dataGridView5.Columns[3].Visible = false;
+                    dataGridView5.Columns[5].Visible = false;
+                    dataGridView5.Columns[6].Visible = false;
+                }
+                else
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        h = h.AddDays(1);
+                        dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        dataGridView5.Columns[0].Visible = false;
+                        dataGridView5.Columns[1].Visible = false;
+                        dataGridView5.Columns[3].Visible = false;
+                        dataGridView5.Columns[5].Visible = false;
+                        dataGridView5.Columns[6].Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe completar correctamente los campos desde y hasta");
+                    }
+                }
+            }            
         }
 
         private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -2522,6 +2559,51 @@ namespace WindowsFormsDemo
             maskedTextBox8.Clear();
             maskedTextBox7.Clear();
             TSemana.Text = "";
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtmotivo.Text != "" && rb_ultimosreg.Checked)
+                {
+                    int filaseleccionada = Convert.ToInt32(this.dataGridView5.CurrentRow.Index);
+                    Acceso_BD oacceso = new Acceso_BD();
+                    DialogResult dialogResult = MessageBox.Show("Esta seguro de anular el registro del empleado: " + dataGridView5[4, filaseleccionada].Value.ToString() + " con fecha y hora: " + dataGridView5[2, filaseleccionada].Value.ToString(), "Anular Registro", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        oacceso.ActualizarBD("update registros set estado = '0', motivo = '" + txtmotivo.Text + "' where idregistros = '" + dataGridView5[0, filaseleccionada].Value.ToString() + "'");
+                        txtmotivo.Text = "";
+                        dataGridView5.Columns.Clear();
+                        dataGridView5.Refresh();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar el campo motivo para poder anular un registro");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridView5.Columns.Clear();
+            dataGridView5.Refresh();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridView5.Columns.Clear();
+            dataGridView5.Refresh();
         }
     }
 }

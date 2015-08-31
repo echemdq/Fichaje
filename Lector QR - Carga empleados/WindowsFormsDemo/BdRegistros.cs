@@ -19,6 +19,45 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
+        public List<Registros> TraerMalFichados(string dato, string dato1, string dato2)
+        {
+            List<Registros> aux = new List<Registros>();
+            DataTable dt = null;
+            if (dato1 == "")
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,r.registro as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), "", Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            else
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);                    
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), "", Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            return aux;
+        }
+
         public List<Registros> TraerTodosEspecial(string dato, string dato1, string dato2)
         {
             List<Registros> aux = new List<Registros>();
@@ -27,11 +66,11 @@ namespace WindowsFormsDemo
             {
                 if (oacceso.Tipo == "sql")
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados limit '" + dato + "'");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados and estado = '1' limit '" + dato + "'");
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados order by id desc limit " + dato + "");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados and estado = '1' order by id desc limit " + dato + "");
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -43,11 +82,11 @@ namespace WindowsFormsDemo
             {
                 if (oacceso.Tipo == "sql")
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '"+dato1+"' and registro < '"+dato2+"' limit '" + dato + "'");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e on r.idempleados = e.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' order by id desc limit " + dato + "");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e on r.idempleados = e.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' order by id desc limit " + dato + "");
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -74,11 +113,11 @@ namespace WindowsFormsDemo
             DataTable dt = null;
             if (oacceso.Tipo == "sql")
             {
-                dt = oacceso.leerDatos("select r.idregistros as idregistros, r.idempleados as idempleados, convert(nvarchar,registro,120) as registro, r.foto as foto, e.nombre as nombre from Registros r inner join empleados e on r.idempleados = e.idempleados where " + dato + " order by registro asc");
+                dt = oacceso.leerDatos("select r.idregistros as idregistros, r.idempleados as idempleados, convert(nvarchar,registro,120) as registro, r.foto as foto, e.nombre as nombre from Registros r inner join empleados e on r.idempleados = e.idempleados where " + dato + " and estado = '1' order by registro asc");
             }
             else
             {
-                dt = oacceso.leerDatos("select r.idregistros as idregistros, r.idempleados as idempleados, date_format(registro, '%Y-%m-%d %H:%i:%s') as registro, r.foto as foto, e.nombre as nombre from Registros r inner join empleados e on r.idempleados = e.idempleados where " + dato + " order by registro asc");
+                dt = oacceso.leerDatos("select r.idregistros as idregistros, r.idempleados as idempleados, date_format(registro, '%Y-%m-%d %H:%i:%s') as registro, r.foto as foto, e.nombre as nombre from Registros r inner join empleados e on r.idempleados = e.idempleados where " + dato + " and estado = '1' order by registro asc");
             }
             foreach (DataRow dr in dt.Rows)
             {

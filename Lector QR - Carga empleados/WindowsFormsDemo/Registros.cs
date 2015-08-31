@@ -44,6 +44,23 @@ namespace WindowsFormsDemo
             get { return nombre; }
             set { nombre = value; }
         }
+
+        string estado;
+
+        public string Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+        string motivo;
+
+        public string Motivo
+        {
+            get { return motivo; }
+            set { motivo = value; }
+        }
+
         public Registros(int idr, int ide, string r, string f, string n)
         {
             idregistros = idr;
@@ -51,6 +68,17 @@ namespace WindowsFormsDemo
             registro = r;
             foto = f;
             nombre = n;
+        }
+
+        public Registros(int idr, int ide, string r, string f, string n, string e, string m)
+        {
+            idregistros = idr;
+            idempleados = ide;
+            registro = r;
+            foto = f;
+            nombre = n;
+            estado = e;
+            motivo = m;
         }
     }
 }

@@ -24,6 +24,11 @@ namespace WindowsFormsDemo
             return bd.TraerTodosEspecial(dato, dato1, dato2);
         }
 
+        public List<Registros> TraerMalFichados(string dato, string dato1, string dato2)
+        {
+            return bd.TraerMalFichados(dato, dato1, dato2);
+        }        
+
         public void Borrar(Registros dato)
         {
             throw new NotImplementedException();

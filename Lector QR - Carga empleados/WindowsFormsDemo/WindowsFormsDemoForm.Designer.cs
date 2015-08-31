@@ -197,6 +197,12 @@
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.rb_erroresfichado = new System.Windows.Forms.RadioButton();
+            this.rb_ultimosreg = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button28 = new System.Windows.Forms.Button();
+            this.txtmotivo = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
             this.chk_desdehasta = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
@@ -236,6 +242,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabRegInfo.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -2250,6 +2257,9 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.rb_erroresfichado);
+            this.tabRegInfo.Controls.Add(this.rb_ultimosreg);
+            this.tabRegInfo.Controls.Add(this.groupBox5);
             this.tabRegInfo.Controls.Add(this.chk_desdehasta);
             this.tabRegInfo.Controls.Add(this.groupBox1);
             this.tabRegInfo.Controls.Add(this.pictureBox4);
@@ -2263,6 +2273,75 @@
             this.tabRegInfo.Size = new System.Drawing.Size(962, 484);
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
+            // 
+            // rb_erroresfichado
+            // 
+            this.rb_erroresfichado.AutoSize = true;
+            this.rb_erroresfichado.Location = new System.Drawing.Point(707, 55);
+            this.rb_erroresfichado.Name = "rb_erroresfichado";
+            this.rb_erroresfichado.Size = new System.Drawing.Size(111, 17);
+            this.rb_erroresfichado.TabIndex = 43;
+            this.rb_erroresfichado.Text = "Errores de fichado";
+            this.rb_erroresfichado.UseVisualStyleBackColor = true;
+            this.rb_erroresfichado.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // rb_ultimosreg
+            // 
+            this.rb_ultimosreg.AutoSize = true;
+            this.rb_ultimosreg.Checked = true;
+            this.rb_ultimosreg.Location = new System.Drawing.Point(707, 27);
+            this.rb_ultimosreg.Name = "rb_ultimosreg";
+            this.rb_ultimosreg.Size = new System.Drawing.Size(154, 17);
+            this.rb_ultimosreg.TabIndex = 42;
+            this.rb_ultimosreg.TabStop = true;
+            this.rb_ultimosreg.Text = "Ultimos registros de fichado";
+            this.rb_ultimosreg.UseVisualStyleBackColor = true;
+            this.rb_ultimosreg.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button28);
+            this.groupBox5.Controls.Add(this.txtmotivo);
+            this.groupBox5.Controls.Add(this.label48);
+            this.groupBox5.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.groupBox5.Location = new System.Drawing.Point(428, 304);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(286, 97);
+            this.groupBox5.TabIndex = 40;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Anula Registros";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.SystemColors.Info;
+            this.button28.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button28.Location = new System.Drawing.Point(117, 48);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(45, 40);
+            this.button28.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.button28, "Guardar");
+            this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
+            // txtmotivo
+            // 
+            this.txtmotivo.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.txtmotivo.Location = new System.Drawing.Point(65, 21);
+            this.txtmotivo.Name = "txtmotivo";
+            this.txtmotivo.Size = new System.Drawing.Size(215, 21);
+            this.txtmotivo.TabIndex = 39;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(11, 22);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(52, 16);
+            this.label48.TabIndex = 38;
+            this.label48.Text = "Motivo";
             // 
             // chk_desdehasta
             // 
@@ -2370,7 +2449,7 @@
             this.button22.BackColor = System.Drawing.SystemColors.Info;
             this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
             this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button22.Location = new System.Drawing.Point(600, 14);
+            this.button22.Location = new System.Drawing.Point(600, 26);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(55, 50);
             this.button22.TabIndex = 6;
@@ -2447,6 +2526,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.tabRegInfo.ResumeLayout(false);
             this.tabRegInfo.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -2630,14 +2711,20 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox10;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.CheckBox chk_desdehasta;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox11;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.MaskedTextBox maskedTextBox12;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.CheckBox chk_desdehasta;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.TextBox txtmotivo;
+        private System.Windows.Forms.RadioButton rb_erroresfichado;
+        private System.Windows.Forms.RadioButton rb_ultimosreg;
     }
 }

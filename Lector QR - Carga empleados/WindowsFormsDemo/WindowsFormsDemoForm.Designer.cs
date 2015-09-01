@@ -217,6 +217,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button29 = new System.Windows.Forms.Button();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -1305,6 +1306,7 @@
             // tabPageNovedades
             // 
             this.tabPageNovedades.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPageNovedades.Controls.Add(this.button29);
             this.tabPageNovedades.Controls.Add(this.groupBox3);
             this.tabPageNovedades.Controls.Add(this.cmb_anos);
             this.tabPageNovedades.Controls.Add(this.label37);
@@ -1500,9 +1502,8 @@
             this.lbl_idempnov.AutoSize = true;
             this.lbl_idempnov.Location = new System.Drawing.Point(596, 81);
             this.lbl_idempnov.Name = "lbl_idempnov";
-            this.lbl_idempnov.Size = new System.Drawing.Size(41, 13);
+            this.lbl_idempnov.Size = new System.Drawing.Size(0, 13);
             this.lbl_idempnov.TabIndex = 37;
-            this.lbl_idempnov.Text = "label33";
             this.lbl_idempnov.Visible = false;
             // 
             // txt_novedad
@@ -2068,9 +2069,8 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(84, 306);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(41, 13);
+            this.label23.Size = new System.Drawing.Size(0, 13);
             this.label23.TabIndex = 86;
-            this.label23.Text = "label23";
             this.label23.Visible = false;
             // 
             // button25
@@ -2470,6 +2470,19 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.SystemColors.Info;
+            this.button29.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button29.Location = new System.Drawing.Point(688, 129);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(65, 50);
+            this.button29.TabIndex = 47;
+            this.toolTip1.SetToolTip(this.button29, "Limpiar");
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // WindowsFormsDemoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2726,5 +2739,6 @@
         private System.Windows.Forms.TextBox txtmotivo;
         private System.Windows.Forms.RadioButton rb_erroresfichado;
         private System.Windows.Forms.RadioButton rb_ultimosreg;
+        private System.Windows.Forms.Button button29;
     }
 }

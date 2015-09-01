@@ -572,7 +572,7 @@ namespace WindowsFormsDemo
 
         private void WindowsFormsDemoForm_Load(object sender, EventArgs e)
         {
-
+            
             Iniciar_Sesion frm = new Iniciar_Sesion();
             frm.ShowDialog();
             if (frm.ok == false)
@@ -654,11 +654,11 @@ namespace WindowsFormsDemo
                     int ano = DateTime.Now.Year;
                     if (oacceso.Tipo == "sql")
                     {
-                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde, hasta, n.detalle as novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where DATEPART(month, desde) = '" + m + "' and DATEPART(year, desde) = '" + ano + "' order by desde asc");
+                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde, hasta, n.detalle as novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where DATEPART(month, desde) = '" + m + "' and DATEPART(year, desde) = '" + ano + "' order by desde asc");
                     }
                     else
                     {
-                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde, hasta, n.detalle as novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where month(desde) = '" + m + "' and year(desde) = '" + ano + "' order by desde asc");
+                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde, hasta, n.detalle as novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where month(desde) = '" + m + "' and year(desde) = '" + ano + "' order by desde asc");
                     }
                     dataGridView3.Columns[0].Visible = false;
                     m = m - 1;
@@ -1439,6 +1439,7 @@ namespace WindowsFormsDemo
                 lbl_idempnov.Text = empnov.Idempleados.ToString();
                 txt_docnov.Text = empnov.Nombre.ToString();
             }
+            cmb_anos_SelectedIndexChanged(sender, e);
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -1476,7 +1477,7 @@ namespace WindowsFormsDemo
                             txt_novedad.Clear();
                             txt_desdenov.Clear();
                             txt_hastanov.Clear();
-                            label33.Text = "";
+                            lbl_idempnov.Text = "";
                             cmb_mesesnov_SelectedIndexChanged(sender, e);
                         }
                         else
@@ -1730,13 +1731,27 @@ namespace WindowsFormsDemo
             Acceso_BD oacceso = new Acceso_BD();
             int x = cmb_mesesnov.SelectedIndex;
             x = x + 1;
-            if (oacceso.Tipo == "sql")
+            if (lbl_idempnov.Text == "")
             {
-                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where DATEPART(month, desde) = '" + x + "' and DATEPART(year, desde) = '" + cmb_anos.Text + "' order by desde asc");
+                if (oacceso.Tipo == "sql")
+                {
+                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where DATEPART(month, desde) = '" + x + "' and DATEPART(year, desde) = '" + cmb_anos.Text + "' order by desde asc");
+                }
+                else
+                {
+                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                }
             }
             else
             {
-                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                if (oacceso.Tipo == "sql")
+                {
+                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where n.idempleados = '" + lbl_idempnov.Text + "' and DATEPART(month, desde) = '" + x + "' and DATEPART(year, desde) = '" + cmb_anos.Text + "' order by desde asc");
+                }
+                else
+                {
+                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where n.idempleados = '" + lbl_idempnov.Text + "' and month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                }
             }
             dataGridView3.Columns[0].Visible = false;
         }
@@ -1772,13 +1787,27 @@ namespace WindowsFormsDemo
                 Acceso_BD oacceso = new Acceso_BD();
                 int x = cmb_mesesnov.SelectedIndex;
                 x = x + 1;
-                if (oacceso.Tipo == "sql")
+                if (lbl_idempnov.Text == "")
                 {
-                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where DATEPART(month, desde) = '" + x + "' and DATEPART(year, desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    if (oacceso.Tipo == "sql")
+                    {
+                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where DATEPART(month, desde) = '" + x + "' and DATEPART(year, desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    }
+                    else
+                    {
+                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    }
                 }
                 else
                 {
-                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    if (oacceso.Tipo == "sql")
+                    {
+                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where n.idempleados = '" + lbl_idempnov.Text + "' and DATEPART(month, desde) = '" + x + "' and DATEPART(year, desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    }
+                    else
+                    {
+                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where n.idempleados = '" + lbl_idempnov.Text + "' and month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    }
                 }
                 dataGridView3.Columns[0].Visible = false;
             }
@@ -1816,7 +1845,7 @@ namespace WindowsFormsDemo
                     {
                         empresa = Convert.ToString(dr["detalle"]);
                     }
-                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 25, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
                     document.Add(new Paragraph(chunk));
                     document.Add(new Paragraph("                   "));
                     document.Add(new Paragraph("                   "));
@@ -1892,13 +1921,27 @@ namespace WindowsFormsDemo
                 DateTime hasta = Convert.ToDateTime(maskedTextBox2.Text);
                 if (desde <= hasta)
                 {
-                    if (oacceso.Tipo == "sql")
+                    if (lbl_idempnov.Text == "")
                     {
-                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where desde between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' and hasta between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' order by desde asc");
+                        if (oacceso.Tipo == "sql")
+                        {
+                            dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where desde between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' and hasta between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' order by desde asc");
+                        }
+                        else
+                        {
+                            dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                        }
                     }
                     else
                     {
-                        dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, t.detalle as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                        if (oacceso.Tipo == "sql")
+                        {
+                            dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where n.idempleados = '" + lbl_idempnov.Text + "' desde between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' and hasta between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' order by desde asc");
+                        }
+                        else
+                        {
+                            dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtiposdenovedades where n.idempleados = '" + lbl_idempnov.Text + "' desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                        }
                     }
                     dataGridView3.Columns[0].Visible = false;
                 }
@@ -2541,11 +2584,18 @@ namespace WindowsFormsDemo
 
         private void button26_Click(object sender, EventArgs e)
         {
-            TSemana.Enabled = true;
-            maskedTextBox7.Enabled = true;
-            maskedTextBox8.Enabled = true;
-            maskedTextBox9.Enabled = true;
-            edito = true;
+            if (label23.Text != "")
+            {
+                TSemana.Enabled = true;
+                maskedTextBox7.Enabled = true;
+                maskedTextBox8.Enabled = true;
+                maskedTextBox9.Enabled = true;
+                edito = true;
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar una fila para editar ");
+            }
         }
 
         private void button27_Click(object sender, EventArgs e)
@@ -2604,6 +2654,16 @@ namespace WindowsFormsDemo
         {
             dataGridView5.Columns.Clear();
             dataGridView5.Refresh();
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            txt_docnov.Text = "Buscar un empleado para cargar novedad";
+            txt_novedad.Clear();
+            txt_desdenov.Clear();
+            txt_hastanov.Clear();
+            lbl_idempnov.Text = "";
+            cmb_anos_SelectedIndexChanged(sender, e);
         }
     }
 }

@@ -236,64 +236,77 @@ namespace WindowsFormsDemo
                 {
                     horario = "0";
                 }
+                DateTime t;
+                DateTime t1;
                 string ingreso1 = txt_ing1.Text;
                 string egreso1 = txt_eg1.Text;
-                string ingreso2 = txt_ing2.Text;
-                string egreso2 = txt_eg2.Text;
-                string horasdetrabajo = txt_horas.Text;
-                string descanso = txt_descanso.Text;
-                string lunes = "0";
-                string martes = "0";
-                string miercoles = "0";
-                string jueves = "0";
-                string viernes = "0";
-                string sabado = "0";
-                string domingo = "0";
-                int i;
-                for (i = 0; i <= (checkedListBox1.Items.Count - 1); i++)
+                if (DateTime.TryParse(ingreso1, out t) && DateTime.TryParse(egreso1, out t1) && txt_horas.Text != "  :" && txt_descanso.Text != "  :")
                 {
-                    if (checkedListBox1.GetItemChecked(i))
+                    ingreso1 = t.ToString("HH:mm");
+                    egreso1 = t1.ToString("HH:mm");
+                    string ingreso2 = txt_ing2.Text;
+                    string egreso2 = txt_eg2.Text;
+                    string horasdetrabajo = txt_horas.Text;
+                    string descanso = txt_descanso.Text;
+                    string lunes = "0";
+                    string martes = "0";
+                    string miercoles = "0";
+                    string jueves = "0";
+                    string viernes = "0";
+                    string sabado = "0";
+                    string domingo = "0";
+                    int i;
+                    for (i = 0; i <= (checkedListBox1.Items.Count - 1); i++)
                     {
-                        if (checkedListBox1.Items[i].ToString() == "Lunes")
+                        if (checkedListBox1.GetItemChecked(i))
                         {
-                            lunes = "1";
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Martes")
-                        {
-                            martes = "1";
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Miercoles")
-                        {
-                            miercoles = "1";
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Jueves")
-                        {
-                            jueves = "1";
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Viernes")
-                        {
-                            viernes = "1";
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Sabado")
-                        {
-                            sabado = "1";
-                        }
-                        else if (checkedListBox1.Items[i].ToString() == "Domingo")
-                        {
-                            domingo = "1";
+                            if (checkedListBox1.Items[i].ToString() == "Lunes")
+                            {
+                                lunes = "1";
+                            }
+                            else if (checkedListBox1.Items[i].ToString() == "Martes")
+                            {
+                                martes = "1";
+                            }
+                            else if (checkedListBox1.Items[i].ToString() == "Miercoles")
+                            {
+                                miercoles = "1";
+                            }
+                            else if (checkedListBox1.Items[i].ToString() == "Jueves")
+                            {
+                                jueves = "1";
+                            }
+                            else if (checkedListBox1.Items[i].ToString() == "Viernes")
+                            {
+                                viernes = "1";
+                            }
+                            else if (checkedListBox1.Items[i].ToString() == "Sabado")
+                            {
+                                sabado = "1";
+                            }
+                            else if (checkedListBox1.Items[i].ToString() == "Domingo")
+                            {
+                                domingo = "1";
+                            }
                         }
                     }
+                    string noct = "0";
+                    if (chk_noct.Checked)
+                    {
+                        noct = "1";
+                    }
+                    Horarios h = new Horarios(0, detalle, horario, descanso, horasdetrabajo, noct, ingreso1, egreso1, ingreso2, egreso2, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
+                    controlh.Agregar(h);
+                    MessageBox.Show("Horario Cargado Correctamente");
+                    limpiar();
+                    Recargar();
                 }
-                string noct = "0";
-                if (chk_noct.Checked)
+                else
                 {
-                    noct = "1";
+                    MessageBox.Show("Debe ingresar un ingreso y egreso correcto");
                 }
-                Horarios h = new Horarios(0, detalle, horario, descanso, horasdetrabajo, noct, ingreso1, egreso1, ingreso2, egreso2, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
-                controlh.Agregar(h);
-                MessageBox.Show("Horario Cargado Correctamente");
-                limpiar();
-                Recargar();
+                
+                
             }
             catch (Exception ex)
             {

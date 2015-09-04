@@ -118,6 +118,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button7 = new System.Windows.Forms.Button();
             this.tabPageNovedades = new System.Windows.Forms.TabPage();
+            this.button29 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button20 = new System.Windows.Forms.Button();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
@@ -217,7 +218,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button29 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txt_rhasta1 = new System.Windows.Forms.MaskedTextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.txt_rdesde1 = new System.Windows.Forms.MaskedTextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -248,6 +255,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -1337,6 +1345,19 @@
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
             // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.SystemColors.Info;
+            this.button29.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button29.Location = new System.Drawing.Point(688, 129);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(65, 50);
+            this.button29.TabIndex = 47;
+            this.toolTip1.SetToolTip(this.button29, "Limpiar");
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button20);
@@ -2257,6 +2278,8 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.button31);
+            this.tabRegInfo.Controls.Add(this.groupBox6);
             this.tabRegInfo.Controls.Add(this.rb_erroresfichado);
             this.tabRegInfo.Controls.Add(this.rb_ultimosreg);
             this.tabRegInfo.Controls.Add(this.groupBox5);
@@ -2277,7 +2300,7 @@
             // rb_erroresfichado
             // 
             this.rb_erroresfichado.AutoSize = true;
-            this.rb_erroresfichado.Location = new System.Drawing.Point(707, 55);
+            this.rb_erroresfichado.Location = new System.Drawing.Point(676, 56);
             this.rb_erroresfichado.Name = "rb_erroresfichado";
             this.rb_erroresfichado.Size = new System.Drawing.Size(111, 17);
             this.rb_erroresfichado.TabIndex = 43;
@@ -2289,7 +2312,7 @@
             // 
             this.rb_ultimosreg.AutoSize = true;
             this.rb_ultimosreg.Checked = true;
-            this.rb_ultimosreg.Location = new System.Drawing.Point(707, 27);
+            this.rb_ultimosreg.Location = new System.Drawing.Point(676, 28);
             this.rb_ultimosreg.Name = "rb_ultimosreg";
             this.rb_ultimosreg.Size = new System.Drawing.Size(154, 17);
             this.rb_ultimosreg.TabIndex = 42;
@@ -2304,7 +2327,7 @@
             this.groupBox5.Controls.Add(this.txtmotivo);
             this.groupBox5.Controls.Add(this.label48);
             this.groupBox5.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.groupBox5.Location = new System.Drawing.Point(428, 304);
+            this.groupBox5.Location = new System.Drawing.Point(428, 293);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(286, 97);
             this.groupBox5.TabIndex = 40;
@@ -2412,7 +2435,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(428, 97);
+            this.pictureBox4.Location = new System.Drawing.Point(457, 97);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(227, 190);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2470,18 +2493,85 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // button29
+            // groupBox6
             // 
-            this.button29.BackColor = System.Drawing.SystemColors.Info;
-            this.button29.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button29.Location = new System.Drawing.Point(688, 129);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(65, 50);
-            this.button29.TabIndex = 47;
-            this.toolTip1.SetToolTip(this.button29, "Limpiar");
-            this.button29.UseVisualStyleBackColor = false;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.groupBox6.Controls.Add(this.txt_rhasta1);
+            this.groupBox6.Controls.Add(this.label47);
+            this.groupBox6.Controls.Add(this.txt_rdesde1);
+            this.groupBox6.Controls.Add(this.label49);
+            this.groupBox6.Controls.Add(this.button30);
+            this.groupBox6.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.groupBox6.Location = new System.Drawing.Point(707, 97);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(242, 82);
+            this.groupBox6.TabIndex = 44;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Auditoria Ausencias";
+            // 
+            // txt_rhasta1
+            // 
+            this.txt_rhasta1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_rhasta1.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.txt_rhasta1.Location = new System.Drawing.Point(65, 50);
+            this.txt_rhasta1.Mask = "00/00/0000";
+            this.txt_rhasta1.Name = "txt_rhasta1";
+            this.txt_rhasta1.Size = new System.Drawing.Size(100, 21);
+            this.txt_rhasta1.TabIndex = 1;
+            this.txt_rhasta1.ValidatingType = typeof(System.DateTime);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(13, 54);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(46, 16);
+            this.label47.TabIndex = 40;
+            this.label47.Text = "Hasta";
+            // 
+            // txt_rdesde1
+            // 
+            this.txt_rdesde1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_rdesde1.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.txt_rdesde1.Location = new System.Drawing.Point(65, 22);
+            this.txt_rdesde1.Mask = "00/00/0000";
+            this.txt_rdesde1.Name = "txt_rdesde1";
+            this.txt_rdesde1.Size = new System.Drawing.Size(100, 21);
+            this.txt_rdesde1.TabIndex = 0;
+            this.txt_rdesde1.ValidatingType = typeof(System.DateTime);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(11, 22);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(48, 16);
+            this.label49.TabIndex = 38;
+            this.label49.Text = "Desde";
+            // 
+            // button30
+            // 
+            this.button30.BackColor = System.Drawing.SystemColors.Info;
+            this.button30.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button30.Location = new System.Drawing.Point(179, 19);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(57, 50);
+            this.button30.TabIndex = 2;
+            this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.SystemColors.Info;
+            this.button31.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button31.Location = new System.Drawing.Point(836, 26);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(57, 50);
+            this.button31.TabIndex = 45;
+            this.button31.UseVisualStyleBackColor = false;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2546,6 +2636,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2740,5 +2832,12 @@
         private System.Windows.Forms.RadioButton rb_erroresfichado;
         private System.Windows.Forms.RadioButton rb_ultimosreg;
         private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.MaskedTextBox txt_rhasta1;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.MaskedTextBox txt_rdesde1;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button31;
     }
 }

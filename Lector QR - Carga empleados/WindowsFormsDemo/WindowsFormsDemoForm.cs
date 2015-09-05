@@ -2668,129 +2668,291 @@ namespace WindowsFormsDemo
             cmb_tiponov.SelectedValue = 0;
         }
 
-        private void button30_Click(object sender, EventArgs e)
+        
+
+        private void button31_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txt_rdesde1.Text != "  /  /" && txt_rhasta1.Text != "  /  /")
+                if (rb_ausencias.Checked)
                 {
-                    Document document = new Document();
-                    DateTime fecha = DateTime.Now;
-                    string fe = "AusenciasGral " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
-                    Acceso_BD oacceso = new Acceso_BD();
-                    DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
-                    string root = "";
-                    foreach (DataRow dr in dt1.Rows)
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
                     {
-                        root = Convert.ToString(dr["detalle"]);
-                    }
-                    if (File.Exists(root))
-                    {
-                    }
-                    else
-                    {
-                        root = Environment.CurrentDirectory;
-                    }
-                    PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
-                    document.Open();
-                    DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
-                    string empresa = "";
-                    foreach (DataRow dr in dt12.Rows)
-                    {
-                        empresa = Convert.ToString(dr["detalle"]);
-                    }
-                    Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
-                    document.Add(new Paragraph(chunk));
-                    document.Add(new Paragraph("                   "));
-                    chunk = new Chunk("Ausencias Gral            Desde: " + txt_rdesde1.Text + "       Hasta: " + txt_rhasta1.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
-                    document.Add(new Paragraph(chunk));
-                    document.Add(new Paragraph("                   "));
-                    int mes = comboBox1.SelectedIndex;
-                    mes = mes + 1;
-                    DataTable dt = null;
-                    if (oacceso.Tipo == "sql")
-                    {
-                        dt = oacceso.leerDatos("exec sp_registro1 '" + txt_rdesde1.Text + "', '" + txt_rhasta1.Text + "'");
-                    }
-                    else
-                    {
-                        DateTime d = Convert.ToDateTime(txt_rdesde1.Text);
-                        DateTime h = Convert.ToDateTime(txt_rhasta1.Text);
-                        dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "')");
-                    }
-                    PdfPTable table = new PdfPTable(2);
-                    iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
-                    iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
-                    PdfPCell cell = new PdfPCell(new Phrase("Registro Ausencias"));
-                    cell.Colspan = 2;
-                    cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
-                    table.AddCell(cell);
-                    table.AddCell(new PdfPCell(new Phrase("Dia", fontH1)));
-                    table.AddCell(new PdfPCell(new Phrase("Registros", fontH1)));
-                    table.WidthPercentage = 100;
-                    float[] widths = new float[] { 2f, 3f};
-                    table.SetWidths(widths);
-                    string pepe = "";
-                    TimeSpan ht = new TimeSpan(0, 0, 0);
-                    TimeSpan cero = new TimeSpan(0, 0, 0);
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        string x = "";
-                        if (pepe != Convert.ToString(dr["Empleado"]))
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "AusenciasGral " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
                         {
-                            if (pepe != "")
-                            {
-                                if (ht != cero)
-                                {
-                                    int hora = ht.Days * 24 + ht.Hours;
-                                    Chunk chunk1 = new Chunk("Total Horas Trabajadas del Empleado " + pepe + ": " + hora.ToString() + "h:" + ht.Minutes.ToString() + "m:" + ht.Seconds.ToString() + "s", FontFactory.GetFont("VERDANA", 10, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
-                                    document.Add(new Paragraph(chunk1));
-                                    document.Add(new Paragraph("                   "));
-                                    ht = new TimeSpan(0, 0, 0);
-                                }
-                                document.Add(table);
-                                table = new PdfPTable(2);
-                                table.WidthPercentage = 100;
-                                float[] widths1 = new float[] { 2f, 3f };
-                                table.SetWidths(widths1);
-                            }
-                            pepe = Convert.ToString(dr["Empleado"]);
-                            PdfPCell cell1 = new PdfPCell(new Phrase(pepe));
-                            cell1.Colspan = 2;
-                            cell1.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
-                            cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
-                            table.AddCell(cell1);
-                            if (oacceso.Tipo == "sql")
-                            {
-                                table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Día"]), fontH2)));
-                            }
-                            else
-                            {
-                                table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Dia"]), fontH2)));
-                            }
-                            table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Registro"]), fontH2)));
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
                         }
                         else
                         {
-                            if (oacceso.Tipo == "sql")
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Ausencias Gral            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;                        
+                        DataTable dt = null;
+                        if (oacceso.Tipo == "sql")
+                        {
+                            dt = oacceso.leerDatos("exec sp_registro1 '" + maskedTextBox12.Text + "', '" + maskedTextBox11.Text + "'");
+                        }
+                        else
+                        {
+                            DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                            DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                            dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "')");
+                        }
+                        PdfPTable table = new PdfPTable(2);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Registro Ausencias"));
+                        cell.Colspan = 2;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.AddCell(new PdfPCell(new Phrase("Dia", fontH1)));
+                        table.AddCell(new PdfPCell(new Phrase("Registros", fontH1)));
+                        table.WidthPercentage = 100;
+                        float[] widths = new float[] { 2f, 3f };
+                        table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        foreach (DataRow dr in dt.Rows)
+                        {                           
+                            if (pepe != Convert.ToString(dr["Empleado"]))
                             {
-                                table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Día"]), fontH2)));
+                                if (pepe != "")
+                                {
+                                    if (ht != cero)
+                                    {
+                                        int hora = ht.Days * 24 + ht.Hours;
+                                        Chunk chunk1 = new Chunk("Total Horas Trabajadas del Empleado " + pepe + ": " + hora.ToString() + "h:" + ht.Minutes.ToString() + "m:" + ht.Seconds.ToString() + "s", FontFactory.GetFont("VERDANA", 10, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                                        document.Add(new Paragraph(chunk1));
+                                        document.Add(new Paragraph("                   "));
+                                        ht = new TimeSpan(0, 0, 0);
+                                    }
+                                    document.Add(table);
+                                    table = new PdfPTable(2);
+                                    table.WidthPercentage = 100;
+                                    float[] widths1 = new float[] { 2f, 3f };
+                                    table.SetWidths(widths1);
+                                }
+                                pepe = Convert.ToString(dr["Empleado"]);
+                                PdfPCell cell1 = new PdfPCell(new Phrase(pepe));
+                                cell1.Colspan = 2;
+                                cell1.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                                cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                                table.AddCell(cell1);
+                                if (oacceso.Tipo == "sql")
+                                {
+                                    table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Día"]), fontH2)));
+                                }
+                                else
+                                {
+                                    table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Dia"]), fontH2)));
+                                }
+                                table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Registro"]), fontH2)));
                             }
                             else
                             {
-                                table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Dia"]), fontH2)));
+                                if (oacceso.Tipo == "sql")
+                                {
+                                    table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Día"]), fontH2)));
+                                }
+                                else
+                                {
+                                    table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Dia"]), fontH2)));
+                                }
+                                table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Registro"]), fontH2)));
                             }
-                            table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr["Registro"]), fontH2)));
                         }
-
-
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
                     }
-                    document.Add(table);
-                    document.Close();
-                    System.Diagnostics.Process proc = new System.Diagnostics.Process();
-                    string pdfPath = root + fe;
-                    proc.StartInfo.FileName = pdfPath;
-                    proc.Start();
+                }
+                else if (rb_erroresfichado.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "ErroresFichado " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Errores de Fichado            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        h = h.AddDays(1);
+                        List<Registros> lo = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));                       
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Errores de Fichado"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        Empleados exe = null;
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            exe = controlemp.Buscar(aux.Idempleados.ToString());
+                            pepe = exe.Nombre;
+                            table = new PdfPTable(2);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell1 = new PdfPCell(new Phrase(pepe));
+                            cell1.Colspan = 1;
+                            cell1.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell1);
+                            PdfPCell cell2 = new PdfPCell(new Phrase(aux.Registro));
+                            cell2.Colspan = 1;
+                            cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell2);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                    }
+                }
+                else if (rb_ultimosreg.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "UltimosReg " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Ultimos Registros            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        h = h.AddDays(1);
+                        List<Registros> lo = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Ultimos Registros"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        Empleados exe = null;
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            exe = controlemp.Buscar(aux.Idempleados.ToString());
+                            pepe = exe.Nombre;
+                            table = new PdfPTable(2);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell1 = new PdfPCell(new Phrase(pepe));
+                            cell1.Colspan = 1;
+                            cell1.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell1);
+                            PdfPCell cell2 = new PdfPCell(new Phrase(aux.Registro));
+                            cell2.Colspan = 1;
+                            cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell2);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                    }
                 }
             }
             catch (Exception ex)

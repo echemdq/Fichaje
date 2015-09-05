@@ -51,7 +51,7 @@ namespace WindowsFormsDemo
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
-                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), "", Convert.ToString(dr["nombre"]));
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), Convert.ToInt32(dr["id"]), Convert.ToString(dr["registro"]), "", Convert.ToString(dr["nombre"]));
                     aux.Add(r);
                 }
             }
@@ -70,11 +70,11 @@ namespace WindowsFormsDemo
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados and estado = '1' order by id desc limit " + dato + "");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados and estado = '1' order by id desc limit " + dato + "");
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
-                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), Convert.ToInt32(dr["id1"]), Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
                     aux.Add(r);
                 }
             }
@@ -86,11 +86,11 @@ namespace WindowsFormsDemo
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e on r.idempleados = e.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' order by id desc limit " + dato + "");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e on r.idempleados = e.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' order by id desc limit " + dato + "");
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
-                    Registros r = new Registros(Convert.ToInt32(dr["id"]), 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), Convert.ToInt32(dr["id1"]), Convert.ToString(dr["registro"]), Convert.ToString(dr["foto"]), Convert.ToString(dr["nombre"]));
                     aux.Add(r);
                 }
             }

@@ -198,6 +198,7 @@
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.button31 = new System.Windows.Forms.Button();
             this.rb_erroresfichado = new System.Windows.Forms.RadioButton();
             this.rb_ultimosreg = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -218,13 +219,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txt_rhasta1 = new System.Windows.Forms.MaskedTextBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.txt_rdesde1 = new System.Windows.Forms.MaskedTextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
+            this.rb_ausencias = new System.Windows.Forms.RadioButton();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -255,7 +250,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -2278,8 +2272,8 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.rb_ausencias);
             this.tabRegInfo.Controls.Add(this.button31);
-            this.tabRegInfo.Controls.Add(this.groupBox6);
             this.tabRegInfo.Controls.Add(this.rb_erroresfichado);
             this.tabRegInfo.Controls.Add(this.rb_ultimosreg);
             this.tabRegInfo.Controls.Add(this.groupBox5);
@@ -2297,10 +2291,22 @@
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
             // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.SystemColors.Info;
+            this.button31.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button31.Location = new System.Drawing.Point(886, 26);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(57, 50);
+            this.button31.TabIndex = 45;
+            this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
             // rb_erroresfichado
             // 
             this.rb_erroresfichado.AutoSize = true;
-            this.rb_erroresfichado.Location = new System.Drawing.Point(676, 56);
+            this.rb_erroresfichado.Location = new System.Drawing.Point(685, 35);
             this.rb_erroresfichado.Name = "rb_erroresfichado";
             this.rb_erroresfichado.Size = new System.Drawing.Size(111, 17);
             this.rb_erroresfichado.TabIndex = 43;
@@ -2312,7 +2318,7 @@
             // 
             this.rb_ultimosreg.AutoSize = true;
             this.rb_ultimosreg.Checked = true;
-            this.rb_ultimosreg.Location = new System.Drawing.Point(676, 28);
+            this.rb_ultimosreg.Location = new System.Drawing.Point(685, 10);
             this.rb_ultimosreg.Name = "rb_ultimosreg";
             this.rb_ultimosreg.Size = new System.Drawing.Size(154, 17);
             this.rb_ultimosreg.TabIndex = 42;
@@ -2493,85 +2499,16 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // groupBox6
+            // rb_ausencias
             // 
-            this.groupBox6.Controls.Add(this.txt_rhasta1);
-            this.groupBox6.Controls.Add(this.label47);
-            this.groupBox6.Controls.Add(this.txt_rdesde1);
-            this.groupBox6.Controls.Add(this.label49);
-            this.groupBox6.Controls.Add(this.button30);
-            this.groupBox6.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.groupBox6.Location = new System.Drawing.Point(707, 97);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(242, 82);
-            this.groupBox6.TabIndex = 44;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Auditoria Ausencias";
-            // 
-            // txt_rhasta1
-            // 
-            this.txt_rhasta1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_rhasta1.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.txt_rhasta1.Location = new System.Drawing.Point(65, 50);
-            this.txt_rhasta1.Mask = "00/00/0000";
-            this.txt_rhasta1.Name = "txt_rhasta1";
-            this.txt_rhasta1.Size = new System.Drawing.Size(100, 21);
-            this.txt_rhasta1.TabIndex = 1;
-            this.txt_rhasta1.ValidatingType = typeof(System.DateTime);
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(13, 54);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(46, 16);
-            this.label47.TabIndex = 40;
-            this.label47.Text = "Hasta";
-            // 
-            // txt_rdesde1
-            // 
-            this.txt_rdesde1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_rdesde1.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.txt_rdesde1.Location = new System.Drawing.Point(65, 22);
-            this.txt_rdesde1.Mask = "00/00/0000";
-            this.txt_rdesde1.Name = "txt_rdesde1";
-            this.txt_rdesde1.Size = new System.Drawing.Size(100, 21);
-            this.txt_rdesde1.TabIndex = 0;
-            this.txt_rdesde1.ValidatingType = typeof(System.DateTime);
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(11, 22);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(48, 16);
-            this.label49.TabIndex = 38;
-            this.label49.Text = "Desde";
-            // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.SystemColors.Info;
-            this.button30.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button30.Location = new System.Drawing.Point(179, 19);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(57, 50);
-            this.button30.TabIndex = 2;
-            this.button30.UseVisualStyleBackColor = false;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
-            // 
-            // button31
-            // 
-            this.button31.BackColor = System.Drawing.SystemColors.Info;
-            this.button31.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button31.Location = new System.Drawing.Point(836, 26);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(57, 50);
-            this.button31.TabIndex = 45;
-            this.button31.UseVisualStyleBackColor = false;
+            this.rb_ausencias.AutoSize = true;
+            this.rb_ausencias.Location = new System.Drawing.Point(685, 60);
+            this.rb_ausencias.Name = "rb_ausencias";
+            this.rb_ausencias.Size = new System.Drawing.Size(118, 17);
+            this.rb_ausencias.TabIndex = 46;
+            this.rb_ausencias.TabStop = true;
+            this.rb_ausencias.Text = "Auditoria Ausencias";
+            this.rb_ausencias.UseVisualStyleBackColor = true;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2636,8 +2573,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2832,12 +2767,7 @@
         private System.Windows.Forms.RadioButton rb_erroresfichado;
         private System.Windows.Forms.RadioButton rb_ultimosreg;
         private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.MaskedTextBox txt_rhasta1;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.MaskedTextBox txt_rdesde1;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.RadioButton rb_ausencias;
     }
 }

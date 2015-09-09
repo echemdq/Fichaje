@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
 using System.Data;
 using System.Globalization;
 using System;
@@ -1252,11 +1254,11 @@ namespace WindowsFormsDemo
                     Acceso_BD oacceso = new Acceso_BD();
                     if (oacceso.Tipo == "sql")
                     {
-                        list = controlreg.BuscarEspecial("e.documento = '" + txt_doc1.Text + "' and r.registro between '" + de.ToString("dd/MM/yyyy HH:mm:ss") + "' and '" + h.ToString("dd/MM/yyyy HH:mm:ss") + "'");
+                        list = controlreg.BuscarEspecial("e.documento = '" + txt_doc1.Text + "' and r.fechareal between '" + de.ToString("dd/MM/yyyy HH:mm:ss") + "' and '" + h.ToString("dd/MM/yyyy HH:mm:ss") + "'");
                     }
                     else
                     {
-                        list = controlreg.BuscarEspecial("e.documento = '" + txt_doc1.Text + "' and r.registro between '" + de.ToString("yyyy-MM-dd HH:mm:ss") + "' and '" + h.ToString("yyyy-MM-dd HH:mm:ss") + "'");
+                        list = controlreg.BuscarEspecial("e.documento = '" + txt_doc1.Text + "' and r.fechareal between '" + de.ToString("yyyy-MM-dd HH:mm:ss") + "' and '" + h.ToString("yyyy-MM-dd HH:mm:ss") + "'");
                     }
                     foreach (Registros aux in list)
                     {
@@ -2672,12 +2674,15 @@ namespace WindowsFormsDemo
 
         private void button31_Click(object sender, EventArgs e)
         {
+            label47.Visible = true;            
+            Application.DoEvents();
             try
             {
                 if (rb_ausencias.Checked)
                 {
                     if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
                     {
+                        
                         Document document = new Document();
                         DateTime fecha = DateTime.Now;
                         string fe = "AusenciasGral " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
@@ -2787,11 +2792,12 @@ namespace WindowsFormsDemo
                             }
                         }
                         document.Add(table);
-                        document.Close();
+                        document.Close();                        
                         System.Diagnostics.Process proc = new System.Diagnostics.Process();
                         string pdfPath = root + fe;
                         proc.StartInfo.FileName = pdfPath;
                         proc.Start();
+                        label47.Visible = false;
                     }
                 }
                 else if (rb_erroresfichado.Checked)
@@ -2872,6 +2878,7 @@ namespace WindowsFormsDemo
                         string pdfPath = root + fe;
                         proc.StartInfo.FileName = pdfPath;
                         proc.Start();
+                        label47.Visible = false;
                     }
                 }
                 else if (rb_ultimosreg.Checked)
@@ -2952,6 +2959,7 @@ namespace WindowsFormsDemo
                         string pdfPath = root + fe;
                         proc.StartInfo.FileName = pdfPath;
                         proc.Start();
+                        label47.Visible = false;
                     }
                 }
                 else if (rb_fichajesmanu.Checked)
@@ -3030,6 +3038,7 @@ namespace WindowsFormsDemo
                         string pdfPath = root + fe;
                         proc.StartInfo.FileName = pdfPath;
                         proc.Start();
+                        label47.Visible = false;
                     }
                 }
                 else if (rb_fichajeanu.Checked)
@@ -3112,6 +3121,7 @@ namespace WindowsFormsDemo
                         string pdfPath = root + fe;
                         proc.StartInfo.FileName = pdfPath;
                         proc.Start();
+                        label47.Visible = false;
                     }
                 }
             }
@@ -3119,6 +3129,11 @@ namespace WindowsFormsDemo
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void tabCtrlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

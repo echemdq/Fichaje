@@ -105,11 +105,11 @@ namespace WindowsFormsDemo
             {
                 if (oacceso.Tipo == "sql")
                 {
-                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,r.registro as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,r.registro as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -121,11 +121,11 @@ namespace WindowsFormsDemo
             {
                 if (oacceso.Tipo == "sql")
                 {
-                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where fechareal > '" + dato1 + "' and fechareal < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);                    
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where fechareal >= '" + dato1 + "' and fechareal <= '" + dato2 + "' and r.estado = '1' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);                    
                 }
                 foreach (DataRow dr in dt.Rows)
                 {

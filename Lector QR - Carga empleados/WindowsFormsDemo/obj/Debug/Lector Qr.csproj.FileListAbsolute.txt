@@ -137,3 +137,4 @@ C:\Users\Ezequiel\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFo
 C:\Users\Ezequiel\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.Properties.Resources.resources
 C:\Users\Ezequiel\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.WindowsFormsDemoForm.resources
 C:\Users\Ezequiel\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\Lector Qr.csproj.GenerateResource.Cache
+C:\Users\Ezequiel\Documents\GitHub\Fichaje\Lector QR - Carga empleados\WindowsFormsDemo\obj\Debug\WindowsFormsDemo.prueba.resources

@@ -19,6 +19,84 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
+        public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2)
+        {
+            List<Registros> aux = new List<Registros>();
+            DataTable dt = null;
+            if (dato1 == "")
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,r.registro as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.estado=0 order by e.nombre, r.registro limit " + dato);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(0, 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["motivo"]), Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            else
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(0, 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["motivo"]), Convert.ToString(dr["nombre"]));                    
+                    aux.Add(r);
+                }
+            }
+            return aux;
+        }
+
+        public List<Registros> TraerFichajesManuales(string dato, string dato1, string dato2)
+        {
+            List<Registros> aux = new List<Registros>();
+            DataTable dt = null;
+            if (dato1 == "")
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,r.registro as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("select r.idempleados as id, e.nombre as nombre, r.registro as registro from registros r left join empleados e on e.idempleados=r.idempleados where r.manual=1 and r.estado=1 order by e.nombre, r.registro limit " + dato);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), Convert.ToInt32(dr["id"]), Convert.ToString(dr["registro"]), "", Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            else
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("select r.idempleados as id, e.nombre as nombre, r.registro as registro from registros r left join empleados e on e.idempleados=r.idempleados where r.manual=1 and registro between '" + dato1 + "' and '" + dato2 + "' and r.estado=1 order by e.nombre, r.registro limit " + dato);
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(Convert.ToInt32(dr["id"]), Convert.ToInt32(dr["id"]), Convert.ToString(dr["registro"]), "", Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            return aux;
+        }
+
         public List<Registros> TraerMalFichados(string dato, string dato1, string dato2)
         {
             List<Registros> aux = new List<Registros>();

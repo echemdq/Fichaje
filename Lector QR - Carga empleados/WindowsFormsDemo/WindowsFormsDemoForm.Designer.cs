@@ -198,6 +198,7 @@
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.rb_ausencias = new System.Windows.Forms.RadioButton();
             this.button31 = new System.Windows.Forms.Button();
             this.rb_erroresfichado = new System.Windows.Forms.RadioButton();
             this.rb_ultimosreg = new System.Windows.Forms.RadioButton();
@@ -219,7 +220,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.rb_ausencias = new System.Windows.Forms.RadioButton();
+            this.rb_fichajesmanu = new System.Windows.Forms.RadioButton();
+            this.rb_fichajeanu = new System.Windows.Forms.RadioButton();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -2272,6 +2274,8 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.rb_fichajeanu);
+            this.tabRegInfo.Controls.Add(this.rb_fichajesmanu);
             this.tabRegInfo.Controls.Add(this.rb_ausencias);
             this.tabRegInfo.Controls.Add(this.button31);
             this.tabRegInfo.Controls.Add(this.rb_erroresfichado);
@@ -2291,6 +2295,17 @@
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
             // 
+            // rb_ausencias
+            // 
+            this.rb_ausencias.AutoSize = true;
+            this.rb_ausencias.Location = new System.Drawing.Point(718, 56);
+            this.rb_ausencias.Name = "rb_ausencias";
+            this.rb_ausencias.Size = new System.Drawing.Size(118, 17);
+            this.rb_ausencias.TabIndex = 46;
+            this.rb_ausencias.TabStop = true;
+            this.rb_ausencias.Text = "Auditoria Ausencias";
+            this.rb_ausencias.UseVisualStyleBackColor = true;
+            // 
             // button31
             // 
             this.button31.BackColor = System.Drawing.SystemColors.Info;
@@ -2306,7 +2321,7 @@
             // rb_erroresfichado
             // 
             this.rb_erroresfichado.AutoSize = true;
-            this.rb_erroresfichado.Location = new System.Drawing.Point(685, 35);
+            this.rb_erroresfichado.Location = new System.Drawing.Point(718, 33);
             this.rb_erroresfichado.Name = "rb_erroresfichado";
             this.rb_erroresfichado.Size = new System.Drawing.Size(111, 17);
             this.rb_erroresfichado.TabIndex = 43;
@@ -2318,7 +2333,7 @@
             // 
             this.rb_ultimosreg.AutoSize = true;
             this.rb_ultimosreg.Checked = true;
-            this.rb_ultimosreg.Location = new System.Drawing.Point(685, 10);
+            this.rb_ultimosreg.Location = new System.Drawing.Point(718, 10);
             this.rb_ultimosreg.Name = "rb_ultimosreg";
             this.rb_ultimosreg.Size = new System.Drawing.Size(154, 17);
             this.rb_ultimosreg.TabIndex = 42;
@@ -2499,16 +2514,27 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // rb_ausencias
+            // rb_fichajesmanu
             // 
-            this.rb_ausencias.AutoSize = true;
-            this.rb_ausencias.Location = new System.Drawing.Point(685, 60);
-            this.rb_ausencias.Name = "rb_ausencias";
-            this.rb_ausencias.Size = new System.Drawing.Size(118, 17);
-            this.rb_ausencias.TabIndex = 46;
-            this.rb_ausencias.TabStop = true;
-            this.rb_ausencias.Text = "Auditoria Ausencias";
-            this.rb_ausencias.UseVisualStyleBackColor = true;
+            this.rb_fichajesmanu.AutoSize = true;
+            this.rb_fichajesmanu.Location = new System.Drawing.Point(718, 79);
+            this.rb_fichajesmanu.Name = "rb_fichajesmanu";
+            this.rb_fichajesmanu.Size = new System.Drawing.Size(113, 17);
+            this.rb_fichajesmanu.TabIndex = 47;
+            this.rb_fichajesmanu.TabStop = true;
+            this.rb_fichajesmanu.Text = "Fichajes Manuales";
+            this.rb_fichajesmanu.UseVisualStyleBackColor = true;
+            // 
+            // rb_fichajeanu
+            // 
+            this.rb_fichajeanu.AutoSize = true;
+            this.rb_fichajeanu.Location = new System.Drawing.Point(718, 102);
+            this.rb_fichajeanu.Name = "rb_fichajeanu";
+            this.rb_fichajeanu.Size = new System.Drawing.Size(110, 17);
+            this.rb_fichajeanu.TabIndex = 48;
+            this.rb_fichajeanu.TabStop = true;
+            this.rb_fichajeanu.Text = "Fichajes anulados";
+            this.rb_fichajeanu.UseVisualStyleBackColor = true;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2769,5 +2795,7 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.RadioButton rb_ausencias;
+        private System.Windows.Forms.RadioButton rb_fichajeanu;
+        private System.Windows.Forms.RadioButton rb_fichajesmanu;
     }
 }

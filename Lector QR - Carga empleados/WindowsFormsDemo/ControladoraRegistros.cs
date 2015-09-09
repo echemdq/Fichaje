@@ -27,7 +27,18 @@ namespace WindowsFormsDemo
         public List<Registros> TraerMalFichados(string dato, string dato1, string dato2)
         {
             return bd.TraerMalFichados(dato, dato1, dato2);
-        }        
+        }
+
+        public List<Registros> TraerFichajesManuales(string dato, string dato1, string dato2)
+        {
+            return bd.TraerFichajesManuales(dato, dato1, dato2);
+        }
+
+
+        public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2)
+        {
+            return bd.TraerFichajesAnulados(dato, dato1, dato2);
+        }  
 
         public void Borrar(Registros dato)
         {

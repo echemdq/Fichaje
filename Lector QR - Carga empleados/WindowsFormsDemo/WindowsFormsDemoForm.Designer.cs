@@ -37,12 +37,14 @@
             this.tabPageUsuarios = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.cmb_usuarios = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_contrasena = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPageCargaEmpleados = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button21 = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -71,6 +73,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_impemp = new System.Windows.Forms.Button();
+            this.pbFotoUser = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPageRegistros = new System.Windows.Forms.TabPage();
             this.lbl_ht = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -78,6 +88,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.txt_rdesde = new System.Windows.Forms.MaskedTextBox();
             this.label34 = new System.Windows.Forms.Label();
+            this.button18 = new System.Windows.Forms.Button();
             this.txt_ano = new System.Windows.Forms.MaskedTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -90,7 +101,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txt_doc1 = new System.Windows.Forms.MaskedTextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.btn_imprimir = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.tabPageFeriados = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.lbl_idferiado = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.txt_feriado = new System.Windows.Forms.TextBox();
@@ -100,8 +116,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabPageNovedades = new System.Windows.Forms.TabPage();
+            this.button29 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button20 = new System.Windows.Forms.Button();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
@@ -124,6 +143,9 @@
             this.label30 = new System.Windows.Forms.Label();
             this.check_afectaemp = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.tabPageDecoder = new System.Windows.Forms.TabPage();
             this.btnExtendedResult = new System.Windows.Forms.Button();
             this.btnDecodingOptions = new System.Windows.Forms.Button();
@@ -134,6 +156,8 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.btnStartDecoding = new System.Windows.Forms.Button();
             this.btnSelectBarcodeImageFileForDecoding = new System.Windows.Forms.Button();
+            this.picBarcode = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPageEncoder = new System.Windows.Forms.TabPage();
             this.btnEncoderSave = new System.Windows.Forms.Button();
             this.btnEncode = new System.Windows.Forms.Button();
@@ -143,6 +167,8 @@
             this.labEncoderContent = new System.Windows.Forms.Label();
             this.labEncoderType = new System.Windows.Forms.Label();
             this.cmbEncoderType = new System.Windows.Forms.ComboBox();
+            this.picEncodedBarCode = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPageWebCam = new System.Windows.Forms.TabPage();
             this.button13 = new System.Windows.Forms.Button();
             this.btnDecodeWebCam = new System.Windows.Forms.Button();
@@ -150,7 +176,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtContentWebCam = new System.Windows.Forms.TextBox();
             this.txtTypeWebCam = new System.Windows.Forms.TextBox();
+            this.picWebCam = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txt_empleadohorario = new System.Windows.Forms.TextBox();
@@ -166,13 +195,18 @@
             this.cmb_horarios = new System.Windows.Forms.ComboBox();
             this.TSemana = new System.Windows.Forms.TextBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.label47 = new System.Windows.Forms.Label();
             this.rb_fichajeanu = new System.Windows.Forms.RadioButton();
             this.rb_fichajesmanu = new System.Windows.Forms.RadioButton();
             this.rb_ausencias = new System.Windows.Forms.RadioButton();
+            this.button31 = new System.Windows.Forms.Button();
             this.rb_erroresfichado = new System.Windows.Forms.RadioButton();
             this.rb_ultimosreg = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button28 = new System.Windows.Forms.Button();
             this.txtmotivo = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.chk_desdehasta = new System.Windows.Forms.CheckBox();
@@ -181,77 +215,47 @@
             this.label21 = new System.Windows.Forms.Label();
             this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.label20 = new System.Windows.Forms.Label();
+            this.button22 = new System.Windows.Forms.Button();
             this.maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label47 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.btn_impemp = new System.Windows.Forms.Button();
-            this.pbFotoUser = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.btn_imprimir = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.picBarcode = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.picEncodedBarCode = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picWebCam = new System.Windows.Forms.PictureBox();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button22 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.rb_llegatardeTol = new System.Windows.Forms.RadioButton();
+            this.rb_llegatardeStol = new System.Windows.Forms.RadioButton();
+            this.rb_llegatarde1Tol = new System.Windows.Forms.RadioButton();
+            this.rb_llegatarde1STol = new System.Windows.Forms.RadioButton();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.tabPageRegistros.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPageFeriados.SuspendLayout();
             this.tabPageNovedades.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPageDecoder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPageEncoder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEncodedBarCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageWebCam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabRegInfo.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEncodedBarCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -345,6 +349,19 @@
             this.checkBox1.Text = "Mostrar Contraseña";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.Info;
+            this.button8.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button8.Location = new System.Drawing.Point(326, 266);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(67, 56);
+            this.button8.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.button8, "Guardar");
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // cmb_usuarios
             // 
@@ -446,6 +463,19 @@
             this.groupBox4.TabIndex = 47;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Fichaje Manual";
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.SystemColors.Info;
+            this.button21.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button21.Location = new System.Drawing.Point(96, 136);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(65, 50);
+            this.button21.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.button21, "Guardar");
+            this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // label42
             // 
@@ -748,6 +778,108 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Legajo";
             // 
+            // btn_impemp
+            // 
+            this.btn_impemp.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_impemp.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.btn_impemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_impemp.Location = new System.Drawing.Point(628, 408);
+            this.btn_impemp.Name = "btn_impemp";
+            this.btn_impemp.Size = new System.Drawing.Size(67, 50);
+            this.btn_impemp.TabIndex = 46;
+            this.toolTip1.SetToolTip(this.btn_impemp, "Informe Gral Empleados");
+            this.btn_impemp.UseVisualStyleBackColor = false;
+            this.btn_impemp.Click += new System.EventHandler(this.btn_impemp_Click);
+            // 
+            // pbFotoUser
+            // 
+            this.pbFotoUser.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pbFotoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFotoUser.Location = new System.Drawing.Point(716, 11);
+            this.pbFotoUser.Name = "pbFotoUser";
+            this.pbFotoUser.Size = new System.Drawing.Size(216, 207);
+            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotoUser.TabIndex = 22;
+            this.pbFotoUser.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Info;
+            this.button6.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Delete;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.Location = new System.Drawing.Point(510, 408);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(65, 50);
+            this.button6.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.button6, "Cancelar");
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Info;
+            this.button5.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button5.Location = new System.Drawing.Point(596, 24);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(67, 59);
+            this.button5.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.button5, "Buscar");
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.Info;
+            this.button4.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Recycle_Bin_Full;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button4.Location = new System.Drawing.Point(387, 408);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(65, 50);
+            this.button4.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.button4, "Borrar");
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.Info;
+            this.button3.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Edit;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button3.Location = new System.Drawing.Point(267, 408);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 50);
+            this.button3.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.button3, "Editar");
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Info;
+            this.button2.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.Location = new System.Drawing.Point(145, 408);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 50);
+            this.button2.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.button2, "Guardar");
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Info;
+            this.button1.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Location = new System.Drawing.Point(26, 408);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 50);
+            this.button1.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.button1, "Nuevo");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabPageRegistros
             // 
             this.tabPageRegistros.BackColor = System.Drawing.SystemColors.Info;
@@ -843,6 +975,18 @@
             this.label34.Size = new System.Drawing.Size(48, 16);
             this.label34.TabIndex = 38;
             this.label34.Text = "Desde";
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.SystemColors.Info;
+            this.button18.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button18.Location = new System.Drawing.Point(179, 19);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(57, 50);
+            this.button18.TabIndex = 2;
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // txt_ano
             // 
@@ -986,6 +1130,54 @@
             this.label24.TabIndex = 4;
             this.label24.Text = "Documento";
             // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.BackColor = System.Drawing.SystemColors.Info;
+            this.btn_imprimir.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.btn_imprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_imprimir.Location = new System.Drawing.Point(646, 16);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(57, 50);
+            this.btn_imprimir.TabIndex = 5;
+            this.btn_imprimir.UseVisualStyleBackColor = false;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(710, 263);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(227, 190);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 28;
+            this.pictureBox3.TabStop = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.SystemColors.Info;
+            this.button15.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button15.Location = new System.Drawing.Point(585, 16);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(55, 50);
+            this.button15.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.button15, "Guardar");
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.SystemColors.Info;
+            this.button14.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button14.Location = new System.Drawing.Point(336, 2);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(49, 46);
+            this.button14.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button14, "Buscar");
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // tabPageFeriados
             // 
             this.tabPageFeriados.BackColor = System.Drawing.SystemColors.Info;
@@ -1005,6 +1197,19 @@
             this.tabPageFeriados.Size = new System.Drawing.Size(962, 484);
             this.tabPageFeriados.TabIndex = 5;
             this.tabPageFeriados.Text = "Feriados";
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.Info;
+            this.button9.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Recycle_Bin_Full;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button9.Location = new System.Drawing.Point(319, 158);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(67, 55);
+            this.button9.TabIndex = 30;
+            this.toolTip1.SetToolTip(this.button9, "Eliminar");
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // lbl_idferiado
             // 
@@ -1095,6 +1300,19 @@
             this.monthCalendar1.TabIndex = 0;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.Info;
+            this.button7.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button7.Location = new System.Drawing.Point(213, 158);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(67, 55);
+            this.button7.TabIndex = 28;
+            this.toolTip1.SetToolTip(this.button7, "Guardar");
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // tabPageNovedades
             // 
             this.tabPageNovedades.BackColor = System.Drawing.SystemColors.Info;
@@ -1129,6 +1347,19 @@
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
             // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.SystemColors.Info;
+            this.button29.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button29.Location = new System.Drawing.Point(688, 129);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(65, 50);
+            this.button29.TabIndex = 47;
+            this.toolTip1.SetToolTip(this.button29, "Limpiar");
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button20);
@@ -1142,6 +1373,19 @@
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Novedades entre fechas";
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.SystemColors.Info;
+            this.button20.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button20.ForeColor = System.Drawing.SystemColors.Info;
+            this.button20.Location = new System.Drawing.Point(59, 84);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(51, 42);
+            this.button20.TabIndex = 54;
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // maskedTextBox2
             // 
@@ -1388,6 +1632,44 @@
             this.label29.TabIndex = 6;
             this.label29.Text = "Empleado";
             // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.SystemColors.Info;
+            this.button19.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button19.Location = new System.Drawing.Point(57, 419);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(67, 53);
+            this.button19.TabIndex = 45;
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.SystemColors.Info;
+            this.button17.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button17.Location = new System.Drawing.Point(688, 60);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(67, 55);
+            this.button17.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.button17, "Guardar");
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.SystemColors.Info;
+            this.button16.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
+            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button16.Location = new System.Drawing.Point(583, 14);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(67, 59);
+            this.button16.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button16, "Buscar");
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // tabPageDecoder
             // 
             this.tabPageDecoder.BackColor = System.Drawing.SystemColors.Info;
@@ -1507,6 +1789,28 @@
             this.btnSelectBarcodeImageFileForDecoding.UseVisualStyleBackColor = true;
             this.btnSelectBarcodeImageFileForDecoding.Click += new System.EventHandler(this.btnSelectBarcodeImageFileForDecoding_Click);
             // 
+            // picBarcode
+            // 
+            this.picBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBarcode.BackColor = System.Drawing.Color.White;
+            this.picBarcode.Location = new System.Drawing.Point(139, 144);
+            this.picBarcode.Name = "picBarcode";
+            this.picBarcode.Size = new System.Drawing.Size(251, 177);
+            this.picBarcode.TabIndex = 4;
+            this.picBarcode.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Location = new System.Drawing.Point(9, 60);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(538, 412);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // tabPageEncoder
             // 
             this.tabPageEncoder.BackColor = System.Drawing.SystemColors.Info;
@@ -1614,6 +1918,29 @@
             this.cmbEncoderType.Size = new System.Drawing.Size(231, 21);
             this.cmbEncoderType.TabIndex = 10;
             // 
+            // picEncodedBarCode
+            // 
+            this.picEncodedBarCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picEncodedBarCode.BackColor = System.Drawing.Color.White;
+            this.picEncodedBarCode.Location = new System.Drawing.Point(154, 106);
+            this.picEncodedBarCode.Name = "picEncodedBarCode";
+            this.picEncodedBarCode.Size = new System.Drawing.Size(246, 194);
+            this.picEncodedBarCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEncodedBarCode.TabIndex = 9;
+            this.picEncodedBarCode.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(52, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(457, 371);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // tabPageWebCam
             // 
             this.tabPageWebCam.BackColor = System.Drawing.SystemColors.Info;
@@ -1691,6 +2018,20 @@
             this.txtTypeWebCam.Size = new System.Drawing.Size(273, 20);
             this.txtTypeWebCam.TabIndex = 9;
             // 
+            // picWebCam
+            // 
+            this.picWebCam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picWebCam.BackColor = System.Drawing.Color.White;
+            this.picWebCam.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picWebCam.Location = new System.Drawing.Point(32, 27);
+            this.picWebCam.Name = "picWebCam";
+            this.picWebCam.Size = new System.Drawing.Size(496, 374);
+            this.picWebCam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picWebCam.TabIndex = 8;
+            this.picWebCam.TabStop = false;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Info;
@@ -1719,6 +2060,32 @@
             this.tabPage2.TabIndex = 9;
             this.tabPage2.Text = "Horarios";
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.SystemColors.Info;
+            this.button27.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button27.Location = new System.Drawing.Point(399, 424);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(65, 50);
+            this.button27.TabIndex = 88;
+            this.toolTip1.SetToolTip(this.button27, "Nuevo");
+            this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.SystemColors.Info;
+            this.button26.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Edit;
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button26.Location = new System.Drawing.Point(479, 424);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(65, 50);
+            this.button26.TabIndex = 87;
+            this.toolTip1.SetToolTip(this.button26, "Editar");
+            this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // label23
             // 
@@ -1884,9 +2251,39 @@
             this.maskedTextBox7.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox7.Validated += new System.EventHandler(this.maskedTextBox7_Validated);
             // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.SystemColors.Info;
+            this.button25.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
+            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button25.Location = new System.Drawing.Point(562, 424);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(65, 50);
+            this.button25.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button25, "Guardar");
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.SystemColors.Info;
+            this.button24.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button24.Location = new System.Drawing.Point(742, 7);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(67, 59);
+            this.button24.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button24, "Buscar");
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.rb_llegatarde1STol);
+            this.tabRegInfo.Controls.Add(this.rb_llegatarde1Tol);
+            this.tabRegInfo.Controls.Add(this.rb_llegatardeStol);
+            this.tabRegInfo.Controls.Add(this.rb_llegatardeTol);
             this.tabRegInfo.Controls.Add(this.label47);
             this.tabRegInfo.Controls.Add(this.rb_fichajeanu);
             this.tabRegInfo.Controls.Add(this.rb_fichajesmanu);
@@ -1908,6 +2305,20 @@
             this.tabRegInfo.Size = new System.Drawing.Size(962, 484);
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.BackColor = System.Drawing.Color.Coral;
+            this.label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label47.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.Black;
+            this.label47.Location = new System.Drawing.Point(67, 240);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(841, 40);
+            this.label47.TabIndex = 49;
+            this.label47.Text = "Generando consulta, un momento por favor...";
+            this.label47.Visible = false;
             // 
             // rb_fichajeanu
             // 
@@ -1941,6 +2352,18 @@
             this.rb_ausencias.TabStop = true;
             this.rb_ausencias.Text = "Auditoria Ausencias";
             this.rb_ausencias.UseVisualStyleBackColor = true;
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.SystemColors.Info;
+            this.button31.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
+            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button31.Location = new System.Drawing.Point(886, 26);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(57, 50);
+            this.button31.TabIndex = 45;
+            this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // rb_erroresfichado
             // 
@@ -1979,6 +2402,19 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Anula Registros";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.SystemColors.Info;
+            this.button28.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button28.Location = new System.Drawing.Point(117, 48);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(45, 40);
+            this.button28.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.button28, "Guardar");
+            this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // txtmotivo
             // 
@@ -2064,6 +2500,16 @@
             this.label22.TabIndex = 38;
             this.label22.Text = "Desde";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(457, 97);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(227, 190);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 35;
+            this.pictureBox4.TabStop = false;
+            // 
             // dataGridView5
             // 
             this.dataGridView5.AllowUserToAddRows = false;
@@ -2089,6 +2535,19 @@
             this.label20.TabIndex = 5;
             this.label20.Text = "Limite Consulta Registro";
             // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.SystemColors.Info;
+            this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button22.Location = new System.Drawing.Point(600, 26);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(55, 50);
+            this.button22.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button22, "Guardar");
+            this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click_1);
+            // 
             // maskedTextBox10
             // 
             this.maskedTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2102,456 +2561,49 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.BackColor = System.Drawing.Color.Coral;
-            this.label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label47.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.ForeColor = System.Drawing.Color.Black;
-            this.label47.Location = new System.Drawing.Point(67, 240);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(841, 40);
-            this.label47.TabIndex = 49;
-            this.label47.Text = "Generando consulta, un momento por favor...";
-            this.label47.Visible = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.SystemColors.Info;
-            this.button8.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button8.Location = new System.Drawing.Point(326, 266);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(67, 56);
-            this.button8.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.button8, "Guardar");
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button21
-            // 
-            this.button21.BackColor = System.Drawing.SystemColors.Info;
-            this.button21.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
-            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button21.Location = new System.Drawing.Point(96, 136);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(65, 50);
-            this.button21.TabIndex = 52;
-            this.toolTip1.SetToolTip(this.button21, "Guardar");
-            this.button21.UseVisualStyleBackColor = false;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // btn_impemp
-            // 
-            this.btn_impemp.BackColor = System.Drawing.SystemColors.Info;
-            this.btn_impemp.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.btn_impemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_impemp.Location = new System.Drawing.Point(628, 408);
-            this.btn_impemp.Name = "btn_impemp";
-            this.btn_impemp.Size = new System.Drawing.Size(67, 50);
-            this.btn_impemp.TabIndex = 46;
-            this.toolTip1.SetToolTip(this.btn_impemp, "Informe Gral Empleados");
-            this.btn_impemp.UseVisualStyleBackColor = false;
-            this.btn_impemp.Click += new System.EventHandler(this.btn_impemp_Click);
-            // 
-            // pbFotoUser
-            // 
-            this.pbFotoUser.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pbFotoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFotoUser.Location = new System.Drawing.Point(716, 11);
-            this.pbFotoUser.Name = "pbFotoUser";
-            this.pbFotoUser.Size = new System.Drawing.Size(216, 207);
-            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFotoUser.TabIndex = 22;
-            this.pbFotoUser.TabStop = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.Info;
-            this.button6.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Delete;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.Location = new System.Drawing.Point(510, 408);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(65, 50);
-            this.button6.TabIndex = 21;
-            this.toolTip1.SetToolTip(this.button6, "Cancelar");
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.Info;
-            this.button5.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.Location = new System.Drawing.Point(596, 24);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(67, 59);
-            this.button5.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.button5, "Buscar");
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.Info;
-            this.button4.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Recycle_Bin_Full;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Location = new System.Drawing.Point(387, 408);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 50);
-            this.button4.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.button4, "Borrar");
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Info;
-            this.button3.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Edit;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Location = new System.Drawing.Point(267, 408);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 50);
-            this.button3.TabIndex = 17;
-            this.toolTip1.SetToolTip(this.button3, "Editar");
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Info;
-            this.button2.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Location = new System.Drawing.Point(145, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 50);
-            this.button2.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.button2, "Guardar");
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Location = new System.Drawing.Point(26, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 50);
-            this.button1.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.button1, "Nuevo");
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.SystemColors.Info;
-            this.button18.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button18.Location = new System.Drawing.Point(179, 19);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(57, 50);
-            this.button18.TabIndex = 2;
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.BackColor = System.Drawing.SystemColors.Info;
-            this.btn_imprimir.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.btn_imprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_imprimir.Location = new System.Drawing.Point(646, 16);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(57, 50);
-            this.btn_imprimir.TabIndex = 5;
-            this.btn_imprimir.UseVisualStyleBackColor = false;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(710, 263);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(227, 190);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 28;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.SystemColors.Info;
-            this.button15.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
-            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button15.Location = new System.Drawing.Point(585, 16);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(55, 50);
-            this.button15.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.button15, "Guardar");
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.SystemColors.Info;
-            this.button14.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button14.Location = new System.Drawing.Point(336, 2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(49, 46);
-            this.button14.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button14, "Buscar");
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.SystemColors.Info;
-            this.button9.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Recycle_Bin_Full;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button9.Location = new System.Drawing.Point(319, 158);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(67, 55);
-            this.button9.TabIndex = 30;
-            this.toolTip1.SetToolTip(this.button9, "Eliminar");
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.Info;
-            this.button7.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.Location = new System.Drawing.Point(213, 158);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(67, 55);
-            this.button7.TabIndex = 28;
-            this.toolTip1.SetToolTip(this.button7, "Guardar");
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.SystemColors.Info;
-            this.button29.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button29.Location = new System.Drawing.Point(688, 129);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(65, 50);
-            this.button29.TabIndex = 47;
-            this.toolTip1.SetToolTip(this.button29, "Limpiar");
-            this.button29.UseVisualStyleBackColor = false;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
-            // button20
-            // 
-            this.button20.BackColor = System.Drawing.SystemColors.Info;
-            this.button20.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
-            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button20.ForeColor = System.Drawing.SystemColors.Info;
-            this.button20.Location = new System.Drawing.Point(59, 84);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(51, 42);
-            this.button20.TabIndex = 54;
-            this.button20.UseVisualStyleBackColor = false;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.SystemColors.Info;
-            this.button19.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button19.Location = new System.Drawing.Point(57, 419);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(67, 53);
-            this.button19.TabIndex = 45;
-            this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.SystemColors.Info;
-            this.button17.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
-            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button17.Location = new System.Drawing.Point(688, 60);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(67, 55);
-            this.button17.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.button17, "Guardar");
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.SystemColors.Info;
-            this.button16.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
-            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button16.Location = new System.Drawing.Point(583, 14);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(67, 59);
-            this.button16.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button16, "Buscar");
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // picBarcode
-            // 
-            this.picBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBarcode.BackColor = System.Drawing.Color.White;
-            this.picBarcode.Location = new System.Drawing.Point(139, 144);
-            this.picBarcode.Name = "picBarcode";
-            this.picBarcode.Size = new System.Drawing.Size(251, 177);
-            this.picBarcode.TabIndex = 4;
-            this.picBarcode.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Location = new System.Drawing.Point(9, 60);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(538, 412);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
-            // picEncodedBarCode
-            // 
-            this.picEncodedBarCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picEncodedBarCode.BackColor = System.Drawing.Color.White;
-            this.picEncodedBarCode.Location = new System.Drawing.Point(154, 106);
-            this.picEncodedBarCode.Name = "picEncodedBarCode";
-            this.picEncodedBarCode.Size = new System.Drawing.Size(246, 194);
-            this.picEncodedBarCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picEncodedBarCode.TabIndex = 9;
-            this.picEncodedBarCode.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(52, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(457, 371);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            // 
-            // picWebCam
-            // 
-            this.picWebCam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picWebCam.BackColor = System.Drawing.Color.White;
-            this.picWebCam.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picWebCam.Location = new System.Drawing.Point(32, 27);
-            this.picWebCam.Name = "picWebCam";
-            this.picWebCam.Size = new System.Drawing.Size(496, 374);
-            this.picWebCam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picWebCam.TabIndex = 8;
-            this.picWebCam.TabStop = false;
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.SystemColors.Info;
-            this.button27.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Document;
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button27.Location = new System.Drawing.Point(399, 424);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(65, 50);
-            this.button27.TabIndex = 88;
-            this.toolTip1.SetToolTip(this.button27, "Nuevo");
-            this.button27.UseVisualStyleBackColor = false;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
-            // 
-            // button26
-            // 
-            this.button26.BackColor = System.Drawing.SystemColors.Info;
-            this.button26.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Edit;
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button26.Location = new System.Drawing.Point(479, 424);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(65, 50);
-            this.button26.TabIndex = 87;
-            this.toolTip1.SetToolTip(this.button26, "Editar");
-            this.button26.UseVisualStyleBackColor = false;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
-            // 
-            // button25
-            // 
-            this.button25.BackColor = System.Drawing.SystemColors.Info;
-            this.button25.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Save;
-            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button25.Location = new System.Drawing.Point(562, 424);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(65, 50);
-            this.button25.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.button25, "Guardar");
-            this.button25.UseVisualStyleBackColor = false;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
-            // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.SystemColors.Info;
-            this.button24.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Search;
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button24.Location = new System.Drawing.Point(742, 7);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(67, 59);
-            this.button24.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button24, "Buscar");
-            this.button24.UseVisualStyleBackColor = false;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
-            // 
-            // button31
-            // 
-            this.button31.BackColor = System.Drawing.SystemColors.Info;
-            this.button31.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Printer;
-            this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button31.Location = new System.Drawing.Point(886, 26);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(57, 50);
-            this.button31.TabIndex = 45;
-            this.button31.UseVisualStyleBackColor = false;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
-            // 
-            // button28
-            // 
-            this.button28.BackColor = System.Drawing.SystemColors.Info;
-            this.button28.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button28.Location = new System.Drawing.Point(117, 48);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(45, 40);
-            this.button28.TabIndex = 41;
-            this.toolTip1.SetToolTip(this.button28, "Guardar");
-            this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(457, 97);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(227, 190);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 35;
-            this.pictureBox4.TabStop = false;
-            // 
-            // button22
-            // 
-            this.button22.BackColor = System.Drawing.SystemColors.Info;
-            this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button22.Location = new System.Drawing.Point(600, 26);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(55, 50);
-            this.button22.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.button22, "Guardar");
-            this.button22.UseVisualStyleBackColor = false;
-            this.button22.Click += new System.EventHandler(this.button22_Click_1);
+            // rb_llegatardeTol
+            // 
+            this.rb_llegatardeTol.AutoSize = true;
+            this.rb_llegatardeTol.Location = new System.Drawing.Point(718, 125);
+            this.rb_llegatardeTol.Name = "rb_llegatardeTol";
+            this.rb_llegatardeTol.Size = new System.Drawing.Size(212, 17);
+            this.rb_llegatardeTol.TabIndex = 50;
+            this.rb_llegatardeTol.TabStop = true;
+            this.rb_llegatardeTol.Text = "Llegadas Tarde Detallado C/Tolerancia";
+            this.rb_llegatardeTol.UseVisualStyleBackColor = true;
+            // 
+            // rb_llegatardeStol
+            // 
+            this.rb_llegatardeStol.AutoSize = true;
+            this.rb_llegatardeStol.Location = new System.Drawing.Point(718, 148);
+            this.rb_llegatardeStol.Name = "rb_llegatardeStol";
+            this.rb_llegatardeStol.Size = new System.Drawing.Size(212, 17);
+            this.rb_llegatardeStol.TabIndex = 51;
+            this.rb_llegatardeStol.TabStop = true;
+            this.rb_llegatardeStol.Text = "Llegadas Tarde Detallado S/Tolerancia";
+            this.rb_llegatardeStol.UseVisualStyleBackColor = true;
+            // 
+            // rb_llegatarde1Tol
+            // 
+            this.rb_llegatarde1Tol.AutoSize = true;
+            this.rb_llegatarde1Tol.Location = new System.Drawing.Point(718, 171);
+            this.rb_llegatarde1Tol.Name = "rb_llegatarde1Tol";
+            this.rb_llegatarde1Tol.Size = new System.Drawing.Size(220, 17);
+            this.rb_llegatarde1Tol.TabIndex = 52;
+            this.rb_llegatarde1Tol.TabStop = true;
+            this.rb_llegatarde1Tol.Text = "Llegadas Tarde Acumulado C/Tolerancia";
+            this.rb_llegatarde1Tol.UseVisualStyleBackColor = true;
+            // 
+            // rb_llegatarde1STol
+            // 
+            this.rb_llegatarde1STol.AutoSize = true;
+            this.rb_llegatarde1STol.Location = new System.Drawing.Point(718, 194);
+            this.rb_llegatarde1STol.Name = "rb_llegatarde1STol";
+            this.rb_llegatarde1STol.Size = new System.Drawing.Size(220, 17);
+            this.rb_llegatarde1STol.TabIndex = 53;
+            this.rb_llegatarde1STol.TabStop = true;
+            this.rb_llegatarde1STol.Text = "Llegadas Tarde Acumulado S/Tolerancia";
+            this.rb_llegatarde1STol.UseVisualStyleBackColor = true;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2578,12 +2630,14 @@
             this.tabPageCargaEmpleados.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.tabPageRegistros.ResumeLayout(false);
             this.tabPageRegistros.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPageFeriados.ResumeLayout(false);
             this.tabPageFeriados.PerformLayout();
             this.tabPageNovedades.ResumeLayout(false);
@@ -2593,10 +2647,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPageDecoder.ResumeLayout(false);
             this.tabPageDecoder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPageEncoder.ResumeLayout(false);
             this.tabPageEncoder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEncodedBarCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPageWebCam.ResumeLayout(false);
             this.tabPageWebCam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -2606,15 +2665,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEncodedBarCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWebCam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -2815,5 +2867,9 @@
         private System.Windows.Forms.RadioButton rb_fichajeanu;
         private System.Windows.Forms.RadioButton rb_fichajesmanu;
         private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.RadioButton rb_llegatardeTol;
+        private System.Windows.Forms.RadioButton rb_llegatarde1STol;
+        private System.Windows.Forms.RadioButton rb_llegatarde1Tol;
+        private System.Windows.Forms.RadioButton rb_llegatardeStol;
     }
 }

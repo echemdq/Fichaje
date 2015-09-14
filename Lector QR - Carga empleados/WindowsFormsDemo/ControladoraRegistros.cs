@@ -34,6 +34,10 @@ namespace WindowsFormsDemo
             return bd.TraerFichajesManuales(dato, dato1, dato2);
         }
 
+        public List<Registros> TraerLlegadasTarde(string dato, string dato1, string dato2, int tipo, int tolerancia)
+        {
+            return bd.TraerLlegadasTarde(dato, dato1, dato2, tipo, tolerancia);
+        }
 
         public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2)
         {

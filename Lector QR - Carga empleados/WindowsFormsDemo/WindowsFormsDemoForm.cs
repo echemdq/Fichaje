@@ -614,6 +614,14 @@ namespace WindowsFormsDemo
                     cmb_centrocostos.DisplayMember = "detalle";
                     cmb_centrocostos.ValueMember = "idcentrodecostros";
 
+                    cmb_centrocostos1.DataSource = controlcent.TraerTodos();
+                    cmb_centrocostos1.DisplayMember = "detalle";
+                    cmb_centrocostos1.ValueMember = "idcentrodecostros";
+
+                    cmb_centrocostos2.DataSource = controlcent.TraerTodos();
+                    cmb_centrocostos2.DisplayMember = "detalle";
+                    cmb_centrocostos2.ValueMember = "idcentrodecostros";
+
                     cmb_tipodoc.DataSource = controltipodoc.TraerTodos();
                     cmb_tipodoc.DisplayMember = "detalle";
                     cmb_tipodoc.ValueMember = "idtipodoc";
@@ -621,6 +629,17 @@ namespace WindowsFormsDemo
                     cmb_tipoemp.DataSource = controltipoemp.TraerTodos();
                     cmb_tipoemp.DisplayMember = "detalle";
                     cmb_tipoemp.ValueMember = "idtipodeempleados";
+
+                    cmb_tipoemp1.DataSource = controltipoemp.TraerTodos();
+                    cmb_tipoemp1.DisplayMember = "detalle";
+                    cmb_tipoemp1.ValueMember = "idtipodeempleados";
+
+                    cmb_tipoemp2.DataSource = controltipoemp.TraerTodos();
+                    cmb_tipoemp2.DisplayMember = "detalle";
+                    cmb_tipoemp2.ValueMember = "idtipodeempleados";
+
+                    maskedTextBox11.Text = DateTime.Today.ToString("dd/MM/yyyy");
+                    maskedTextBox12.Text = DateTime.Today.ToString("dd/MM/yyyy");
 
                     Acceso_BD oacceso = new Acceso_BD();
 

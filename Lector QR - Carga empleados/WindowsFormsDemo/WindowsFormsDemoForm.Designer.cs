@@ -198,6 +198,10 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.rb_llegatarde1STol = new System.Windows.Forms.RadioButton();
+            this.rb_llegatarde1Tol = new System.Windows.Forms.RadioButton();
+            this.rb_llegatardeStol = new System.Windows.Forms.RadioButton();
+            this.rb_llegatardeTol = new System.Windows.Forms.RadioButton();
             this.label47 = new System.Windows.Forms.Label();
             this.rb_fichajeanu = new System.Windows.Forms.RadioButton();
             this.rb_fichajesmanu = new System.Windows.Forms.RadioButton();
@@ -223,10 +227,14 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.rb_llegatardeTol = new System.Windows.Forms.RadioButton();
-            this.rb_llegatardeStol = new System.Windows.Forms.RadioButton();
-            this.rb_llegatarde1Tol = new System.Windows.Forms.RadioButton();
-            this.rb_llegatarde1STol = new System.Windows.Forms.RadioButton();
+            this.cmb_tipoemp1 = new System.Windows.Forms.ComboBox();
+            this.cmb_centrocostos1 = new System.Windows.Forms.ComboBox();
+            this.chk_centrocosto = new System.Windows.Forms.CheckBox();
+            this.chk_tipoemp = new System.Windows.Forms.CheckBox();
+            this.chk_tipoemp1 = new System.Windows.Forms.CheckBox();
+            this.chk_centrocostos1 = new System.Windows.Forms.CheckBox();
+            this.cmb_tipoemp2 = new System.Windows.Forms.ComboBox();
+            this.cmb_centrocostos2 = new System.Windows.Forms.ComboBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -308,7 +316,7 @@
             this.tabCtrlMain.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlMain.Name = "tabCtrlMain";
             this.tabCtrlMain.SelectedIndex = 0;
-            this.tabCtrlMain.Size = new System.Drawing.Size(970, 510);
+            this.tabCtrlMain.Size = new System.Drawing.Size(970, 533);
             this.tabCtrlMain.TabIndex = 0;
             this.tabCtrlMain.SelectedIndexChanged += new System.EventHandler(this.tabCtrlMain_SelectedIndexChanged);
             this.tabCtrlMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabCtrlMain_Selected);
@@ -442,7 +450,7 @@
             this.tabPageCargaEmpleados.Location = new System.Drawing.Point(4, 22);
             this.tabPageCargaEmpleados.Name = "tabPageCargaEmpleados";
             this.tabPageCargaEmpleados.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 484);
+            this.tabPageCargaEmpleados.Size = new System.Drawing.Size(962, 507);
             this.tabPageCargaEmpleados.TabIndex = 3;
             this.tabPageCargaEmpleados.Text = "Empleados";
             this.tabPageCargaEmpleados.Click += new System.EventHandler(this.tabPageCargaEmpleados_Click);
@@ -904,7 +912,7 @@
             this.tabPageRegistros.Location = new System.Drawing.Point(4, 22);
             this.tabPageRegistros.Name = "tabPageRegistros";
             this.tabPageRegistros.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRegistros.Size = new System.Drawing.Size(962, 484);
+            this.tabPageRegistros.Size = new System.Drawing.Size(962, 507);
             this.tabPageRegistros.TabIndex = 6;
             this.tabPageRegistros.Text = "Registros";
             this.tabPageRegistros.Click += new System.EventHandler(this.tabPageRegistros_Click);
@@ -921,6 +929,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chk_tipoemp);
+            this.groupBox2.Controls.Add(this.chk_centrocosto);
+            this.groupBox2.Controls.Add(this.cmb_tipoemp1);
+            this.groupBox2.Controls.Add(this.cmb_centrocostos1);
             this.groupBox2.Controls.Add(this.txt_rhasta);
             this.groupBox2.Controls.Add(this.label33);
             this.groupBox2.Controls.Add(this.txt_rdesde);
@@ -929,7 +941,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.groupBox2.Location = new System.Drawing.Point(714, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(242, 82);
+            this.groupBox2.Size = new System.Drawing.Size(242, 138);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registros Generales";
@@ -1059,7 +1071,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label27.Location = new System.Drawing.Point(711, 456);
+            this.label27.Location = new System.Drawing.Point(711, 488);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(230, 13);
             this.label27.TabIndex = 29;
@@ -1101,7 +1113,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(693, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(693, 148);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(263, 165);
@@ -1145,9 +1157,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(710, 263);
+            this.pictureBox3.Location = new System.Drawing.Point(724, 317);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(227, 190);
+            this.pictureBox3.Size = new System.Drawing.Size(199, 168);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 28;
             this.pictureBox3.TabStop = false;
@@ -2056,7 +2068,7 @@
             this.tabPage2.Controls.Add(this.button24);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(962, 484);
+            this.tabPage2.Size = new System.Drawing.Size(962, 507);
             this.tabPage2.TabIndex = 9;
             this.tabPage2.Text = "Horarios";
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
@@ -2302,9 +2314,53 @@
             this.tabRegInfo.Location = new System.Drawing.Point(4, 22);
             this.tabRegInfo.Name = "tabRegInfo";
             this.tabRegInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegInfo.Size = new System.Drawing.Size(962, 484);
+            this.tabRegInfo.Size = new System.Drawing.Size(962, 507);
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
+            // 
+            // rb_llegatarde1STol
+            // 
+            this.rb_llegatarde1STol.AutoSize = true;
+            this.rb_llegatarde1STol.Location = new System.Drawing.Point(736, 194);
+            this.rb_llegatarde1STol.Name = "rb_llegatarde1STol";
+            this.rb_llegatarde1STol.Size = new System.Drawing.Size(220, 17);
+            this.rb_llegatarde1STol.TabIndex = 53;
+            this.rb_llegatarde1STol.TabStop = true;
+            this.rb_llegatarde1STol.Text = "Llegadas Tarde Acumulado S/Tolerancia";
+            this.rb_llegatarde1STol.UseVisualStyleBackColor = true;
+            // 
+            // rb_llegatarde1Tol
+            // 
+            this.rb_llegatarde1Tol.AutoSize = true;
+            this.rb_llegatarde1Tol.Location = new System.Drawing.Point(736, 171);
+            this.rb_llegatarde1Tol.Name = "rb_llegatarde1Tol";
+            this.rb_llegatarde1Tol.Size = new System.Drawing.Size(220, 17);
+            this.rb_llegatarde1Tol.TabIndex = 52;
+            this.rb_llegatarde1Tol.TabStop = true;
+            this.rb_llegatarde1Tol.Text = "Llegadas Tarde Acumulado C/Tolerancia";
+            this.rb_llegatarde1Tol.UseVisualStyleBackColor = true;
+            // 
+            // rb_llegatardeStol
+            // 
+            this.rb_llegatardeStol.AutoSize = true;
+            this.rb_llegatardeStol.Location = new System.Drawing.Point(736, 148);
+            this.rb_llegatardeStol.Name = "rb_llegatardeStol";
+            this.rb_llegatardeStol.Size = new System.Drawing.Size(212, 17);
+            this.rb_llegatardeStol.TabIndex = 51;
+            this.rb_llegatardeStol.TabStop = true;
+            this.rb_llegatardeStol.Text = "Llegadas Tarde Detallado S/Tolerancia";
+            this.rb_llegatardeStol.UseVisualStyleBackColor = true;
+            // 
+            // rb_llegatardeTol
+            // 
+            this.rb_llegatardeTol.AutoSize = true;
+            this.rb_llegatardeTol.Location = new System.Drawing.Point(736, 125);
+            this.rb_llegatardeTol.Name = "rb_llegatardeTol";
+            this.rb_llegatardeTol.Size = new System.Drawing.Size(212, 17);
+            this.rb_llegatardeTol.TabIndex = 50;
+            this.rb_llegatardeTol.TabStop = true;
+            this.rb_llegatardeTol.Text = "Llegadas Tarde Detallado C/Tolerancia";
+            this.rb_llegatardeTol.UseVisualStyleBackColor = true;
             // 
             // label47
             // 
@@ -2323,7 +2379,7 @@
             // rb_fichajeanu
             // 
             this.rb_fichajeanu.AutoSize = true;
-            this.rb_fichajeanu.Location = new System.Drawing.Point(718, 102);
+            this.rb_fichajeanu.Location = new System.Drawing.Point(736, 102);
             this.rb_fichajeanu.Name = "rb_fichajeanu";
             this.rb_fichajeanu.Size = new System.Drawing.Size(110, 17);
             this.rb_fichajeanu.TabIndex = 48;
@@ -2334,7 +2390,7 @@
             // rb_fichajesmanu
             // 
             this.rb_fichajesmanu.AutoSize = true;
-            this.rb_fichajesmanu.Location = new System.Drawing.Point(718, 79);
+            this.rb_fichajesmanu.Location = new System.Drawing.Point(736, 79);
             this.rb_fichajesmanu.Name = "rb_fichajesmanu";
             this.rb_fichajesmanu.Size = new System.Drawing.Size(113, 17);
             this.rb_fichajesmanu.TabIndex = 47;
@@ -2345,7 +2401,7 @@
             // rb_ausencias
             // 
             this.rb_ausencias.AutoSize = true;
-            this.rb_ausencias.Location = new System.Drawing.Point(718, 56);
+            this.rb_ausencias.Location = new System.Drawing.Point(736, 56);
             this.rb_ausencias.Name = "rb_ausencias";
             this.rb_ausencias.Size = new System.Drawing.Size(118, 17);
             this.rb_ausencias.TabIndex = 46;
@@ -2368,7 +2424,7 @@
             // rb_erroresfichado
             // 
             this.rb_erroresfichado.AutoSize = true;
-            this.rb_erroresfichado.Location = new System.Drawing.Point(718, 33);
+            this.rb_erroresfichado.Location = new System.Drawing.Point(736, 33);
             this.rb_erroresfichado.Name = "rb_erroresfichado";
             this.rb_erroresfichado.Size = new System.Drawing.Size(111, 17);
             this.rb_erroresfichado.TabIndex = 43;
@@ -2380,7 +2436,7 @@
             // 
             this.rb_ultimosreg.AutoSize = true;
             this.rb_ultimosreg.Checked = true;
-            this.rb_ultimosreg.Location = new System.Drawing.Point(718, 10);
+            this.rb_ultimosreg.Location = new System.Drawing.Point(736, 10);
             this.rb_ultimosreg.Name = "rb_ultimosreg";
             this.rb_ultimosreg.Size = new System.Drawing.Size(154, 17);
             this.rb_ultimosreg.TabIndex = 42;
@@ -2446,6 +2502,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chk_tipoemp1);
+            this.groupBox1.Controls.Add(this.chk_centrocostos1);
+            this.groupBox1.Controls.Add(this.cmb_tipoemp2);
+            this.groupBox1.Controls.Add(this.cmb_centrocostos2);
             this.groupBox1.Controls.Add(this.maskedTextBox11);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.maskedTextBox12);
@@ -2453,7 +2513,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.groupBox1.Location = new System.Drawing.Point(330, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(242, 82);
+            this.groupBox1.Size = new System.Drawing.Size(336, 82);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registros Generales";
@@ -2462,10 +2522,10 @@
             // 
             this.maskedTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.maskedTextBox11.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.maskedTextBox11.Location = new System.Drawing.Point(65, 50);
+            this.maskedTextBox11.Location = new System.Drawing.Point(59, 50);
             this.maskedTextBox11.Mask = "00/00/0000";
             this.maskedTextBox11.Name = "maskedTextBox11";
-            this.maskedTextBox11.Size = new System.Drawing.Size(100, 21);
+            this.maskedTextBox11.Size = new System.Drawing.Size(84, 21);
             this.maskedTextBox11.TabIndex = 1;
             this.maskedTextBox11.ValidatingType = typeof(System.DateTime);
             // 
@@ -2473,7 +2533,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(13, 54);
+            this.label21.Location = new System.Drawing.Point(7, 50);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(46, 16);
             this.label21.TabIndex = 40;
@@ -2483,10 +2543,10 @@
             // 
             this.maskedTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.maskedTextBox12.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.maskedTextBox12.Location = new System.Drawing.Point(65, 22);
+            this.maskedTextBox12.Location = new System.Drawing.Point(59, 22);
             this.maskedTextBox12.Mask = "00/00/0000";
             this.maskedTextBox12.Name = "maskedTextBox12";
-            this.maskedTextBox12.Size = new System.Drawing.Size(100, 21);
+            this.maskedTextBox12.Size = new System.Drawing.Size(84, 21);
             this.maskedTextBox12.TabIndex = 0;
             this.maskedTextBox12.ValidatingType = typeof(System.DateTime);
             // 
@@ -2494,7 +2554,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(11, 22);
+            this.label22.Location = new System.Drawing.Point(7, 24);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(48, 16);
             this.label22.TabIndex = 38;
@@ -2540,7 +2600,7 @@
             this.button22.BackColor = System.Drawing.SystemColors.Info;
             this.button22.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
             this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button22.Location = new System.Drawing.Point(600, 26);
+            this.button22.Location = new System.Drawing.Point(672, 29);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(55, 50);
             this.button22.TabIndex = 6;
@@ -2561,49 +2621,85 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // rb_llegatardeTol
+            // cmb_tipoemp1
             // 
-            this.rb_llegatardeTol.AutoSize = true;
-            this.rb_llegatardeTol.Location = new System.Drawing.Point(718, 125);
-            this.rb_llegatardeTol.Name = "rb_llegatardeTol";
-            this.rb_llegatardeTol.Size = new System.Drawing.Size(212, 17);
-            this.rb_llegatardeTol.TabIndex = 50;
-            this.rb_llegatardeTol.TabStop = true;
-            this.rb_llegatardeTol.Text = "Llegadas Tarde Detallado C/Tolerancia";
-            this.rb_llegatardeTol.UseVisualStyleBackColor = true;
+            this.cmb_tipoemp1.BackColor = System.Drawing.Color.White;
+            this.cmb_tipoemp1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_tipoemp1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_tipoemp1.FormattingEnabled = true;
+            this.cmb_tipoemp1.Location = new System.Drawing.Point(65, 107);
+            this.cmb_tipoemp1.Name = "cmb_tipoemp1";
+            this.cmb_tipoemp1.Size = new System.Drawing.Size(171, 21);
+            this.cmb_tipoemp1.TabIndex = 42;
             // 
-            // rb_llegatardeStol
+            // cmb_centrocostos1
             // 
-            this.rb_llegatardeStol.AutoSize = true;
-            this.rb_llegatardeStol.Location = new System.Drawing.Point(718, 148);
-            this.rb_llegatardeStol.Name = "rb_llegatardeStol";
-            this.rb_llegatardeStol.Size = new System.Drawing.Size(212, 17);
-            this.rb_llegatardeStol.TabIndex = 51;
-            this.rb_llegatardeStol.TabStop = true;
-            this.rb_llegatardeStol.Text = "Llegadas Tarde Detallado S/Tolerancia";
-            this.rb_llegatardeStol.UseVisualStyleBackColor = true;
+            this.cmb_centrocostos1.BackColor = System.Drawing.Color.White;
+            this.cmb_centrocostos1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_centrocostos1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_centrocostos1.FormattingEnabled = true;
+            this.cmb_centrocostos1.Location = new System.Drawing.Point(65, 81);
+            this.cmb_centrocostos1.Name = "cmb_centrocostos1";
+            this.cmb_centrocostos1.Size = new System.Drawing.Size(171, 21);
+            this.cmb_centrocostos1.TabIndex = 41;
             // 
-            // rb_llegatarde1Tol
+            // chk_centrocosto
             // 
-            this.rb_llegatarde1Tol.AutoSize = true;
-            this.rb_llegatarde1Tol.Location = new System.Drawing.Point(718, 171);
-            this.rb_llegatarde1Tol.Name = "rb_llegatarde1Tol";
-            this.rb_llegatarde1Tol.Size = new System.Drawing.Size(220, 17);
-            this.rb_llegatarde1Tol.TabIndex = 52;
-            this.rb_llegatarde1Tol.TabStop = true;
-            this.rb_llegatarde1Tol.Text = "Llegadas Tarde Acumulado C/Tolerancia";
-            this.rb_llegatarde1Tol.UseVisualStyleBackColor = true;
+            this.chk_centrocosto.AutoSize = true;
+            this.chk_centrocosto.Location = new System.Drawing.Point(30, 84);
+            this.chk_centrocosto.Name = "chk_centrocosto";
+            this.chk_centrocosto.Size = new System.Drawing.Size(15, 14);
+            this.chk_centrocosto.TabIndex = 43;
+            this.chk_centrocosto.UseVisualStyleBackColor = true;
             // 
-            // rb_llegatarde1STol
+            // chk_tipoemp
             // 
-            this.rb_llegatarde1STol.AutoSize = true;
-            this.rb_llegatarde1STol.Location = new System.Drawing.Point(718, 194);
-            this.rb_llegatarde1STol.Name = "rb_llegatarde1STol";
-            this.rb_llegatarde1STol.Size = new System.Drawing.Size(220, 17);
-            this.rb_llegatarde1STol.TabIndex = 53;
-            this.rb_llegatarde1STol.TabStop = true;
-            this.rb_llegatarde1STol.Text = "Llegadas Tarde Acumulado S/Tolerancia";
-            this.rb_llegatarde1STol.UseVisualStyleBackColor = true;
+            this.chk_tipoemp.AutoSize = true;
+            this.chk_tipoemp.Location = new System.Drawing.Point(30, 110);
+            this.chk_tipoemp.Name = "chk_tipoemp";
+            this.chk_tipoemp.Size = new System.Drawing.Size(15, 14);
+            this.chk_tipoemp.TabIndex = 44;
+            this.chk_tipoemp.UseVisualStyleBackColor = true;
+            // 
+            // chk_tipoemp1
+            // 
+            this.chk_tipoemp1.AutoSize = true;
+            this.chk_tipoemp1.Location = new System.Drawing.Point(317, 52);
+            this.chk_tipoemp1.Name = "chk_tipoemp1";
+            this.chk_tipoemp1.Size = new System.Drawing.Size(15, 14);
+            this.chk_tipoemp1.TabIndex = 48;
+            this.chk_tipoemp1.UseVisualStyleBackColor = true;
+            // 
+            // chk_centrocostos1
+            // 
+            this.chk_centrocostos1.AutoSize = true;
+            this.chk_centrocostos1.Location = new System.Drawing.Point(317, 27);
+            this.chk_centrocostos1.Name = "chk_centrocostos1";
+            this.chk_centrocostos1.Size = new System.Drawing.Size(15, 14);
+            this.chk_centrocostos1.TabIndex = 47;
+            this.chk_centrocostos1.UseVisualStyleBackColor = true;
+            // 
+            // cmb_tipoemp2
+            // 
+            this.cmb_tipoemp2.BackColor = System.Drawing.Color.White;
+            this.cmb_tipoemp2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_tipoemp2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_tipoemp2.FormattingEnabled = true;
+            this.cmb_tipoemp2.Location = new System.Drawing.Point(163, 50);
+            this.cmb_tipoemp2.Name = "cmb_tipoemp2";
+            this.cmb_tipoemp2.Size = new System.Drawing.Size(146, 21);
+            this.cmb_tipoemp2.TabIndex = 46;
+            // 
+            // cmb_centrocostos2
+            // 
+            this.cmb_centrocostos2.BackColor = System.Drawing.Color.White;
+            this.cmb_centrocostos2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_centrocostos2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_centrocostos2.FormattingEnabled = true;
+            this.cmb_centrocostos2.Location = new System.Drawing.Point(163, 23);
+            this.cmb_centrocostos2.Name = "cmb_centrocostos2";
+            this.cmb_centrocostos2.Size = new System.Drawing.Size(146, 21);
+            this.cmb_centrocostos2.TabIndex = 45;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2871,5 +2967,13 @@
         private System.Windows.Forms.RadioButton rb_llegatarde1STol;
         private System.Windows.Forms.RadioButton rb_llegatarde1Tol;
         private System.Windows.Forms.RadioButton rb_llegatardeStol;
+        private System.Windows.Forms.CheckBox chk_tipoemp;
+        private System.Windows.Forms.CheckBox chk_centrocosto;
+        private System.Windows.Forms.ComboBox cmb_tipoemp1;
+        private System.Windows.Forms.ComboBox cmb_centrocostos1;
+        private System.Windows.Forms.CheckBox chk_tipoemp1;
+        private System.Windows.Forms.CheckBox chk_centrocostos1;
+        private System.Windows.Forms.ComboBox cmb_tipoemp2;
+        private System.Windows.Forms.ComboBox cmb_centrocostos2;
     }
 }

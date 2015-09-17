@@ -19,19 +19,19 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
-        public List<Registros> TraerTodosEspecial(string dato, string dato1, string dato2)
+        public List<Registros> TraerTodosEspecial(string dato, string dato1, string dato2, int c, int e)
         {
-            return bd.TraerTodosEspecial(dato, dato1, dato2);
+            return bd.TraerTodosEspecial(dato, dato1, dato2,c,e);
         }
 
-        public List<Registros> TraerMalFichados(string dato, string dato1, string dato2)
+        public List<Registros> TraerMalFichados(string dato, string dato1, string dato2, int c, int e)
         {
-            return bd.TraerMalFichados(dato, dato1, dato2);
+            return bd.TraerMalFichados(dato, dato1, dato2, c, e);
         }
 
-        public List<Registros> TraerFichajesManuales(string dato, string dato1, string dato2)
+        public List<Registros> TraerFichajesManuales(string dato, string dato1, string dato2, int c, int e)
         {
-            return bd.TraerFichajesManuales(dato, dato1, dato2);
+            return bd.TraerFichajesManuales(dato, dato1, dato2, c,e);
         }
 
         public List<Registros> TraerLlegadasTarde(string dato, string dato1, string dato2, int tipo, int tolerancia)

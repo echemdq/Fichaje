@@ -1612,7 +1612,31 @@ namespace WindowsFormsDemo
                     {
                         DateTime d = Convert.ToDateTime(txt_rdesde.Text);
                         DateTime h = Convert.ToDateTime(txt_rhasta.Text);
-                        dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "')");
+                        if (chk_centrocosto.Checked)
+                        {
+                            CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos1.SelectedItem;
+                            if (chk_tipoemp.Checked)
+                            {     
+                                TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp1.SelectedItem;
+                                dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','"+ cent.Idcentrodecostros+"','"+tipoemp.Idtipodeempleados+"')");
+                            }
+                            else
+                            {
+                                dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','" + cent.Idcentrodecostros + "','0')");
+                            }
+                        }
+                        else
+                        {
+                            if (chk_tipoemp.Checked)
+                            {
+                                TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp1.SelectedItem;
+                                dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','0','" + tipoemp.Idtipodeempleados + "')");
+                            }
+                            else
+                            {
+                                dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','0','0')");
+                            }
+                        }
                     }
                     PdfPTable table = new PdfPTable(3);
                     iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
@@ -2496,7 +2520,27 @@ namespace WindowsFormsDemo
             {
                 if (!chk_desdehasta.Checked)
                 {
-                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "");
+                    int centro = 0;
+                    int tipoe = 0;
+                    if (chk_centrocostos1.Checked)
+                    {
+                        CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                        centro = centrocos.Idcentrodecostros;
+                    }
+                    else
+                    {
+                        centro = 0;
+                    }
+                    if (chk_tipoemp1.Checked)
+                    {
+                        TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                        tipoe = tipoemp.Idtipodeempleados;
+                    }
+                    else
+                    {
+                        tipoe = 0;
+                    }
+                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "", centro,tipoe);
                     dataGridView5.Columns[0].Visible = false;
                     dataGridView5.Columns[1].Visible = false;
                     dataGridView5.Columns[3].Visible = false;
@@ -2507,10 +2551,30 @@ namespace WindowsFormsDemo
                 {
                     if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
                     {
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),centro, tipoe);
                         dataGridView5.Columns[0].Visible = false;
                         dataGridView5.Columns[1].Visible = false;
                         dataGridView5.Columns[3].Visible = false;
@@ -2527,7 +2591,27 @@ namespace WindowsFormsDemo
             {
                 if (!chk_desdehasta.Checked)
                 {
-                    dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, "", "");
+                    int centro = 0;
+                    int tipoe = 0;
+                    if (chk_centrocostos1.Checked)
+                    {
+                        CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                        centro = centrocos.Idcentrodecostros;
+                    }
+                    else
+                    {
+                        centro = 0;
+                    }
+                    if (chk_tipoemp1.Checked)
+                    {
+                        TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                        tipoe = tipoemp.Idtipodeempleados;
+                    }
+                    else
+                    {
+                        tipoe = 0;
+                    }
+                    dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, "", "",centro,tipoe);
                     dataGridView5.Columns[0].Visible = false;
                     dataGridView5.Columns[1].Visible = false;
                     dataGridView5.Columns[3].Visible = false;
@@ -2541,7 +2625,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),centro,tipoe);
                         dataGridView5.Columns[0].Visible = false;
                         dataGridView5.Columns[1].Visible = false;
                         dataGridView5.Columns[3].Visible = false;
@@ -2744,7 +2848,31 @@ namespace WindowsFormsDemo
                         {
                             DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                             DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
-                            dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "')");
+                            if (chk_centrocostos1.Checked)
+                            {
+                                CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                                if (chk_tipoemp.Checked)
+                                {
+                                    TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                                    dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','"+cent.Idcentrodecostros+"','"+tipoemp.Idtipodeempleados+"')");
+                                }
+                                else
+                                {
+                                    dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','" + cent.Idcentrodecostros + "','0')");
+                                }
+                            }
+                            else
+                            {
+                                if (chk_tipoemp1.Checked)
+                                {
+                                    TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                                    dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','0','" + tipoemp.Idtipodeempleados + "')");
+                                }
+                                else
+                                {
+                                    dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','0','0')");
+                                }
+                            }
                         }
                         PdfPTable table = new PdfPTable(2);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
@@ -2859,7 +2987,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));                       
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);                       
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -2940,7 +3088,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3021,7 +3189,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerFichajesManuales(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerFichajesManuales(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));

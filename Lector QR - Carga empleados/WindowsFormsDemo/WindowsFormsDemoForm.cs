@@ -2805,7 +2805,7 @@ namespace WindowsFormsDemo
                 {
                     if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
                     {
-                        
+
                         Document document = new Document();
                         DateTime fecha = DateTime.Now;
                         string fe = "AusenciasGral " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
@@ -2838,7 +2838,7 @@ namespace WindowsFormsDemo
                         document.Add(new Paragraph(chunk));
                         document.Add(new Paragraph("                   "));
                         int mes = comboBox1.SelectedIndex;
-                        mes = mes + 1;                        
+                        mes = mes + 1;
                         DataTable dt = null;
                         if (oacceso.Tipo == "sql")
                         {
@@ -2854,7 +2854,7 @@ namespace WindowsFormsDemo
                                 if (chk_tipoemp.Checked)
                                 {
                                     TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
-                                    dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','"+cent.Idcentrodecostros+"','"+tipoemp.Idtipodeempleados+"')");
+                                    dt = oacceso.leerDatos("call sp_ausencias('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','" + cent.Idcentrodecostros + "','" + tipoemp.Idtipodeempleados + "')");
                                 }
                                 else
                                 {
@@ -2890,7 +2890,7 @@ namespace WindowsFormsDemo
                         TimeSpan ht = new TimeSpan(0, 0, 0);
                         TimeSpan cero = new TimeSpan(0, 0, 0);
                         foreach (DataRow dr in dt.Rows)
-                        {                           
+                        {
                             if (pepe != Convert.ToString(dr["Empleado"]))
                             {
                                 if (pepe != "")
@@ -2939,7 +2939,7 @@ namespace WindowsFormsDemo
                             }
                         }
                         document.Add(table);
-                        document.Close();                        
+                        document.Close();
                         System.Diagnostics.Process proc = new System.Diagnostics.Process();
                         string pdfPath = root + fe;
                         proc.StartInfo.FileName = pdfPath;
@@ -3007,7 +3007,7 @@ namespace WindowsFormsDemo
                         {
                             tipoe = 0;
                         }
-                        List<Registros> lo = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);                       
+                        List<Registros> lo = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3373,7 +3373,7 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         //h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),1,1);
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 1);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3570,7 +3570,7 @@ namespace WindowsFormsDemo
                         mes = mes + 1;
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
-                       //h = h.AddDays(1);
+                        //h = h.AddDays(1);
                         List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 1);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
@@ -3736,6 +3736,10 @@ namespace WindowsFormsDemo
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                label47.Visible = false;
             }
         }
 

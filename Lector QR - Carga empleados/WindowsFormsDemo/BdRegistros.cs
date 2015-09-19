@@ -82,6 +82,10 @@ namespace WindowsFormsDemo
                     {
                         dt = oacceso.leerDatos("select r.idempleados as id, e.nombre as nombre, r.registro as registro from registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where e.idtipodeempleados = '" + e + "' and r.manual=1 and r.estado=1 order by e.nombre, r.registro limit " + dato);
                     }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select r.idempleados as id, e.nombre as nombre, r.registro as registro from registros r left join empleados e on e.idempleados=r.idempleados where r.manual=1 and r.estado=1 order by e.nombre, r.registro limit " + dato);
+                    }
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -108,6 +112,10 @@ namespace WindowsFormsDemo
                     else if (c == 0 && e != 0)
                     {
                         dt = oacceso.leerDatos("select r.idempleados as id, e.nombre as nombre, r.registro as registro from registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where registro between '" + dato1 + "' and '" + dato2 + "' and e.idtipodeempleados = '" + e + "' and r.manual=1 and r.estado=1 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select r.idempleados as id, e.nombre as nombre, r.registro as registro from registros r left join empleados e on e.idempleados=r.idempleados where registro between '" + dato1 + "' and '" + dato2 + "' and r.manual=1 and r.estado=1 order by e.nombre, r.registro limit " + dato);
                     }
                 }
                 foreach (DataRow dr in dt.Rows)
@@ -199,6 +207,10 @@ namespace WindowsFormsDemo
                     {
                         dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where r.estado = '1' and e.idtipodeempleados = '" + e + "' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);
                     }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);
+                    }
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -225,6 +237,10 @@ namespace WindowsFormsDemo
                     else if (c == 0 && e != 0)
                     {
                         dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and r.estado = '1' and e.idtipodeempleados = '" + e + "' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,DATE_FORMAT(DATE(r.registro), '%d/%m/%Y') as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and r.estado = '1' GROUP BY r.idempleados,DATE(r.fechareal) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.fechareal) limit " + dato);
                     }
                 }
                 foreach (DataRow dr in dt.Rows)
@@ -254,11 +270,15 @@ namespace WindowsFormsDemo
                     }
                     else if (c != 0 && e == 0)
                     {
-                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where estado = '1' and e.idcentrodecostos = '" + c + "' order by id desc limit " + dato + "");
+                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos where estado = '1' and e.idcentrodecostos = '" + c + "' order by id desc limit " + dato + "");
                     }
                     else if (c == 0 && e != 0)
                     {
-                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where estado = '1' and e.idtipodeempleados = '" + e + "' order by id desc limit " + dato + "");
+                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where estado = '1' and e.idtipodeempleados = '" + e + "' order by id desc limit " + dato + "");
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados where estado = '1' order by id desc limit " + dato + "");
                     }
                 }
                 foreach (DataRow dr in dt.Rows)
@@ -281,13 +301,16 @@ namespace WindowsFormsDemo
                     }
                     else if (c != 0 && e == 0)
                     {
-                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' and e.idcentrodecostos = '" + c + "' order by id desc limit " + dato + "");
+                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' and e.idcentrodecostos = '" + c + "' order by id desc limit " + dato + "");
                     }
                     else if (c == 0 && e != 0)
                     {
-                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' and e.idtipodeempleados = '" + e + "' order by id desc limit " + dato + "");
+                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' and e.idtipodeempleados = '" + e + "' order by id desc limit " + dato + "");
                     }
-                    
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select r.idregistros as id, r.idempleados as id1, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r left join empleados e on r.idempleados = e.idempleados where registro >= '" + dato1 + "' and registro <= '" + dato2 + "' and estado = '1' order by id desc limit " + dato + "");
+                    }
                 }
                 foreach (DataRow dr in dt.Rows)
                 {

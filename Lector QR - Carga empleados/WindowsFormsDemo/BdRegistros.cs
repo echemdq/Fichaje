@@ -19,7 +19,7 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
-        public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2)
+        public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2, int c, int e)
         {
             List<Registros> aux = new List<Registros>();
             DataTable dt = null;
@@ -31,7 +31,24 @@ namespace WindowsFormsDemo
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    
+
+                    if (c != 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where e.idcentrodecostos = '" + c + "' and e.idtipodeempleados = '" + e + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c != 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos  where e.idcentrodecostos = '" + c + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where e.idtipodeempleados = '" + e + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -46,8 +63,23 @@ namespace WindowsFormsDemo
                     dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
                 }
                 else
-                {
-                    dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                { 
+                    if (c != 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and e.idcentrodecostos = '" + c + "' and e.idtipodeempleados = '" + e + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c != 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos  where r.registro between '" + dato1 + "' and '" + dato2 + "' and e.idcentrodecostos = '" + c + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and e.idtipodeempleados = '" + e + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and r.estado=0 order by e.nombre, r.registro limit " + dato);
+                    }
                 }
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -127,7 +159,7 @@ namespace WindowsFormsDemo
             return aux;
         }
 
-        public List<Registros> TraerLlegadasTarde(string dato, string dato1, string dato2, int tipo, int tolerancia)
+        public List<Registros> TraerLlegadasTarde(string dato, string dato1, string dato2, int tipo, int tolerancia,int c,int e)
         {
             List<Registros> aux = new List<Registros>();
             DataTable dt = null;
@@ -143,7 +175,7 @@ namespace WindowsFormsDemo
                 }
                 else
                 {
-                    dt = oacceso.leerDatos("call sp_llegadastarde('"+dato1+"', '"+dato2+"', '"+tipo+"', '"+tolerancia+"')");
+                    dt = oacceso.leerDatos("call sp_llegadastarde('"+dato1+"', '"+dato2+"', '"+tipo+"', '"+tolerancia+"', '"+c+"', '"+e+"')");
                 }
                 if (tipo == 1 && tolerancia == 1)
                 {

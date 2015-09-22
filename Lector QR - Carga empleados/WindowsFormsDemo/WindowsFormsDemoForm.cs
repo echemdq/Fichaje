@@ -3288,7 +3288,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerFichajesAnulados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"));
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerFichajesAnulados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),centro,tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3373,7 +3393,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         //h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 1, centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3472,7 +3512,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         //h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 0);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 0,centro,tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3571,7 +3631,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         //h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 1,centro,tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3670,7 +3750,27 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         //h = h.AddDays(1);
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 0);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 0, centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));

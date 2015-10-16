@@ -141,6 +141,7 @@ namespace WindowsFormsDemo
                     Conectar1();
                     MySqlCommand cmd = new MySqlCommand();
                     query = query.Replace("\\", "\\\\");
+                    cmd.CommandTimeout = 0;
                     cmd.CommandText = query;
                     cmd.Connection = cn1;
                     cmd.ExecuteNonQuery();
@@ -176,6 +177,7 @@ namespace WindowsFormsDemo
                 {
                     MySqlCommand cmd = new MySqlCommand(cmdtext, cn1);
                     Conectar1();
+                    cmd.CommandTimeout = 0;
                     MySqlDataReader reader = cmd.ExecuteReader();
                     dt.Load(reader);
                 }

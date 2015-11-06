@@ -62,7 +62,7 @@ namespace WindowsFormsDemo
         ControladoraRegistros controlreg = new ControladoraRegistros();
         ControladoraNovedades controlnov = new ControladoraNovedades();
         Empleados empnov = null;
-        
+
         List<Feriados> listaferiados = new List<Feriados>();
         bool edit = false;
 
@@ -574,7 +574,7 @@ namespace WindowsFormsDemo
 
         private void WindowsFormsDemoForm_Load(object sender, EventArgs e)
         {
-            
+
             Iniciar_Sesion frm = new Iniciar_Sesion();
             frm.ShowDialog();
             if (frm.ok == false)
@@ -760,7 +760,7 @@ namespace WindowsFormsDemo
                 {
                     activo = 0;
                 }
-                emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent,activo);
+                emp = new Empleados(0, Convert.ToInt32(txt_legajo.Text), Convert.ToInt32(txt_documento.Text), txt_nombre.Text, txt_domicilio.Text, lbl_foto.Text, tipodoc, tipoemp, cent, activo);
 
 
                 if (edit == false)
@@ -1616,9 +1616,9 @@ namespace WindowsFormsDemo
                         {
                             CentroDeCostos cent = (CentroDeCostos)cmb_centrocostos1.SelectedItem;
                             if (chk_tipoemp.Checked)
-                            {     
+                            {
                                 TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp1.SelectedItem;
-                                dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','"+ cent.Idcentrodecostros+"','"+tipoemp.Idtipodeempleados+"')");
+                                dt = oacceso.leerDatos("call sp_registro1('" + d.ToString("yyyy-MM-dd") + "', '" + h.ToString("yyyy-MM-dd") + "','" + cent.Idcentrodecostros + "','" + tipoemp.Idtipodeempleados + "')");
                             }
                             else
                             {
@@ -2101,7 +2101,7 @@ namespace WindowsFormsDemo
             {
                 if (lbl_idemp.Text != "")
                 {
-                    maskedTextBox4.ValidatingType = typeof(System.DateTime);                    
+                    maskedTextBox4.ValidatingType = typeof(System.DateTime);
                     maskedTextBox4.TypeValidationCompleted += new TypeValidationEventHandler(maskedTextBox4_TypeValidationCompleted);
                     maskedTextBox5.ValidatingType = typeof(System.DateTime);
                     maskedTextBox5.TypeValidationCompleted += new TypeValidationEventHandler(maskedTextBox5_TypeValidationCompleted);
@@ -2345,7 +2345,7 @@ namespace WindowsFormsDemo
                             {
                                 dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Lunes";
                             }
-                            if(aux.Horario.Martes == "1")
+                            if (aux.Horario.Martes == "1")
                             {
                                 dataGridView4.Rows[x].Cells[5].Value = dataGridView4.Rows[x].Cells[5].Value + ", Martes";
                             }
@@ -2540,7 +2540,7 @@ namespace WindowsFormsDemo
                     {
                         tipoe = 0;
                     }
-                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "", centro,tipoe);
+                    dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, "", "", centro, tipoe);
                     dataGridView5.Columns[0].Visible = false;
                     dataGridView5.Columns[1].Visible = false;
                     dataGridView5.Columns[3].Visible = false;
@@ -2574,7 +2574,7 @@ namespace WindowsFormsDemo
                         DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
                         DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
                         h = h.AddDays(1);
-                        dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),centro, tipoe);
+                        dataGridView5.DataSource = controlreg.TraerTodosEspecial(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
                         dataGridView5.Columns[0].Visible = false;
                         dataGridView5.Columns[1].Visible = false;
                         dataGridView5.Columns[3].Visible = false;
@@ -2611,7 +2611,7 @@ namespace WindowsFormsDemo
                     {
                         tipoe = 0;
                     }
-                    dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, "", "",centro,tipoe);
+                    dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, "", "", centro, tipoe);
                     dataGridView5.Columns[0].Visible = false;
                     dataGridView5.Columns[1].Visible = false;
                     dataGridView5.Columns[3].Visible = false;
@@ -2645,7 +2645,7 @@ namespace WindowsFormsDemo
                         {
                             tipoe = 0;
                         }
-                        dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),centro,tipoe);
+                        dataGridView5.DataSource = controlreg.TraerMalFichados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
                         dataGridView5.Columns[0].Visible = false;
                         dataGridView5.Columns[1].Visible = false;
                         dataGridView5.Columns[3].Visible = false;
@@ -2657,7 +2657,7 @@ namespace WindowsFormsDemo
                         MessageBox.Show("Debe completar correctamente los campos desde y hasta");
                     }
                 }
-            }            
+            }
         }
 
         private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -2793,11 +2793,11 @@ namespace WindowsFormsDemo
             cmb_tiponov.SelectedValue = 0;
         }
 
-        
+
 
         private void button31_Click(object sender, EventArgs e)
         {
-            label47.Visible = true;            
+            label47.Visible = true;
             Application.DoEvents();
             try
             {
@@ -3308,7 +3308,7 @@ namespace WindowsFormsDemo
                         {
                             tipoe = 0;
                         }
-                        List<Registros> lo = controlreg.TraerFichajesAnulados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"),centro,tipoe);
+                        List<Registros> lo = controlreg.TraerFichajesAnulados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3532,7 +3532,7 @@ namespace WindowsFormsDemo
                         {
                             tipoe = 0;
                         }
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 0,centro,tipoe);
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 0, centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3651,7 +3651,7 @@ namespace WindowsFormsDemo
                         {
                             tipoe = 0;
                         }
-                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 1,centro,tipoe);
+                        List<Registros> lo = controlreg.TraerLlegadasTarde(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 1, centro, tipoe);
                         PdfPTable table = new PdfPTable(1);
                         iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                         iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
@@ -3847,5 +3847,38 @@ namespace WindowsFormsDemo
         {
 
         }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Acceso_BD oacceso = new Acceso_BD();
+                List<Registros> lreg = new List<Registros>();
+                DateTime desde = Convert.ToDateTime("2015-09-01");
+                DateTime hasta = Convert.ToDateTime("2015-09-30");
+                DataTable dt = oacceso.leerDatos("SELECT r.idregistros as idr, e.idempleados as ide, r.registro as reg, r.manual as manu, fn_trabaja(e.idempleados, r.registro) as fnt, (select count(*) from registros where idempleados = r.idempleados and date(registro) = date(r.registro) and estado = 1) as sele, date(r.registro) as fecha from empleados e left join registros r on r.idempleados = e.idempleados where r.estado = 1 and e.idempleados = 1 and date(r.registro) between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "'  or (r.estado = 1 and e.idempleados = 1 and date(r.registro) = '" + desde.Date.AddDays(-1).ToString("yyyy-MM-dd") + "') ");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros t = new Registros(Convert.ToInt32(dr["idr"]), Convert.ToInt32(dr["ide"]), Convert.ToString(dr["reg"]), Convert.ToString(dr["manu"]), Convert.ToString(dr["fnt"]), Convert.ToString(dr["sele"]), Convert.ToString(dr["fecha"]));
+                    lreg.Add(t);
+                }
+                string fecha = "";
+                string idemp = "";
+                
+                foreach (Registros r in lreg)
+                {                    
+                    if (Convert.ToInt32(r.Estado) % 2 != 0)
+                    {
+                        MessageBox.Show("puto");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
     }
 }

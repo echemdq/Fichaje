@@ -84,6 +84,10 @@
             this.tabPageRegistros = new System.Windows.Forms.TabPage();
             this.lbl_ht = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chk_tipoemp = new System.Windows.Forms.CheckBox();
+            this.chk_centrocosto = new System.Windows.Forms.CheckBox();
+            this.cmb_tipoemp1 = new System.Windows.Forms.ComboBox();
+            this.cmb_centrocostos1 = new System.Windows.Forms.ComboBox();
             this.txt_rhasta = new System.Windows.Forms.MaskedTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txt_rdesde = new System.Windows.Forms.MaskedTextBox();
@@ -215,6 +219,10 @@
             this.label48 = new System.Windows.Forms.Label();
             this.chk_desdehasta = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chk_tipoemp1 = new System.Windows.Forms.CheckBox();
+            this.chk_centrocostos1 = new System.Windows.Forms.CheckBox();
+            this.cmb_tipoemp2 = new System.Windows.Forms.ComboBox();
+            this.cmb_centrocostos2 = new System.Windows.Forms.ComboBox();
             this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
@@ -227,14 +235,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cmb_tipoemp1 = new System.Windows.Forms.ComboBox();
-            this.cmb_centrocostos1 = new System.Windows.Forms.ComboBox();
-            this.chk_centrocosto = new System.Windows.Forms.CheckBox();
-            this.chk_tipoemp = new System.Windows.Forms.CheckBox();
-            this.chk_tipoemp1 = new System.Windows.Forms.CheckBox();
-            this.chk_centrocostos1 = new System.Windows.Forms.CheckBox();
-            this.cmb_tipoemp2 = new System.Windows.Forms.ComboBox();
-            this.cmb_centrocostos2 = new System.Windows.Forms.ComboBox();
+            this.button30 = new System.Windows.Forms.Button();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -333,7 +334,7 @@
             this.tabPageUsuarios.Controls.Add(this.label11);
             this.tabPageUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuarios.Name = "tabPageUsuarios";
-            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 484);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(962, 507);
             this.tabPageUsuarios.TabIndex = 4;
             this.tabPageUsuarios.Text = "Usuarios";
             // 
@@ -946,6 +947,46 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registros Generales";
             // 
+            // chk_tipoemp
+            // 
+            this.chk_tipoemp.AutoSize = true;
+            this.chk_tipoemp.Location = new System.Drawing.Point(30, 110);
+            this.chk_tipoemp.Name = "chk_tipoemp";
+            this.chk_tipoemp.Size = new System.Drawing.Size(15, 14);
+            this.chk_tipoemp.TabIndex = 44;
+            this.chk_tipoemp.UseVisualStyleBackColor = true;
+            // 
+            // chk_centrocosto
+            // 
+            this.chk_centrocosto.AutoSize = true;
+            this.chk_centrocosto.Location = new System.Drawing.Point(30, 84);
+            this.chk_centrocosto.Name = "chk_centrocosto";
+            this.chk_centrocosto.Size = new System.Drawing.Size(15, 14);
+            this.chk_centrocosto.TabIndex = 43;
+            this.chk_centrocosto.UseVisualStyleBackColor = true;
+            // 
+            // cmb_tipoemp1
+            // 
+            this.cmb_tipoemp1.BackColor = System.Drawing.Color.White;
+            this.cmb_tipoemp1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_tipoemp1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_tipoemp1.FormattingEnabled = true;
+            this.cmb_tipoemp1.Location = new System.Drawing.Point(65, 107);
+            this.cmb_tipoemp1.Name = "cmb_tipoemp1";
+            this.cmb_tipoemp1.Size = new System.Drawing.Size(171, 21);
+            this.cmb_tipoemp1.TabIndex = 42;
+            // 
+            // cmb_centrocostos1
+            // 
+            this.cmb_centrocostos1.BackColor = System.Drawing.Color.White;
+            this.cmb_centrocostos1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_centrocostos1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_centrocostos1.FormattingEnabled = true;
+            this.cmb_centrocostos1.Location = new System.Drawing.Point(65, 81);
+            this.cmb_centrocostos1.Name = "cmb_centrocostos1";
+            this.cmb_centrocostos1.Size = new System.Drawing.Size(171, 21);
+            this.cmb_centrocostos1.TabIndex = 41;
+            // 
             // txt_rhasta
             // 
             this.txt_rhasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1206,7 +1247,7 @@
             this.tabPageFeriados.Controls.Add(this.button7);
             this.tabPageFeriados.Location = new System.Drawing.Point(4, 22);
             this.tabPageFeriados.Name = "tabPageFeriados";
-            this.tabPageFeriados.Size = new System.Drawing.Size(962, 484);
+            this.tabPageFeriados.Size = new System.Drawing.Size(962, 507);
             this.tabPageFeriados.TabIndex = 5;
             this.tabPageFeriados.Text = "Feriados";
             // 
@@ -1354,7 +1395,7 @@
             this.tabPageNovedades.Location = new System.Drawing.Point(4, 22);
             this.tabPageNovedades.Name = "tabPageNovedades";
             this.tabPageNovedades.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNovedades.Size = new System.Drawing.Size(962, 484);
+            this.tabPageNovedades.Size = new System.Drawing.Size(962, 507);
             this.tabPageNovedades.TabIndex = 7;
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
@@ -1701,7 +1742,7 @@
             this.tabPageDecoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageDecoder.Name = "tabPageDecoder";
             this.tabPageDecoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDecoder.Size = new System.Drawing.Size(962, 484);
+            this.tabPageDecoder.Size = new System.Drawing.Size(962, 507);
             this.tabPageDecoder.TabIndex = 0;
             this.tabPageDecoder.Text = "Prueba de Códigos";
             // 
@@ -1839,7 +1880,7 @@
             this.tabPageEncoder.Location = new System.Drawing.Point(4, 22);
             this.tabPageEncoder.Name = "tabPageEncoder";
             this.tabPageEncoder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEncoder.Size = new System.Drawing.Size(962, 484);
+            this.tabPageEncoder.Size = new System.Drawing.Size(962, 507);
             this.tabPageEncoder.TabIndex = 1;
             this.tabPageEncoder.Text = "Generador de Códigos";
             // 
@@ -1965,7 +2006,7 @@
             this.tabPageWebCam.Controls.Add(this.picWebCam);
             this.tabPageWebCam.Location = new System.Drawing.Point(4, 22);
             this.tabPageWebCam.Name = "tabPageWebCam";
-            this.tabPageWebCam.Size = new System.Drawing.Size(962, 484);
+            this.tabPageWebCam.Size = new System.Drawing.Size(962, 507);
             this.tabPageWebCam.TabIndex = 2;
             this.tabPageWebCam.Text = "WebCam";
             // 
@@ -2292,6 +2333,7 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.button30);
             this.tabRegInfo.Controls.Add(this.rb_llegatarde1STol);
             this.tabRegInfo.Controls.Add(this.rb_llegatarde1Tol);
             this.tabRegInfo.Controls.Add(this.rb_llegatardeStol);
@@ -2518,6 +2560,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registros Generales";
             // 
+            // chk_tipoemp1
+            // 
+            this.chk_tipoemp1.AutoSize = true;
+            this.chk_tipoemp1.Location = new System.Drawing.Point(317, 52);
+            this.chk_tipoemp1.Name = "chk_tipoemp1";
+            this.chk_tipoemp1.Size = new System.Drawing.Size(15, 14);
+            this.chk_tipoemp1.TabIndex = 48;
+            this.chk_tipoemp1.UseVisualStyleBackColor = true;
+            // 
+            // chk_centrocostos1
+            // 
+            this.chk_centrocostos1.AutoSize = true;
+            this.chk_centrocostos1.Location = new System.Drawing.Point(317, 27);
+            this.chk_centrocostos1.Name = "chk_centrocostos1";
+            this.chk_centrocostos1.Size = new System.Drawing.Size(15, 14);
+            this.chk_centrocostos1.TabIndex = 47;
+            this.chk_centrocostos1.UseVisualStyleBackColor = true;
+            // 
+            // cmb_tipoemp2
+            // 
+            this.cmb_tipoemp2.BackColor = System.Drawing.Color.White;
+            this.cmb_tipoemp2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_tipoemp2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_tipoemp2.FormattingEnabled = true;
+            this.cmb_tipoemp2.Location = new System.Drawing.Point(163, 50);
+            this.cmb_tipoemp2.Name = "cmb_tipoemp2";
+            this.cmb_tipoemp2.Size = new System.Drawing.Size(146, 21);
+            this.cmb_tipoemp2.TabIndex = 46;
+            // 
+            // cmb_centrocostos2
+            // 
+            this.cmb_centrocostos2.BackColor = System.Drawing.Color.White;
+            this.cmb_centrocostos2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_centrocostos2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_centrocostos2.FormattingEnabled = true;
+            this.cmb_centrocostos2.Location = new System.Drawing.Point(163, 23);
+            this.cmb_centrocostos2.Name = "cmb_centrocostos2";
+            this.cmb_centrocostos2.Size = new System.Drawing.Size(146, 21);
+            this.cmb_centrocostos2.TabIndex = 45;
+            // 
             // maskedTextBox11
             // 
             this.maskedTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2621,85 +2703,15 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // cmb_tipoemp1
+            // button30
             // 
-            this.cmb_tipoemp1.BackColor = System.Drawing.Color.White;
-            this.cmb_tipoemp1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_tipoemp1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_tipoemp1.FormattingEnabled = true;
-            this.cmb_tipoemp1.Location = new System.Drawing.Point(65, 107);
-            this.cmb_tipoemp1.Name = "cmb_tipoemp1";
-            this.cmb_tipoemp1.Size = new System.Drawing.Size(171, 21);
-            this.cmb_tipoemp1.TabIndex = 42;
-            // 
-            // cmb_centrocostos1
-            // 
-            this.cmb_centrocostos1.BackColor = System.Drawing.Color.White;
-            this.cmb_centrocostos1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_centrocostos1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_centrocostos1.FormattingEnabled = true;
-            this.cmb_centrocostos1.Location = new System.Drawing.Point(65, 81);
-            this.cmb_centrocostos1.Name = "cmb_centrocostos1";
-            this.cmb_centrocostos1.Size = new System.Drawing.Size(171, 21);
-            this.cmb_centrocostos1.TabIndex = 41;
-            // 
-            // chk_centrocosto
-            // 
-            this.chk_centrocosto.AutoSize = true;
-            this.chk_centrocosto.Location = new System.Drawing.Point(30, 84);
-            this.chk_centrocosto.Name = "chk_centrocosto";
-            this.chk_centrocosto.Size = new System.Drawing.Size(15, 14);
-            this.chk_centrocosto.TabIndex = 43;
-            this.chk_centrocosto.UseVisualStyleBackColor = true;
-            // 
-            // chk_tipoemp
-            // 
-            this.chk_tipoemp.AutoSize = true;
-            this.chk_tipoemp.Location = new System.Drawing.Point(30, 110);
-            this.chk_tipoemp.Name = "chk_tipoemp";
-            this.chk_tipoemp.Size = new System.Drawing.Size(15, 14);
-            this.chk_tipoemp.TabIndex = 44;
-            this.chk_tipoemp.UseVisualStyleBackColor = true;
-            // 
-            // chk_tipoemp1
-            // 
-            this.chk_tipoemp1.AutoSize = true;
-            this.chk_tipoemp1.Location = new System.Drawing.Point(317, 52);
-            this.chk_tipoemp1.Name = "chk_tipoemp1";
-            this.chk_tipoemp1.Size = new System.Drawing.Size(15, 14);
-            this.chk_tipoemp1.TabIndex = 48;
-            this.chk_tipoemp1.UseVisualStyleBackColor = true;
-            // 
-            // chk_centrocostos1
-            // 
-            this.chk_centrocostos1.AutoSize = true;
-            this.chk_centrocostos1.Location = new System.Drawing.Point(317, 27);
-            this.chk_centrocostos1.Name = "chk_centrocostos1";
-            this.chk_centrocostos1.Size = new System.Drawing.Size(15, 14);
-            this.chk_centrocostos1.TabIndex = 47;
-            this.chk_centrocostos1.UseVisualStyleBackColor = true;
-            // 
-            // cmb_tipoemp2
-            // 
-            this.cmb_tipoemp2.BackColor = System.Drawing.Color.White;
-            this.cmb_tipoemp2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_tipoemp2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_tipoemp2.FormattingEnabled = true;
-            this.cmb_tipoemp2.Location = new System.Drawing.Point(163, 50);
-            this.cmb_tipoemp2.Name = "cmb_tipoemp2";
-            this.cmb_tipoemp2.Size = new System.Drawing.Size(146, 21);
-            this.cmb_tipoemp2.TabIndex = 46;
-            // 
-            // cmb_centrocostos2
-            // 
-            this.cmb_centrocostos2.BackColor = System.Drawing.Color.White;
-            this.cmb_centrocostos2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_centrocostos2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_centrocostos2.FormattingEnabled = true;
-            this.cmb_centrocostos2.Location = new System.Drawing.Point(163, 23);
-            this.cmb_centrocostos2.Name = "cmb_centrocostos2";
-            this.cmb_centrocostos2.Size = new System.Drawing.Size(146, 21);
-            this.cmb_centrocostos2.TabIndex = 45;
+            this.button30.Location = new System.Drawing.Point(828, 450);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(75, 23);
+            this.button30.TabIndex = 54;
+            this.button30.Text = "button30";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // WindowsFormsDemoForm
             // 
@@ -2975,5 +2987,6 @@
         private System.Windows.Forms.CheckBox chk_centrocostos1;
         private System.Windows.Forms.ComboBox cmb_tipoemp2;
         private System.Windows.Forms.ComboBox cmb_centrocostos2;
+        private System.Windows.Forms.Button button30;
     }
 }

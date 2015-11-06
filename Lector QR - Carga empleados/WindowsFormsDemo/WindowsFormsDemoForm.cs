@@ -3856,28 +3856,45 @@ namespace WindowsFormsDemo
                 List<Registros> lreg = new List<Registros>();
                 DateTime desde = Convert.ToDateTime("2015-09-01");
                 DateTime hasta = Convert.ToDateTime("2015-09-30");
-                DataTable dt = oacceso.leerDatos("SELECT r.idregistros as idr, e.idempleados as ide, r.registro as reg, r.manual as manu, fn_trabaja(e.idempleados, r.registro) as fnt, (select count(*) from registros where idempleados = r.idempleados and date(registro) = date(r.registro) and estado = 1) as sele, date(r.registro) as fecha from empleados e left join registros r on r.idempleados = e.idempleados where r.estado = 1 and e.idempleados = 1 and date(r.registro) between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "'  or (r.estado = 1 and e.idempleados = 1 and date(r.registro) = '" + desde.Date.AddDays(-1).ToString("yyyy-MM-dd") + "') ");
+                DataTable dt = oacceso.leerDatos("SELECT r.idregistros as idr, e.idempleados as ide, r.registro as reg, r.manual as manu, fn_trabaja(e.idempleados, r.registro) as fnt, fn_trabaja(e.idempleados, r.registro - INTERVAL 1 DAY) as fnt1, date(r.registro) as fecha from empleados e left join registros r on r.idempleados = e.idempleados where r.estado = 1 and e.idempleados = 1 and date(r.registro) between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "'");
                 foreach (DataRow dr in dt.Rows)
                 {
-                    Registros t = new Registros(Convert.ToInt32(dr["idr"]), Convert.ToInt32(dr["ide"]), Convert.ToString(dr["reg"]), Convert.ToString(dr["manu"]), Convert.ToString(dr["fnt"]), Convert.ToString(dr["sele"]), Convert.ToString(dr["fecha"]));
+                    Registros t = new Registros(Convert.ToInt32(dr["idr"]), Convert.ToInt32(dr["ide"]), Convert.ToString(dr["reg"]), Convert.ToString(dr["manu"]), Convert.ToString(dr["fnt"]), Convert.ToString(dr["fnt1"]), Convert.ToString(dr["fecha"]));
                     lreg.Add(t);
                 }
                 string fecha = "";
-                string idemp = "";
+                string idemp = "";     
                 
                 foreach (Registros r in lreg)
-                {                    
-                    if (Convert.ToInt32(r.Estado) % 2 != 0)
+                {
+                    if (idemp == "" || idemp != r.Idempleados.ToString())
                     {
-                        MessageBox.Show("puto");
+                        fecha = "";
+                        idemp = r.Idempleados.ToString();
                     }
+                    if (fecha == "" || fecha != r.Motivo)
+                    {
+                        // r.Motivo = registro solo fecha
+                        fecha = r.Motivo;
+                        idemp = r.Idempleados.ToString();
+                    }
+                    if (r.Foto == "0")
+                    {
+                        DateTime horaentrada = DateTime.Now;
+                        //r.Estado = fntrabaja del dia anterior
+                        horaentrada = Convert.ToDateTime(r.Nombre.Substring(13, 5));
+                        horaentrada = horaentrada.AddHours(-2);
+                        //if (r.Estado != "" && r.Estado.Substring(2,1)=="1" && horaentrada.TimeOfDay.Subtract(t))
+                        //{
+
+                        //}
+                    }                    
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
     }

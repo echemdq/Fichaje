@@ -3882,12 +3882,22 @@ namespace WindowsFormsDemo
                     {
                         DateTime horaentrada = DateTime.Now;
                         //r.Estado = fntrabaja del dia anterior
-                        horaentrada = Convert.ToDateTime(r.Nombre.Substring(13, 5));
+                        horaentrada = Convert.ToDateTime(r.Registro.Substring(0, 11) + "" + r.Nombre.Substring(13, 5));                        
                         horaentrada = horaentrada.AddHours(-2);
-                        //if (r.Estado != "" && r.Estado.Substring(2,1)=="1" && horaentrada.TimeOfDay.Subtract(t))
-                        //{
-
-                        //}
+                        DateTime regis = Convert.ToDateTime(r.Registro);
+                        DateTime horasext = Convert.ToDateTime("04:00:00");
+                        if (r.Idregistros == 2129)
+                        {
+                            if (r.Estado != "" && r.Estado.Substring(2, 1) == "1" && regis < horaentrada)
+                            {
+                                MessageBox.Show("prueba1");
+                            }
+                            else if (r.Estado != "" && r.Estado.Substring(2, 1) == "0" && regis < horasext && horaentrada.AddHours(2) > regis.AddHours(1))
+                            {
+                                MessageBox.Show("prueba2");
+                                //fecha real registro menos un dia je
+                            }
+                        }
                     }                    
                 }
             }

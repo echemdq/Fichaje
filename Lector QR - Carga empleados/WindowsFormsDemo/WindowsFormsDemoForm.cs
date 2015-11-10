@@ -3852,53 +3852,81 @@ namespace WindowsFormsDemo
         {
             try
             {
-                Acceso_BD oacceso = new Acceso_BD();
-                List<Registros> lreg = new List<Registros>();
-                DateTime desde = Convert.ToDateTime("2015-09-01");
-                DateTime hasta = Convert.ToDateTime("2015-09-30");
-                DataTable dt = oacceso.leerDatos("SELECT r.idregistros as idr, e.idempleados as ide, r.registro as reg, r.manual as manu, fn_trabaja(e.idempleados, r.registro) as fnt, fn_trabaja(e.idempleados, r.registro - INTERVAL 1 DAY) as fnt1, date(r.registro) as fecha from empleados e left join registros r on r.idempleados = e.idempleados where r.estado = 1 and e.idempleados = 1 and date(r.registro) between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "'");
-                foreach (DataRow dr in dt.Rows)
+                if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
                 {
-                    Registros t = new Registros(Convert.ToInt32(dr["idr"]), Convert.ToInt32(dr["ide"]), Convert.ToString(dr["reg"]), Convert.ToString(dr["manu"]), Convert.ToString(dr["fnt"]), Convert.ToString(dr["fnt1"]), Convert.ToString(dr["fecha"]));
-                    lreg.Add(t);
-                }
-                string fecha = "";
-                string idemp = "";     
-                
-                foreach (Registros r in lreg)
-                {
-                    if (idemp == "" || idemp != r.Idempleados.ToString())
+                    Acceso_BD oacceso = new Acceso_BD();
+                    List<Registros> lreg = new List<Registros>();
+                    DateTime desde = Convert.ToDateTime(maskedTextBox12.Text);
+                    DateTime hasta = Convert.ToDateTime(maskedTextBox11.Text);
+                    DataTable dt = oacceso.leerDatos("SELECT r.idregistros as idr, e.idempleados as ide, r.registro as reg, r.manual as manu, fn_trabaja(e.idempleados, r.registro) as fnt, fn_trabaja(e.idempleados, r.registro - INTERVAL 1 DAY) as fnt1, date(r.registro) as fecha from empleados e left join registros r on r.idempleados = e.idempleados where r.estado = 1 and date(r.registro) between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "'");
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        fecha = "";
-                        idemp = r.Idempleados.ToString();
+                        Registros t = new Registros(Convert.ToInt32(dr["idr"]), Convert.ToInt32(dr["ide"]), Convert.ToString(dr["reg"]), Convert.ToString(dr["manu"]), Convert.ToString(dr["fnt"]), Convert.ToString(dr["fnt1"]), Convert.ToString(dr["fecha"]));
+                        lreg.Add(t);
                     }
-                    if (fecha == "" || fecha != r.Motivo)
+                    string fecha = "";
+                    string idemp = "";
+
+                    foreach (Registros r in lreg)
                     {
-                        // r.Motivo = registro solo fecha
-                        fecha = r.Motivo;
-                        idemp = r.Idempleados.ToString();
-                    }
-                    if (r.Foto == "0")
-                    {
-                        DateTime horaentrada = DateTime.Now;
-                        //r.Estado = fntrabaja del dia anterior
-                        horaentrada = Convert.ToDateTime(r.Registro.Substring(0, 11) + "" + r.Nombre.Substring(13, 5));                        
-                        horaentrada = horaentrada.AddHours(-2);
-                        DateTime regis = Convert.ToDateTime(r.Registro);
-                        DateTime horasext = Convert.ToDateTime("04:00:00");
-                        if (r.Idregistros == 2129)
+                        if (idemp == "" || idemp != r.Idempleados.ToString())
                         {
-                            if (r.Estado != "" && r.Estado.Substring(2, 1) == "1" && regis < horaentrada)
+                            fecha = "";
+                            idemp = r.Idempleados.ToString();
+                        }
+                        if (fecha == "" || fecha != r.Motivo)
+                        {
+                            // r.Motivo = registro solo fecha
+                            fecha = r.Motivo;
+                            idemp = r.Idempleados.ToString();
+                        }
+                        if (r.Foto == "0")
+                        {
+                            // hay fnt que estan vacios y ficharon igual !! !! !! !! !! 
+                            //r.Estado = fntrabaja del dia anterior
+                           
+                            DateTime regis = Convert.ToDateTime(r.Registro);
+                            DateTime horasext = Convert.ToDateTime(r.Registro.Substring(0, 11) + "" + "04:00:00");
+                            if (r.Estado != "" && r.Estado.Substring(2, 1) == "1")
                             {
-                                MessageBox.Show("prueba1");
+                                if (r.Nombre != "")
+                                {
+                                    DateTime horaentrada = DateTime.Now;
+                                    horaentrada = Convert.ToDateTime(r.Registro.Substring(0, 11) + "" + r.Nombre.Substring(13, 5));
+                                    horaentrada = horaentrada.AddHours(-2);
+                                    if (regis < horaentrada)
+                                    {
+                                        oacceso.ActualizarBD("update registros set fechareal = registro - INTERVAL 1 day where idregistros = '" + r.Idregistros + "'");
+                                    }
+                                }
+                                else
+                                {
+                                    oacceso.ActualizarBD("update registros set fechareal = registro - INTERVAL 1 day where idregistros = '" + r.Idregistros + "'");
+                                }
+                                fecha = "";
+                                idemp = "";
                             }
-                            else if (r.Estado != "" && r.Estado.Substring(2, 1) == "0" && regis < horasext && horaentrada.AddHours(2) > regis.AddHours(1))
+                            else if (r.Estado != "" && r.Estado.Substring(2, 1) == "0" && regis < horasext)
                             {
-                                MessageBox.Show("prueba2");
-                                //fecha real registro menos un dia je
+                                if (r.Nombre != "")
+                                {
+                                    DateTime horaentrada = DateTime.Now;
+                                    horaentrada = Convert.ToDateTime(r.Registro.Substring(0, 11) + "" + r.Nombre.Substring(13, 5));
+                                    if (horaentrada > regis.AddHours(1))
+                                    {
+                                        oacceso.ActualizarBD("update registros set fechareal = registro - INTERVAL 1 day where idregistros = '" + r.Idregistros + "'");
+                                    }
+
+                                }
+                                else
+                                {
+                                    oacceso.ActualizarBD("update registros set fechareal = registro - INTERVAL 1 day where idregistros = '" + r.Idregistros + "'");
+                                }                                
+                                fecha = "";
+                                idemp = "";
                             }
                         }
-                    }                    
+                    }
                 }
             }
             catch (Exception ex)

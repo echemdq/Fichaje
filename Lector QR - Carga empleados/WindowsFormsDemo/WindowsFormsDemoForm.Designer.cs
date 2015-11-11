@@ -202,6 +202,7 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.button30 = new System.Windows.Forms.Button();
             this.rb_llegatarde1STol = new System.Windows.Forms.RadioButton();
             this.rb_llegatarde1Tol = new System.Windows.Forms.RadioButton();
             this.rb_llegatardeStol = new System.Windows.Forms.RadioButton();
@@ -235,7 +236,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button30 = new System.Windows.Forms.Button();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -2360,6 +2360,16 @@
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
             // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(428, 410);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(286, 37);
+            this.button30.TabIndex = 54;
+            this.button30.Text = "ACTUALIZAR FICHAJES NOCTURNOS";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
             // rb_llegatarde1STol
             // 
             this.rb_llegatarde1STol.AutoSize = true;
@@ -2702,16 +2712,6 @@
             this.maskedTextBox10.TabIndex = 1;
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
-            // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(828, 450);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(75, 23);
-            this.button30.TabIndex = 54;
-            this.button30.Text = "button30";
-            this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // WindowsFormsDemoForm
             // 

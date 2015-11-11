@@ -3883,8 +3883,7 @@ namespace WindowsFormsDemo
                         if (r.Foto == "0")
                         {
                             // hay fnt que estan vacios y ficharon igual !! !! !! !! !! 
-                            //r.Estado = fntrabaja del dia anterior
-                           
+                            //r.Estado = fntrabaja del dia anterior                           
                             DateTime regis = Convert.ToDateTime(r.Registro);
                             DateTime horasext = Convert.ToDateTime(r.Registro.Substring(0, 11) + "" + "04:00:00");
                             if (r.Estado != "" && r.Estado.Substring(2, 1) == "1")
@@ -3903,8 +3902,6 @@ namespace WindowsFormsDemo
                                 {
                                     oacceso.ActualizarBD("update registros set fechareal = registro - INTERVAL 1 day where idregistros = '" + r.Idregistros + "'");
                                 }
-                                fecha = "";
-                                idemp = "";
                             }
                             else if (r.Estado != "" && r.Estado.Substring(2, 1) == "0" && regis < horasext)
                             {
@@ -3921,10 +3918,9 @@ namespace WindowsFormsDemo
                                 else
                                 {
                                     oacceso.ActualizarBD("update registros set fechareal = registro - INTERVAL 1 day where idregistros = '" + r.Idregistros + "'");
-                                }                                
-                                fecha = "";
-                                idemp = "";
+                                }            
                             }
+                            MessageBox.Show("Fichajes actualizados");
                         }
                     }
                 }

@@ -2366,7 +2366,7 @@
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(286, 37);
             this.button30.TabIndex = 54;
-            this.button30.Text = "ACTUALIZAR FICHAJES NOCTURNOS";
+            this.button30.Text = "RECALCULA FICHAJES NOCTURNOS ";
             this.button30.UseVisualStyleBackColor = true;
             this.button30.Click += new System.EventHandler(this.button30_Click);
             // 

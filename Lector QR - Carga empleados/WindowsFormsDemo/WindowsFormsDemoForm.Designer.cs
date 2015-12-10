@@ -236,6 +236,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -1369,6 +1371,8 @@
             // tabPageNovedades
             // 
             this.tabPageNovedades.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPageNovedades.Controls.Add(this.checkBox2);
+            this.tabPageNovedades.Controls.Add(this.checkBox3);
             this.tabPageNovedades.Controls.Add(this.button29);
             this.tabPageNovedades.Controls.Add(this.groupBox3);
             this.tabPageNovedades.Controls.Add(this.cmb_anos);
@@ -1606,7 +1610,7 @@
             // 
             this.cmb_tiponov1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_tiponov1.FormattingEnabled = true;
-            this.cmb_tiponov1.Location = new System.Drawing.Point(485, 158);
+            this.cmb_tiponov1.Location = new System.Drawing.Point(447, 161);
             this.cmb_tiponov1.Name = "cmb_tiponov1";
             this.cmb_tiponov1.Size = new System.Drawing.Size(165, 21);
             this.cmb_tiponov1.TabIndex = 7;
@@ -1615,7 +1619,7 @@
             // 
             this.cmb_tiponov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_tiponov.FormattingEnabled = true;
-            this.cmb_tiponov.Location = new System.Drawing.Point(485, 116);
+            this.cmb_tiponov.Location = new System.Drawing.Point(447, 119);
             this.cmb_tiponov.Name = "cmb_tiponov";
             this.cmb_tiponov.Size = new System.Drawing.Size(165, 21);
             this.cmb_tiponov.TabIndex = 6;
@@ -2713,6 +2717,24 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(618, 122);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 50;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(618, 164);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 49;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // WindowsFormsDemoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2988,5 +3010,7 @@
         private System.Windows.Forms.ComboBox cmb_tipoemp2;
         private System.Windows.Forms.ComboBox cmb_centrocostos2;
         private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }

@@ -122,6 +122,8 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button7 = new System.Windows.Forms.Button();
             this.tabPageNovedades = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button29 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button20 = new System.Windows.Forms.Button();
@@ -236,8 +238,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label49 = new System.Windows.Forms.Label();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -1371,6 +1372,7 @@
             // tabPageNovedades
             // 
             this.tabPageNovedades.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPageNovedades.Controls.Add(this.label49);
             this.tabPageNovedades.Controls.Add(this.checkBox2);
             this.tabPageNovedades.Controls.Add(this.checkBox3);
             this.tabPageNovedades.Controls.Add(this.button29);
@@ -1403,6 +1405,24 @@
             this.tabPageNovedades.TabIndex = 7;
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(618, 122);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 50;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(618, 164);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 49;
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // button29
             // 
@@ -2717,23 +2737,15 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // checkBox2
+            // label49
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(618, 122);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 50;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(618, 164);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 49;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label49.Location = new System.Drawing.Point(396, 475);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(321, 20);
+            this.label49.TabIndex = 51;
+            this.label49.Text = "Total dias acumulados por novedades: ";
             // 
             // WindowsFormsDemoForm
             // 
@@ -3012,5 +3024,6 @@
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label label49;
     }
 }

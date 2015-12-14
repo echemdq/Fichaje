@@ -1800,6 +1800,7 @@ namespace WindowsFormsDemo
                 }
             }
             dataGridView3.Columns[0].Visible = false;
+            label49.Text = "Total dias acumulados por novedades: ";
         }
 
         private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1856,6 +1857,7 @@ namespace WindowsFormsDemo
                     }
                 }
                 dataGridView3.Columns[0].Visible = false;
+                label49.Text = "Total dias acumulados por novedades: ";
             }
             catch (Exception ex)
             {
@@ -1977,19 +1979,47 @@ namespace WindowsFormsDemo
                         {
                             if (checkBox2.Checked && checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                             else if (checkBox2.Checked && !checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                             else if (!checkBox2.Checked && checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                             else if (!checkBox2.Checked && !checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                         }
                     }
@@ -1997,29 +2027,58 @@ namespace WindowsFormsDemo
                     {
                         if (oacceso.Tipo == "sql")
                         {
-                            dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' and hasta between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' order by desde asc");
+                            dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' and hasta between '" + maskedTextBox3.Text + "' and '" + maskedTextBox2.Text + "' order by desde asc");
                         }
                         else
                         {
                             if (checkBox2.Checked && checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                             else if (checkBox2.Checked && !checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and tn.detalle = '" + cmb_tiponov.Text + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                             else if (!checkBox2.Checked && checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and t.detalle = '" + cmb_tiponov1.Text + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }
                             else if (!checkBox2.Checked && !checkBox3.Checked)
                             {
-                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                                dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad', datediff(hasta,desde) + 1 as Diferencia from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                                DataTable dt = oacceso.leerDatos("select sum(datediff(hasta,desde)+1) as dias from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and desde between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' and hasta between '" + desde.ToString("yyyy-MM-dd") + "' and '" + hasta.ToString("yyyy-MM-dd") + "' order by desde asc");
+                                string dias = "";
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    dias = Convert.ToString(dr["dias"]);
+                                }
+                                label49.Text = "Total dias acumulados por novedades: " + dias;
                             }                            
                         }
                     }
                     dataGridView3.Columns[0].Visible = false;
+
                 }
                 else
                 {

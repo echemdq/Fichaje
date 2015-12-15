@@ -122,6 +122,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button7 = new System.Windows.Forms.Button();
             this.tabPageNovedades = new System.Windows.Forms.TabPage();
+            this.label49 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button29 = new System.Windows.Forms.Button();
@@ -238,7 +239,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label49 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button32 = new System.Windows.Forms.Button();
+            this.txt_motivo1 = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.rb_fichajedesac = new System.Windows.Forms.RadioButton();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -269,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -1406,6 +1412,16 @@
             this.tabPageNovedades.Text = "Novedades";
             this.tabPageNovedades.Click += new System.EventHandler(this.tabPageNovedades_Click);
             // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label49.Location = new System.Drawing.Point(396, 475);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(321, 20);
+            this.label49.TabIndex = 51;
+            this.label49.Text = "Total dias acumulados por novedades: ";
+            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -2357,6 +2373,8 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.rb_fichajedesac);
+            this.tabRegInfo.Controls.Add(this.groupBox6);
             this.tabRegInfo.Controls.Add(this.button30);
             this.tabRegInfo.Controls.Add(this.rb_llegatarde1STol);
             this.tabRegInfo.Controls.Add(this.rb_llegatarde1Tol);
@@ -2386,7 +2404,7 @@
             // 
             // button30
             // 
-            this.button30.Location = new System.Drawing.Point(428, 410);
+            this.button30.Location = new System.Drawing.Point(136, 456);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(286, 37);
             this.button30.TabIndex = 54;
@@ -2397,7 +2415,7 @@
             // rb_llegatarde1STol
             // 
             this.rb_llegatarde1STol.AutoSize = true;
-            this.rb_llegatarde1STol.Location = new System.Drawing.Point(736, 194);
+            this.rb_llegatarde1STol.Location = new System.Drawing.Point(736, 208);
             this.rb_llegatarde1STol.Name = "rb_llegatarde1STol";
             this.rb_llegatarde1STol.Size = new System.Drawing.Size(220, 17);
             this.rb_llegatarde1STol.TabIndex = 53;
@@ -2408,7 +2426,7 @@
             // rb_llegatarde1Tol
             // 
             this.rb_llegatarde1Tol.AutoSize = true;
-            this.rb_llegatarde1Tol.Location = new System.Drawing.Point(736, 171);
+            this.rb_llegatarde1Tol.Location = new System.Drawing.Point(736, 186);
             this.rb_llegatarde1Tol.Name = "rb_llegatarde1Tol";
             this.rb_llegatarde1Tol.Size = new System.Drawing.Size(220, 17);
             this.rb_llegatarde1Tol.TabIndex = 52;
@@ -2419,7 +2437,7 @@
             // rb_llegatardeStol
             // 
             this.rb_llegatardeStol.AutoSize = true;
-            this.rb_llegatardeStol.Location = new System.Drawing.Point(736, 148);
+            this.rb_llegatardeStol.Location = new System.Drawing.Point(736, 164);
             this.rb_llegatardeStol.Name = "rb_llegatardeStol";
             this.rb_llegatardeStol.Size = new System.Drawing.Size(212, 17);
             this.rb_llegatardeStol.TabIndex = 51;
@@ -2430,7 +2448,7 @@
             // rb_llegatardeTol
             // 
             this.rb_llegatardeTol.AutoSize = true;
-            this.rb_llegatardeTol.Location = new System.Drawing.Point(736, 125);
+            this.rb_llegatardeTol.Location = new System.Drawing.Point(736, 142);
             this.rb_llegatardeTol.Name = "rb_llegatardeTol";
             this.rb_llegatardeTol.Size = new System.Drawing.Size(212, 17);
             this.rb_llegatardeTol.TabIndex = 50;
@@ -2445,7 +2463,7 @@
             this.label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label47.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.ForeColor = System.Drawing.Color.Black;
-            this.label47.Location = new System.Drawing.Point(67, 240);
+            this.label47.Location = new System.Drawing.Point(66, 257);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(841, 40);
             this.label47.TabIndex = 49;
@@ -2455,7 +2473,7 @@
             // rb_fichajeanu
             // 
             this.rb_fichajeanu.AutoSize = true;
-            this.rb_fichajeanu.Location = new System.Drawing.Point(736, 102);
+            this.rb_fichajeanu.Location = new System.Drawing.Point(736, 98);
             this.rb_fichajeanu.Name = "rb_fichajeanu";
             this.rb_fichajeanu.Size = new System.Drawing.Size(110, 17);
             this.rb_fichajeanu.TabIndex = 48;
@@ -2466,7 +2484,7 @@
             // rb_fichajesmanu
             // 
             this.rb_fichajesmanu.AutoSize = true;
-            this.rb_fichajesmanu.Location = new System.Drawing.Point(736, 79);
+            this.rb_fichajesmanu.Location = new System.Drawing.Point(736, 76);
             this.rb_fichajesmanu.Name = "rb_fichajesmanu";
             this.rb_fichajesmanu.Size = new System.Drawing.Size(113, 17);
             this.rb_fichajesmanu.TabIndex = 47;
@@ -2477,7 +2495,7 @@
             // rb_ausencias
             // 
             this.rb_ausencias.AutoSize = true;
-            this.rb_ausencias.Location = new System.Drawing.Point(736, 56);
+            this.rb_ausencias.Location = new System.Drawing.Point(736, 54);
             this.rb_ausencias.Name = "rb_ausencias";
             this.rb_ausencias.Size = new System.Drawing.Size(118, 17);
             this.rb_ausencias.TabIndex = 46;
@@ -2500,7 +2518,7 @@
             // rb_erroresfichado
             // 
             this.rb_erroresfichado.AutoSize = true;
-            this.rb_erroresfichado.Location = new System.Drawing.Point(736, 33);
+            this.rb_erroresfichado.Location = new System.Drawing.Point(736, 32);
             this.rb_erroresfichado.Name = "rb_erroresfichado";
             this.rb_erroresfichado.Size = new System.Drawing.Size(111, 17);
             this.rb_erroresfichado.TabIndex = 43;
@@ -2737,15 +2755,60 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // label49
+            // groupBox6
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label49.Location = new System.Drawing.Point(396, 475);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(321, 20);
-            this.label49.TabIndex = 51;
-            this.label49.Text = "Total dias acumulados por novedades: ";
+            this.groupBox6.Controls.Add(this.button32);
+            this.groupBox6.Controls.Add(this.txt_motivo1);
+            this.groupBox6.Controls.Add(this.label50);
+            this.groupBox6.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.groupBox6.Location = new System.Drawing.Point(428, 396);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(286, 97);
+            this.groupBox6.TabIndex = 55;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Desactiva Fichajes";
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.SystemColors.Info;
+            this.button32.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button32.Location = new System.Drawing.Point(117, 48);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(45, 40);
+            this.button32.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.button32, "Guardar");
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
+            // txt_motivo1
+            // 
+            this.txt_motivo1.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.txt_motivo1.Location = new System.Drawing.Point(65, 21);
+            this.txt_motivo1.Name = "txt_motivo1";
+            this.txt_motivo1.Size = new System.Drawing.Size(215, 21);
+            this.txt_motivo1.TabIndex = 39;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(11, 22);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(52, 16);
+            this.label50.TabIndex = 38;
+            this.label50.Text = "Motivo";
+            // 
+            // rb_fichajedesac
+            // 
+            this.rb_fichajedesac.AutoSize = true;
+            this.rb_fichajedesac.Location = new System.Drawing.Point(736, 120);
+            this.rb_fichajedesac.Name = "rb_fichajedesac";
+            this.rb_fichajedesac.Size = new System.Drawing.Size(130, 17);
+            this.rb_fichajedesac.TabIndex = 56;
+            this.rb_fichajedesac.TabStop = true;
+            this.rb_fichajedesac.Text = "Fichajes desactivados";
+            this.rb_fichajedesac.UseVisualStyleBackColor = true;
             // 
             // WindowsFormsDemoForm
             // 
@@ -2810,6 +2873,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3025,5 +3090,10 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.TextBox txt_motivo1;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.RadioButton rb_fichajedesac;
     }
 }

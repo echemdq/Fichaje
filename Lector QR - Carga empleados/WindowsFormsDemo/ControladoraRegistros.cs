@@ -42,7 +42,12 @@ namespace WindowsFormsDemo
         public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2, int c, int e)
         {
             return bd.TraerFichajesAnulados(dato, dato1, dato2,c,e);
-        }  
+        }
+
+        public List<Registros> TraerFichajesDesactivados(string dato, string dato1, string dato2, int c, int e)
+        {
+            return bd.TraerFichajesDesactivados(dato, dato1, dato2, c, e);
+        }
 
         public void Borrar(Registros dato)
         {

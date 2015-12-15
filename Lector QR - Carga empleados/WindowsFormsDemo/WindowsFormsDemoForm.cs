@@ -3441,6 +3441,110 @@ namespace WindowsFormsDemo
                     }
                 }
 
+                else if (rb_fichajedesac.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "Fichajes Desactivados " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Fichajes Desactivados            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        h = h.AddDays(1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerFichajesDesactivados(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), centro, tipoe);
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Fichajes Desactivados"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            pepe = aux.Nombre;
+                            table = new PdfPTable(3);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell1 = new PdfPCell(new Phrase(pepe));
+                            cell1.Colspan = 1;
+                            cell1.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell1);
+                            PdfPCell cell2 = new PdfPCell(new Phrase(aux.Registro));
+                            cell2.Colspan = 1;
+                            cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell2);
+                            PdfPCell cell3 = new PdfPCell(new Phrase(aux.Foto));
+                            cell3.Colspan = 1;
+                            cell3.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell3);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                        label47.Visible = false;
+                    }
+                }
+
 
                 else if (rb_llegatardeTol.Checked)
                 {
@@ -4014,6 +4118,34 @@ namespace WindowsFormsDemo
                             }
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_motivo1.Text != "" && rb_ultimosreg.Checked)
+                {
+                    int filaseleccionada = Convert.ToInt32(this.dataGridView5.CurrentRow.Index);
+                    Acceso_BD oacceso = new Acceso_BD();
+                    DialogResult dialogResult = MessageBox.Show("Esta seguro de desactivar el registro del empleado: " + dataGridView5[4, filaseleccionada].Value.ToString() + " con fecha y hora: " + dataGridView5[2, filaseleccionada].Value.ToString(), "Desactivar Registro", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        oacceso.ActualizarBD("update registros set estado1 = '0', motivo = '" + txt_motivo1.Text + "' where idregistros = '" + dataGridView5[0, filaseleccionada].Value.ToString() + "'");
+                        txt_motivo1.Text = "";
+                        dataGridView5.Columns.Clear();
+                        dataGridView5.Refresh();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar el campo motivo para poder desactivar un registro");
                 }
             }
             catch (Exception ex)

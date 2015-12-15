@@ -19,6 +19,77 @@ namespace WindowsFormsDemo
             throw new NotImplementedException();
         }
 
+        public List<Registros> TraerFichajesDesactivados(string dato, string dato1, string dato2, int c, int e)
+        {
+            List<Registros> aux = new List<Registros>();
+            DataTable dt = null;
+            if (dato1 == "")
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("SELECT r.idempleados as id, e.nombre as nombre,r.registro as registro,COUNT(*) as cont FROM registros r left join empleados e on e.idempleados=r.idempleados where r.estado = '1' GROUP BY r.idempleados,DATE(r.registro) having  mod(count(*),2) <> 0 order by e.nombre, DATE(r.registro) limit " + dato);
+                }
+                else
+                {
+
+
+                    if (c != 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where e.idcentrodecostos = '" + c + "' and e.idtipodeempleados = '" + e + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c != 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos  where e.idcentrodecostos = '" + c + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where e.idtipodeempleados = '" + e + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(0, 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["motivo"]), Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            else
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
+                }
+                else
+                {
+                    if (c != 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and e.idcentrodecostos = '" + c + "' and e.idtipodeempleados = '" + e + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c != 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join centrodecostos c on c.idcentrodecostos = e.idcentrodecostos  where r.registro between '" + dato1 + "' and '" + dato2 + "' and e.idcentrodecostos = '" + c + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e != 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados left join tipodeempleados t on t.idtipodeempleados = e.idtipodeempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and e.idtipodeempleados = '" + e + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                    else if (c == 0 && e == 0)
+                    {
+                        dt = oacceso.leerDatos("select e.nombre as nombre, r.registro as registro, r.motivo as motivo from registros r left join empleados e on e.idempleados=r.idempleados where r.registro between '" + dato1 + "' and '" + dato2 + "' and r.estado1=0 order by e.nombre, r.registro limit " + dato);
+                    }
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Registros r = new Registros(0, 0, Convert.ToString(dr["registro"]), Convert.ToString(dr["motivo"]), Convert.ToString(dr["nombre"]));
+                    aux.Add(r);
+                }
+            }
+            return aux;
+        }
+
         public List<Registros> TraerFichajesAnulados(string dato, string dato1, string dato2, int c, int e)
         {
             List<Registros> aux = new List<Registros>();

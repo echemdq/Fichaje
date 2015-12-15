@@ -1899,6 +1899,8 @@ namespace WindowsFormsDemo
                     document.Add(new Paragraph("                   "));
                     chunk = new Chunk("Novedades                                                ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
                     document.Add(new Paragraph(chunk));
+                    chunk = new Chunk(label49.Text+"                                                ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                    document.Add(new Paragraph(chunk));
                     if (maskedTextBox2.Text == "  /  /")
                     {
                         chunk = new Chunk("Mes: " + cmb_mesesnov.Text + "", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
@@ -1918,11 +1920,11 @@ namespace WindowsFormsDemo
                     int mes = comboBox1.SelectedIndex;
                     mes = mes + 1;
 
-                    PdfPTable table = new PdfPTable(5);
+                    PdfPTable table = new PdfPTable(6);
                     iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
                     iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
                     PdfPCell cell = new PdfPCell(new Phrase("Novedades"));
-                    cell.Colspan = 5;
+                    cell.Colspan = 6;
                     cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
                     table.AddCell(cell);
                     table.AddCell(new PdfPCell(new Phrase("Empleado", fontH1)));
@@ -1930,8 +1932,9 @@ namespace WindowsFormsDemo
                     table.AddCell(new PdfPCell(new Phrase("Hasta", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Novedad", fontH1)));
                     table.AddCell(new PdfPCell(new Phrase("Tipo de Novedad", fontH1)));
+                    table.AddCell(new PdfPCell(new Phrase("Diferencia", fontH1)));
                     table.WidthPercentage = 100;
-                    float[] widths = new float[] { 2.2f, 1f, 1f, 2.4f, 1.5f };
+                    float[] widths = new float[] { 2.2f, 1f, 1f, 2.4f, 1.5f, 1f };
                     table.SetWidths(widths);
                     foreach (DataGridViewRow dr in dataGridView3.Rows)
                     {
@@ -1942,6 +1945,7 @@ namespace WindowsFormsDemo
                         table.AddCell(new PdfPCell(new Phrase(hasta.ToString("dd/MM/yyyy"), fontH2)));
                         table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr.Cells[4].Value), fontH2)));
                         table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr.Cells[5].Value), fontH2)));
+                        table.AddCell(new PdfPCell(new Phrase(Convert.ToString(dr.Cells[6].Value), fontH2)));
                     }
                     document.Add(table);
                     document.Close();

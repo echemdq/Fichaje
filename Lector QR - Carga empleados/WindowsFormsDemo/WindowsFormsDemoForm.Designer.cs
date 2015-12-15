@@ -205,6 +205,11 @@
             this.button25 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.tabRegInfo = new System.Windows.Forms.TabPage();
+            this.rb_fichajedesac = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button32 = new System.Windows.Forms.Button();
+            this.txt_motivo1 = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
             this.button30 = new System.Windows.Forms.Button();
             this.rb_llegatarde1STol = new System.Windows.Forms.RadioButton();
             this.rb_llegatarde1Tol = new System.Windows.Forms.RadioButton();
@@ -239,11 +244,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button32 = new System.Windows.Forms.Button();
-            this.txt_motivo1 = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.rb_fichajedesac = new System.Windows.Forms.RadioButton();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -269,12 +269,12 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabRegInfo.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -2402,6 +2402,61 @@
             this.tabRegInfo.TabIndex = 10;
             this.tabRegInfo.Text = "Auditoria";
             // 
+            // rb_fichajedesac
+            // 
+            this.rb_fichajedesac.AutoSize = true;
+            this.rb_fichajedesac.Location = new System.Drawing.Point(736, 120);
+            this.rb_fichajedesac.Name = "rb_fichajedesac";
+            this.rb_fichajedesac.Size = new System.Drawing.Size(210, 17);
+            this.rb_fichajedesac.TabIndex = 56;
+            this.rb_fichajedesac.TabStop = true;
+            this.rb_fichajedesac.Text = "Fichajes desact P/control llegada tarde";
+            this.rb_fichajedesac.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button32);
+            this.groupBox6.Controls.Add(this.txt_motivo1);
+            this.groupBox6.Controls.Add(this.label50);
+            this.groupBox6.Font = new System.Drawing.Font("Verdana", 8.5F);
+            this.groupBox6.Location = new System.Drawing.Point(428, 396);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(286, 97);
+            this.groupBox6.TabIndex = 55;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Desactiva Fichado P/control llegada tarde";
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.SystemColors.Info;
+            this.button32.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
+            this.button32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button32.Location = new System.Drawing.Point(117, 48);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(45, 40);
+            this.button32.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.button32, "Guardar");
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
+            // txt_motivo1
+            // 
+            this.txt_motivo1.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.txt_motivo1.Location = new System.Drawing.Point(65, 21);
+            this.txt_motivo1.Name = "txt_motivo1";
+            this.txt_motivo1.Size = new System.Drawing.Size(215, 21);
+            this.txt_motivo1.TabIndex = 39;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(11, 22);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(52, 16);
+            this.label50.TabIndex = 38;
+            this.label50.Text = "Motivo";
+            // 
             // button30
             // 
             this.button30.Location = new System.Drawing.Point(136, 456);
@@ -2755,61 +2810,6 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.button32);
-            this.groupBox6.Controls.Add(this.txt_motivo1);
-            this.groupBox6.Controls.Add(this.label50);
-            this.groupBox6.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.groupBox6.Location = new System.Drawing.Point(428, 396);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(286, 97);
-            this.groupBox6.TabIndex = 55;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Desactiva Fichajes";
-            // 
-            // button32
-            // 
-            this.button32.BackColor = System.Drawing.SystemColors.Info;
-            this.button32.BackgroundImage = global::WindowsFormsDemo.Properties.Resources.Symbol_Check;
-            this.button32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button32.Location = new System.Drawing.Point(117, 48);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(45, 40);
-            this.button32.TabIndex = 41;
-            this.toolTip1.SetToolTip(this.button32, "Guardar");
-            this.button32.UseVisualStyleBackColor = false;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
-            // 
-            // txt_motivo1
-            // 
-            this.txt_motivo1.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.txt_motivo1.Location = new System.Drawing.Point(65, 21);
-            this.txt_motivo1.Name = "txt_motivo1";
-            this.txt_motivo1.Size = new System.Drawing.Size(215, 21);
-            this.txt_motivo1.TabIndex = 39;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(11, 22);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(52, 16);
-            this.label50.TabIndex = 38;
-            this.label50.Text = "Motivo";
-            // 
-            // rb_fichajedesac
-            // 
-            this.rb_fichajedesac.AutoSize = true;
-            this.rb_fichajedesac.Location = new System.Drawing.Point(736, 120);
-            this.rb_fichajedesac.Name = "rb_fichajedesac";
-            this.rb_fichajedesac.Size = new System.Drawing.Size(130, 17);
-            this.rb_fichajedesac.TabIndex = 56;
-            this.rb_fichajedesac.TabStop = true;
-            this.rb_fichajedesac.Text = "Fichajes desactivados";
-            this.rb_fichajedesac.UseVisualStyleBackColor = true;
-            // 
             // WindowsFormsDemoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2866,6 +2866,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.tabRegInfo.ResumeLayout(false);
             this.tabRegInfo.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -2873,8 +2875,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }

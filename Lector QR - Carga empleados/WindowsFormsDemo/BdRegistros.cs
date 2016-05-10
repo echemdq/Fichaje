@@ -284,6 +284,59 @@ namespace WindowsFormsDemo
             return aux;
         }
 
+        public List<Registros> TraerDescanso(string dato, string dato1, string dato2, int tipo, int tolerancia, int c, int e)
+        {
+            List<Registros> aux = new List<Registros>();
+            DataTable dt = null;
+            if (dato1 == "")
+            {
+
+            }
+            else
+            {
+                if (oacceso.Tipo == "sql")
+                {
+                    dt = oacceso.leerDatos("select r.idregistros as id, r.foto as foto, r.registro as registro, e.nombre as nombre from registros r inner join empleados e where r.idempleados = e.idempleados where registro > '" + dato1 + "' and registro < '" + dato2 + "' and estado = '1' limit '" + dato + "'");
+                }
+                else
+                {
+                    dt = oacceso.leerDatos("call sp_descanso('" + dato1 + "', '" + dato2 + "', '" + tipo + "', '" + tolerancia + "', '" + c + "', '" + e + "')");
+                }
+                if (tipo == 1 && tolerancia == 1)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Registros r = new Registros(0, Convert.ToInt32(dr["minutos"]), Convert.ToString(dr["dia"]), Convert.ToString(dr["minutos"]), Convert.ToString(dr["empleado"]));
+                        aux.Add(r);
+                    }
+                }
+                else if (tipo == 1 && tolerancia == 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Registros r = new Registros(0, Convert.ToInt32(dr["minutos"]), Convert.ToString(dr["dia"]), Convert.ToString(dr["minutos"]), Convert.ToString(dr["empleado"]));
+                        aux.Add(r);
+                    }
+                }
+                else if (tipo == 0 && tolerancia == 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Registros r = new Registros(0, Convert.ToInt32(dr["minutos"]), Convert.ToString(dr["cantidad"]), Convert.ToString(dr["minutos"]), Convert.ToString(dr["empleado"]));
+                        aux.Add(r);
+                    }
+                }
+                else if (tipo == 0 && tolerancia == 1)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Registros r = new Registros(0, Convert.ToInt32(dr["minutos"]), Convert.ToString(dr["cantidad"]), Convert.ToString(dr["minutos"]), Convert.ToString(dr["empleado"]));
+                        aux.Add(r);
+                    }
+                }
+            }
+            return aux;
+        }
 
 
         public List<Registros> TraerMalFichados(string dato, string dato1, string dato2, int c, int e)

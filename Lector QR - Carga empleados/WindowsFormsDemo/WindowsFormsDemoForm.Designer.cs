@@ -244,6 +244,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.rb_descanso1stol = new System.Windows.Forms.RadioButton();
+            this.rb_descanso1tol = new System.Windows.Forms.RadioButton();
+            this.rb_descansostol = new System.Windows.Forms.RadioButton();
+            this.rb_descansotol = new System.Windows.Forms.RadioButton();
             this.tabCtrlMain.SuspendLayout();
             this.tabPageUsuarios.SuspendLayout();
             this.tabPageCargaEmpleados.SuspendLayout();
@@ -2306,7 +2310,7 @@
             this.label43.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(9, 366);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(230, 16);
+            this.label43.Size = new System.Drawing.Size(228, 16);
             this.label43.TabIndex = 73;
             this.label43.Text = "Semana (0-Todas 1-Impar 2-Par)";
             // 
@@ -2373,6 +2377,7 @@
             // tabRegInfo
             // 
             this.tabRegInfo.BackColor = System.Drawing.SystemColors.Info;
+            this.tabRegInfo.Controls.Add(this.rb_descansotol);
             this.tabRegInfo.Controls.Add(this.rb_fichajedesac);
             this.tabRegInfo.Controls.Add(this.groupBox6);
             this.tabRegInfo.Controls.Add(this.button30);
@@ -2395,6 +2400,9 @@
             this.tabRegInfo.Controls.Add(this.label20);
             this.tabRegInfo.Controls.Add(this.button22);
             this.tabRegInfo.Controls.Add(this.maskedTextBox10);
+            this.tabRegInfo.Controls.Add(this.rb_descanso1stol);
+            this.tabRegInfo.Controls.Add(this.rb_descanso1tol);
+            this.tabRegInfo.Controls.Add(this.rb_descansostol);
             this.tabRegInfo.Location = new System.Drawing.Point(4, 22);
             this.tabRegInfo.Name = "tabRegInfo";
             this.tabRegInfo.Padding = new System.Windows.Forms.Padding(3);
@@ -2518,7 +2526,7 @@
             this.label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label47.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.ForeColor = System.Drawing.Color.Black;
-            this.label47.Location = new System.Drawing.Point(66, 257);
+            this.label47.Location = new System.Drawing.Point(69, 271);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(841, 40);
             this.label47.TabIndex = 49;
@@ -2810,12 +2818,56 @@
             this.maskedTextBox10.Text = "100";
             this.maskedTextBox10.ValidatingType = typeof(int);
             // 
+            // rb_descanso1stol
+            // 
+            this.rb_descanso1stol.AutoSize = true;
+            this.rb_descanso1stol.Location = new System.Drawing.Point(736, 297);
+            this.rb_descanso1stol.Name = "rb_descanso1stol";
+            this.rb_descanso1stol.Size = new System.Drawing.Size(194, 17);
+            this.rb_descanso1stol.TabIndex = 60;
+            this.rb_descanso1stol.TabStop = true;
+            this.rb_descanso1stol.Text = "Descanso Acumulado S/Tolerancia";
+            this.rb_descanso1stol.UseVisualStyleBackColor = true;
+            // 
+            // rb_descanso1tol
+            // 
+            this.rb_descanso1tol.AutoSize = true;
+            this.rb_descanso1tol.Location = new System.Drawing.Point(736, 275);
+            this.rb_descanso1tol.Name = "rb_descanso1tol";
+            this.rb_descanso1tol.Size = new System.Drawing.Size(194, 17);
+            this.rb_descanso1tol.TabIndex = 59;
+            this.rb_descanso1tol.TabStop = true;
+            this.rb_descanso1tol.Text = "Descanso Acumulado C/Tolerancia";
+            this.rb_descanso1tol.UseVisualStyleBackColor = true;
+            // 
+            // rb_descansostol
+            // 
+            this.rb_descansostol.AutoSize = true;
+            this.rb_descansostol.Location = new System.Drawing.Point(736, 253);
+            this.rb_descansostol.Name = "rb_descansostol";
+            this.rb_descansostol.Size = new System.Drawing.Size(186, 17);
+            this.rb_descansostol.TabIndex = 58;
+            this.rb_descansostol.TabStop = true;
+            this.rb_descansostol.Text = "Descanso Detallado S/Tolerancia";
+            this.rb_descansostol.UseVisualStyleBackColor = true;
+            // 
+            // rb_descansotol
+            // 
+            this.rb_descansotol.AutoSize = true;
+            this.rb_descansotol.Location = new System.Drawing.Point(736, 231);
+            this.rb_descansotol.Name = "rb_descansotol";
+            this.rb_descansotol.Size = new System.Drawing.Size(186, 17);
+            this.rb_descansotol.TabIndex = 57;
+            this.rb_descansotol.TabStop = true;
+            this.rb_descansotol.Text = "Descanso Detallado C/Tolerancia";
+            this.rb_descansotol.UseVisualStyleBackColor = true;
+            // 
             // WindowsFormsDemoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(994, 557);
+            this.ClientSize = new System.Drawing.Size(994, 556);
             this.Controls.Add(this.tabCtrlMain);
             this.Controls.Add(this.btnClose);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3095,5 +3147,9 @@
         private System.Windows.Forms.TextBox txt_motivo1;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.RadioButton rb_fichajedesac;
+        private System.Windows.Forms.RadioButton rb_descanso1stol;
+        private System.Windows.Forms.RadioButton rb_descanso1tol;
+        private System.Windows.Forms.RadioButton rb_descansostol;
+        private System.Windows.Forms.RadioButton rb_descansotol;
     }
 }

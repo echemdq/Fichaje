@@ -1785,7 +1785,7 @@ namespace WindowsFormsDemo
                 }
                 else
                 {
-                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where '" + x + "' between month(desde) and month(hasta) and '" + cmb_anos.Text + "' between year(desde) and year(hasta) order by desde asc");
                 }
             }
             else
@@ -1796,7 +1796,7 @@ namespace WindowsFormsDemo
                 }
                 else
                 {
-                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and month(desde) = '" + x + "' and year(desde) = '" + cmb_anos.Text + "' order by desde asc");
+                    dataGridView3.DataSource = oacceso.leerDatos("select n.idnovedades as idnovedades, case when n.idempleados = 0 then 'Afecta todos' else e.nombre END AS Empleado, desde as Desde, hasta as Hasta, n.detalle as Novedad, concat(tn.detalle, ' ', t.detalle) as 'Tipo de Novedad' from novedades n left join empleados e on n.idempleados = e.idempleados inner join tiposdenovedades t on n.idtiposdenovedades = t.idtiposdenovedades inner join tipodenovedad tn on tn.idtiponovedad = t.idtipodenovedad where n.idempleados = '" + lbl_idempnov.Text + "' and '" + x + "' between month(desde) and month(hasta) and '" + cmb_anos.Text + "' between year(desde) and year(hasta) order by desde asc");
                 }
             }
             dataGridView3.Columns[0].Visible = false;
@@ -4052,6 +4052,486 @@ namespace WindowsFormsDemo
                         label47.Visible = false;
                     }
                 }
+
+
+
+
+                else if (rb_descansotol.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "Descanso " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Descanso            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        //h = h.AddDays(1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerDescanso(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 1, centro, tipoe);
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Descanso Detallado Con Tolerancia"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        document.Add(table);
+                        table = new PdfPTable(3);
+                        table.WidthPercentage = 100;
+                        PdfPCell cell1 = new PdfPCell(new Phrase("Empleado"));
+                        cell1.Colspan = 1;
+                        cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell1);
+                        PdfPCell cell2 = new PdfPCell(new Phrase("Dia"));
+                        cell2.Colspan = 1;
+                        cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell2);
+                        PdfPCell cell3 = new PdfPCell(new Phrase("Minutos"));
+                        cell3.Colspan = 1;
+                        cell3.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell3);
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            pepe = aux.Nombre;
+                            table = new PdfPTable(3);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell4 = new PdfPCell(new Phrase(pepe));
+                            cell4.Colspan = 1;
+                            cell4.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell4.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell4);
+                            PdfPCell cell5 = new PdfPCell(new Phrase(aux.Registro));
+                            cell5.Colspan = 1;
+                            cell5.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell5);
+                            PdfPCell cell6 = new PdfPCell(new Phrase(aux.Foto));
+                            cell6.Colspan = 1;
+                            cell6.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell6);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                        label47.Visible = false;
+                    }
+                }
+
+                else if (rb_descansostol.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "Descanso " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Descanso            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        //h = h.AddDays(1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerDescanso(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 1, 0, centro, tipoe);
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Descanso Detallado Sin Tolerancia"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        document.Add(table);
+                        table = new PdfPTable(3);
+                        table.WidthPercentage = 100;
+                        PdfPCell cell1 = new PdfPCell(new Phrase("Empleado"));
+                        cell1.Colspan = 1;
+                        cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell1);
+                        PdfPCell cell2 = new PdfPCell(new Phrase("Dia"));
+                        cell2.Colspan = 1;
+                        cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell2);
+                        PdfPCell cell3 = new PdfPCell(new Phrase("Minutos"));
+                        cell3.Colspan = 1;
+                        cell3.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell3);
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            pepe = aux.Nombre;
+                            table = new PdfPTable(3);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell4 = new PdfPCell(new Phrase(pepe));
+                            cell4.Colspan = 1;
+                            cell4.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell4.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell4);
+                            PdfPCell cell5 = new PdfPCell(new Phrase(aux.Registro));
+                            cell5.Colspan = 1;
+                            cell5.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell5);
+                            PdfPCell cell6 = new PdfPCell(new Phrase(aux.Foto));
+                            cell6.Colspan = 1;
+                            cell6.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell6);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                        label47.Visible = false;
+                    }
+                }
+
+                else if (rb_descanso1tol.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "Descanso " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Descanso            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        //h = h.AddDays(1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerDescanso(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 1, centro, tipoe);
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Descanso Acumulado Con Tolerancia"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        document.Add(table);
+                        table = new PdfPTable(3);
+                        table.WidthPercentage = 100;
+                        PdfPCell cell1 = new PdfPCell(new Phrase("Empleado"));
+                        cell1.Colspan = 1;
+                        cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell1);
+                        PdfPCell cell2 = new PdfPCell(new Phrase("Cantidad"));
+                        cell2.Colspan = 1;
+                        cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell2);
+                        PdfPCell cell3 = new PdfPCell(new Phrase("Minutos"));
+                        cell3.Colspan = 1;
+                        cell3.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell3);
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            pepe = aux.Nombre;
+                            table = new PdfPTable(3);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell4 = new PdfPCell(new Phrase(pepe));
+                            cell4.Colspan = 1;
+                            cell4.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell4.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell4);
+                            PdfPCell cell5 = new PdfPCell(new Phrase(aux.Registro));
+                            cell5.Colspan = 1;
+                            cell5.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell5);
+                            PdfPCell cell6 = new PdfPCell(new Phrase(aux.Foto));
+                            cell6.Colspan = 1;
+                            cell6.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell6);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                        label47.Visible = false;
+                    }
+                }
+
+                else if (rb_descanso1stol.Checked)
+                {
+                    if (maskedTextBox12.Text != "  /  /" && maskedTextBox11.Text != "  /  /")
+                    {
+                        Document document = new Document();
+                        DateTime fecha = DateTime.Now;
+                        string fe = "Descanso " + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss") + ".pdf";
+                        Acceso_BD oacceso = new Acceso_BD();
+                        DataTable dt1 = oacceso.leerDatos("select detalle from configuraciones where codigo = 'registros'");
+                        string root = "";
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            root = Convert.ToString(dr["detalle"]);
+                        }
+                        if (File.Exists(root))
+                        {
+                        }
+                        else
+                        {
+                            root = Environment.CurrentDirectory;
+                        }
+                        PdfWriter.GetInstance(document, new FileStream(root + fe, FileMode.OpenOrCreate));
+                        document.Open();
+                        DataTable dt12 = oacceso.leerDatos("select * from configuraciones where codigo = 'empresa'");
+                        string empresa = "";
+                        foreach (DataRow dr in dt12.Rows)
+                        {
+                            empresa = Convert.ToString(dr["detalle"]);
+                        }
+                        Chunk chunk = new Chunk(empresa, FontFactory.GetFont("VERDANA", 30, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        chunk = new Chunk("Descanso            Desde: " + maskedTextBox12.Text + "       Hasta: " + maskedTextBox11.Text + "                             ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD));
+                        document.Add(new Paragraph(chunk));
+                        document.Add(new Paragraph("                   "));
+                        int mes = comboBox1.SelectedIndex;
+                        mes = mes + 1;
+                        DateTime d = Convert.ToDateTime(maskedTextBox12.Text);
+                        DateTime h = Convert.ToDateTime(maskedTextBox11.Text);
+                        //h = h.AddDays(1);
+                        int centro = 0;
+                        int tipoe = 0;
+                        if (chk_centrocostos1.Checked)
+                        {
+                            CentroDeCostos centrocos = (CentroDeCostos)cmb_centrocostos2.SelectedItem;
+                            centro = centrocos.Idcentrodecostros;
+                        }
+                        else
+                        {
+                            centro = 0;
+                        }
+                        if (chk_tipoemp1.Checked)
+                        {
+                            TipoDeEmpleados tipoemp = (TipoDeEmpleados)cmb_tipoemp2.SelectedItem;
+                            tipoe = tipoemp.Idtipodeempleados;
+                        }
+                        else
+                        {
+                            tipoe = 0;
+                        }
+                        List<Registros> lo = controlreg.TraerDescanso(maskedTextBox10.Text, d.ToString("yyyy-MM-dd"), h.ToString("yyyy-MM-dd"), 0, 0, centro, tipoe);
+                        PdfPTable table = new PdfPTable(1);
+                        iTextSharp.text.Font fontH1 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                        iTextSharp.text.Font fontH2 = new iTextSharp.text.Font(FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.NORMAL));
+                        PdfPCell cell = new PdfPCell(new Phrase("Descanso Acumulado Sin Tolerancia"));
+                        cell.Colspan = 1;
+                        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right 
+                        table.AddCell(cell);
+                        table.WidthPercentage = 100;
+                        //float[] widths = new float[] { 2f, 3f };
+                        //table.SetWidths(widths);
+                        string pepe = "";
+                        TimeSpan ht = new TimeSpan(0, 0, 0);
+                        TimeSpan cero = new TimeSpan(0, 0, 0);
+                        document.Add(table);
+                        table = new PdfPTable(3);
+                        table.WidthPercentage = 100;
+                        PdfPCell cell1 = new PdfPCell(new Phrase("Empleado"));
+                        cell1.Colspan = 1;
+                        cell1.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell1);
+                        PdfPCell cell2 = new PdfPCell(new Phrase("Cantidad"));
+                        cell2.Colspan = 1;
+                        cell2.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell2);
+                        PdfPCell cell3 = new PdfPCell(new Phrase("Minutos"));
+                        cell3.Colspan = 1;
+                        cell3.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                        table.AddCell(cell3);
+                        foreach (Registros aux in lo)
+                        {
+                            document.Add(table);
+                            pepe = aux.Nombre;
+                            table = new PdfPTable(3);
+                            table.WidthPercentage = 100;
+                            PdfPCell cell4 = new PdfPCell(new Phrase(pepe));
+                            cell4.Colspan = 1;
+                            cell4.BackgroundColor = iTextSharp.text.BaseColor.YELLOW;
+                            cell4.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell4);
+                            PdfPCell cell5 = new PdfPCell(new Phrase(aux.Registro));
+                            cell5.Colspan = 1;
+                            cell5.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell5);
+                            PdfPCell cell6 = new PdfPCell(new Phrase(aux.Foto));
+                            cell6.Colspan = 1;
+                            cell6.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right                             
+                            table.AddCell(cell6);
+                        }
+                        document.Add(table);
+                        document.Close();
+                        System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                        string pdfPath = root + fe;
+                        proc.StartInfo.FileName = pdfPath;
+                        proc.Start();
+                        label47.Visible = false;
+                    }
+                }
+
                 if (label47.Visible)
                 {
                     label47.Visible = false;

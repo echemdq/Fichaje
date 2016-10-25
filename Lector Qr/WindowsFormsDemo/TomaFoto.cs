@@ -24,13 +24,15 @@ namespace WindowsFormsDemo
         double resta = 0.5;
         DateTime dt;
         AccesoBd oacceso = new AccesoBd();
-        public TomaFoto(string USUARIO, DateTime h, int tim)
+        int idreg = 0;
+        public TomaFoto(string USUARIO, DateTime h, int tim, int idr)
         {
             InitializeComponent();
             user = USUARIO;
             dt = h;
             BuscarDispositivos();
             tim1 = tim;
+            idreg = idr;
             timeLeft = tim / 1000;
         }
 
@@ -108,7 +110,7 @@ namespace WindowsFormsDemo
                             id = Convert.ToString(dr["id"]);
                         }
                         pbFotoUser.Image.Save(ruta + Convert.ToInt32(user) + " " + dt.ToString("dd-MM-yyyy HH-mm-ss") + ".jpg", ImageFormat.Jpeg);
-                        oacceso.ActualizarBD("update registros set foto = '" + ruta + Convert.ToInt32(user) + " " + dt.ToString("dd-MM-yyyy HH-mm-ss") + ".jpg' where idregistros = '" + id + "'");
+                        oacceso.ActualizarBD("update registros set foto = '" + ruta + Convert.ToInt32(user) + " " + dt.ToString("dd-MM-yyyy HH-mm-ss") + ".jpg' where idregistros = '" + idreg + "'");
                         TerminarFuenteDeVideo();
                     }
                     catch (Exception ex)
@@ -119,7 +121,7 @@ namespace WindowsFormsDemo
                         {
                             id1 = Convert.ToString(dr["id"]);
                         }
-                        oacceso.ActualizarBD("update registros set foto = '"+ex.Message+"' where idregistros = '" + id1 + "'");
+                        oacceso.ActualizarBD("update registros set foto = '"+ex.Message+"' where idregistros = '" + idreg + "'");
                         TerminarFuenteDeVideo();
                     }                    
                 }
@@ -131,7 +133,7 @@ namespace WindowsFormsDemo
                     {
                         id = Convert.ToString(dr["id"]);
                     }
-                    oacceso.ActualizarBD("update registros set foto = 'ERROR AL SACAR FOTO' where idregistros = '" + id + "'");
+                    oacceso.ActualizarBD("update registros set foto = 'ERROR AL SACAR FOTO' where idregistros = '" + idreg + "'");
                     TerminarFuenteDeVideo();
                 }
                 this.Close();

@@ -20,6 +20,7 @@ namespace WindowsFormsDemo
         DateTime horafichaje;
         string database = "";
         public bool ficho = true;
+        public int idr = 0;
         public string empleado = "";
         public Saludo(string USUARIO, DateTime h)
         {
@@ -130,7 +131,12 @@ namespace WindowsFormsDemo
                             else
                             {
                                 hora = horafichaje.ToString("yyyy-MM-dd HH:mm:ss");
-                                oacceso.ActualizarBD("insert into registros(idempleados, registro, fechareal) values ('" + idemp + "','" + hora + "','" + hora + "')");
+                                DataTable dt3 = new DataTable();
+                                dt3 = oacceso.leerDatos("insert into registros(idempleados, registro, fechareal) values ('" + idemp + "','" + hora + "','" + hora + "'); select max(idregistros) as id from registros");                                
+                                foreach (DataRow dr in dt3.Rows)
+                                {
+                                    idr = Convert.ToInt32(dr["id"]);
+                                }
                             }
                             empleado = nombre;
                             pictureBox1.ImageLocation = foto;

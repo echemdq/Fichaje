@@ -85,7 +85,7 @@ namespace WindowsFormsDemo
                 {
                     FRM.ShowDialog();
                     bool f = FRM.ficho;
-                    
+                    int idr = FRM.idr;
                     if (f)
                     {
                         label4.Text = "Ultimo fichaje: " + FRM.empleado + " " + dt.ToString();
@@ -93,7 +93,7 @@ namespace WindowsFormsDemo
                         webCamTimer = null;
                         wCam.Dispose();
                         wCam = null;
-                        TomaFoto frm1 = new TomaFoto(result.Text + Environment.NewLine, dt, timeleft);
+                        TomaFoto frm1 = new TomaFoto(result.Text + Environment.NewLine, dt, timeleft,idr);
                         frm1.ShowDialog();
                     }
                     else

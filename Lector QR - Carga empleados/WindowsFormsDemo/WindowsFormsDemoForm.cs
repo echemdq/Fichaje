@@ -648,7 +648,7 @@ namespace WindowsFormsDemo
                     cmb_tiponov.ValueMember = "idtiponovedad";
                     cmb_tiponov.SelectedIndex = 0;
 
-                    cmb_horarios.DataSource = oacceso.leerDatos("select concat(detalle,case when horario=1 then ' Corrido:' else ' Cortado:' end,ingreso1,'-',egreso1,'-',ingreso2,'-',egreso2) as detalle, idhorarios from horarios");
+                    cmb_horarios.DataSource = oacceso.leerDatos("select concat(detalle,case when horario=1 then ' Corrido:' else ' Cortado:' end,ingreso1,'-',egreso1,'-',ingreso2,'-',egreso2) as detalle, idhorarios from horarios order by detalle asc");
                     cmb_horarios.DisplayMember = "detalle";
                     cmb_horarios.ValueMember = "idhorarios";
                     cmb_horarios.SelectedIndex = 0;

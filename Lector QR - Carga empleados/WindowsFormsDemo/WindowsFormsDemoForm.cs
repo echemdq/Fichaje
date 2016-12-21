@@ -1120,7 +1120,7 @@ namespace WindowsFormsDemo
                 FuenteDeVideo.NewFrame += new NewFrameEventHandler(video_NuevoFrame);
                 FuenteDeVideo.Start();
                 cboDispositivos.Enabled = false;
-
+                
                 //gbMenu.Text = DispositivosDeVideo[cboDispositivos.SelectedIndex].Name.ToString();
 
 
